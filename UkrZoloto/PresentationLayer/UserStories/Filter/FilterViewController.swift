@@ -60,11 +60,6 @@ class FilterViewController: LocalizableViewController, NavigationButtoned, Error
     super.viewFirstAppear(animated)
     loadFilters()
   }
-	
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-		
-	}
   
   // MARK: - Setup
   override func initConfigure() {
@@ -150,24 +145,24 @@ class FilterViewController: LocalizableViewController, NavigationButtoned, Error
   private func sortMainFiltersFrom(_ filters: [SelectFilter]) -> [SelectFilter] {
     var mainFilters = [SelectFilter]()
 
-    if let vyd_metalu = filters.first(where: { $0.id == "vyd_metalu" || $0.id == "vid_metala" }) {
-      mainFilters.append(vyd_metalu)
+    if let metalType = filters.first(where: { $0.id == "vyd_metalu" || $0.id == "vid_metala" }) {
+      mainFilters.append(metalType)
     }
 
-    if let kolir_metalu = filters.first(where: { $0.id == "kolir_metalu" || $0.id == "color_metal" }) {
-      mainFilters.append(kolir_metalu)
+    if let metalColor = filters.first(where: { $0.id == "kolir_metalu" || $0.id == "color_metal" }) {
+      mainFilters.append(metalColor)
     }
 
-    if let vstavka = filters.first(where: { $0.id == "vstavka" }) {
-      mainFilters.append(vstavka)
+    if let insert = filters.first(where: { $0.id == "vstavka" }) {
+      mainFilters.append(insert)
     }
 
-    if let kolir_vstavky = filters.first(where: { $0.id == "kolir_vstavky" || $0.id == "color_vstavka" }) {
-      mainFilters.append(kolir_vstavky)
+    if let insertColor = filters.first(where: { $0.id == "kolir_vstavky" || $0.id == "color_vstavka" }) {
+      mainFilters.append(insertColor)
     }
 
-    if let rozmir = filters.first(where: { $0.id == "rozmir" || $0.id == "size" }) {
-      mainFilters.append(rozmir)
+    if let size = filters.first(where: { $0.id == "rozmir" || $0.id == "size" }) {
+      mainFilters.append(size)
     }
 
     return mainFilters

@@ -21,8 +21,8 @@ class PaymentPromocodeController: AUIDefaultViewController {
   weak var delegate: (PaymentPromocodeControllerDelegate & UITextFieldDelegate)?
   
   var paymentPromocodeView: PaymentPromocodeView? {
-    set { view = newValue }
     get { return view as? PaymentPromocodeView }
+    set { view = newValue }
   }
   
   var promocodeViewModel: PaymentPromocodeViewModel? {
@@ -30,8 +30,8 @@ class PaymentPromocodeController: AUIDefaultViewController {
   }
   
   // MARK: - Private variables
-  private var errorTitle: String? = nil
-  private var currentText: String? = nil
+  private var errorTitle: String?
+  private var currentText: String?
     
   // MARK: - Actions
   private func didSetViewModel() {
@@ -63,10 +63,6 @@ class PaymentPromocodeController: AUIDefaultViewController {
     didSetViewModel()
   }
   
-  override func unsetupView() {
-    super.unsetupView()
-  }
-
   // MARK: - Interface
   func setTextFieldError(_ error: String) {
     paymentPromocodeView?.promocodeView.textField.setError(error)

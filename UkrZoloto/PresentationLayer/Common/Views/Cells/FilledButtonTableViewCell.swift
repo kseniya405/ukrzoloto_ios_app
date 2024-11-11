@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class FilledButtonTableViewCell: UITableViewCell, Reusable {
   
   private let button: UIButton = {
@@ -19,9 +18,7 @@ class FilledButtonTableViewCell: UITableViewCell, Reusable {
     button.isEnabled = false
     return button
   }()
-  
-  
-  
+      
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     initConfigure()

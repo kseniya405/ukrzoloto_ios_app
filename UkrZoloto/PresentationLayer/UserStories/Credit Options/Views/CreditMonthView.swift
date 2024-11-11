@@ -36,7 +36,7 @@ class CreditMonthView: InitView {
 
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFill
-    imageView.image = UIImage(named: "arrow_months")
+    imageView.image = #imageLiteral(resourceName: "arrow_months")
     addSubview(imageView)
     imageView.snp.makeConstraints { make in
       make.width.height.equalTo(UIConstants.Arrow.size)
@@ -50,7 +50,7 @@ class CreditMonthView: InitView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   enum Label {
     static let labelFont = UIFont.semiBoldAppFont(of: 18)

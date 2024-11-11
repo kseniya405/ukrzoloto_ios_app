@@ -289,12 +289,12 @@ class ProfileViewController: LocalizableViewController, NavigationButtoned, Erro
         dataSource.append(.mainInfoWithDiscount(
                             discountVMs: viewModels,
                             bonusesVMs: bonusesViewModels,
-                            buttonTitle:  Localizator.standard.localizedString("Читать условия")))
+                            buttonTitle: Localizator.standard.localizedString("Читать условия")))
         
       } else {
         dataSource.append(.mainInfo(
                             bonusesVMs: bonusesViewModels,
-                            buttonTitle:  Localizator.standard.localizedString("Читать условия")))
+                            buttonTitle: Localizator.standard.localizedString("Читать условия")))
       }
     } else {
       navigationItem.title = nil
@@ -314,9 +314,10 @@ class ProfileViewController: LocalizableViewController, NavigationButtoned, Erro
     updateWithUser()
   }
   
-  private func setLanguageInfo()  {
+  private func setLanguageInfo() {
     let languageVMs = AppLanguage.list.map { TitleViewModel(id: $0.code,
-                                                            title: $0.nativeName) }
+                                                            title: $0.nativeName)
+    }
     guard let selectedVM = languageVMs.first(where: { $0.id == LocalizationService.shared.language.code }) else { return }
     dataSource.append(.language(title: Localizator.standard.localizedString("Язык"),
                                 viewModels: languageVMs,

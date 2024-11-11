@@ -18,7 +18,6 @@ protocol AddEventViewControllerOutput: AnyObject {
   func didTapOnSave(event: UkrZolotoInternalEvent)
 }
 
-
 class AddEventViewController: LocalizableViewController, NavigationButtoned {
   
   // MARK: - Public variables
@@ -116,7 +115,7 @@ class AddEventViewController: LocalizableViewController, NavigationButtoned {
   }
   
   private func getDateData(date: Date? = Date()) -> ProfileData {
-    var stringDate: String? = nil
+    var stringDate: String?
     if let date = date {
       let formatter = DateFormattersFactory.eventDateFormatter()
       stringDate = formatter.string(from: date)
@@ -137,7 +136,6 @@ class AddEventViewController: LocalizableViewController, NavigationButtoned {
     navigationItem.title = Localizator.standard.localizedString("Добавить событие")
     selfView.setButtonTitle(Localizator.standard.localizedString("Сохранить").uppercased())
   }
-  
   
   // MARK: - Actions
   @objc

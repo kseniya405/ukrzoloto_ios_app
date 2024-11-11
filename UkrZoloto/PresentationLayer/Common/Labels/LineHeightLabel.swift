@@ -17,8 +17,8 @@ class LineHeightLabel: UILabel {
 	// MARK: - Public variables
 	
 	var lineHeight: CGFloat {
-		set { realLineHeight = newValue - UIConstants.lineHeightCorrectOffset }
 		get { return realLineHeight + UIConstants.lineHeightCorrectOffset }
+    set { realLineHeight = newValue - UIConstants.lineHeightCorrectOffset }
 	}
 	
 	override var text: String? {

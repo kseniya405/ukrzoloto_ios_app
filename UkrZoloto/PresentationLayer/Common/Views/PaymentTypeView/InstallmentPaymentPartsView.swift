@@ -23,8 +23,6 @@ class InstallmentPaymentPartsView: InitView {
     return label
   }()
   
-  
-  
   override func initConfigure() {
     super.initConfigure()
     
@@ -41,7 +39,7 @@ class InstallmentPaymentPartsView: InitView {
       
       let imageView = UIImageView()
       imageView.contentMode = .scaleAspectFit
-      imageView.image = UIImage(named: "allow_down_bold")
+      imageView.image = #imageLiteral(resourceName: "allow_down_bold")
       
       return imageView
     }()
@@ -61,7 +59,6 @@ class InstallmentPaymentPartsView: InitView {
     
     label.setContentCompressionResistancePriority(.required, for: .vertical)
     
-    
     let lineView = UIView()
     lineView.backgroundColor = UIColor(named: "card")!
     
@@ -75,7 +72,7 @@ class InstallmentPaymentPartsView: InitView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   static let font = UIFont.boldAppFont(of: 16)
   static let lineHeight: CGFloat = 24.0
   static let textColor = UIColor(named: "textDarkGreen")!

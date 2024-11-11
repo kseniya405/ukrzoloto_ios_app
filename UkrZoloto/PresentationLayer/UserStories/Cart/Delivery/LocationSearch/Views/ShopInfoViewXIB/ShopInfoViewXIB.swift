@@ -32,7 +32,7 @@ class ShopInfoViewXIB: UIView {
 	
 	var isShortView = false
 
-	@IBOutlet weak var mainBackgroundView: UIView! {
+	@IBOutlet private weak var mainBackgroundView: UIView! {
 		didSet {
 			let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapOutsideScheduleDetailsTapGesture))
 			tapGestureRecognizer.delegate = self
@@ -40,43 +40,43 @@ class ShopInfoViewXIB: UIView {
 			mainBackgroundView.backgroundColor = .clear
 		}
 	}
-	@IBOutlet weak var shopDetailsBacgroundView: UIView! {
+	@IBOutlet private weak var shopDetailsBacgroundView: UIView! {
 		didSet {
 			shopDetailsBacgroundView.layer.cornerRadius = UIConstants.SelfView.cornerRadius
 			shopDetailsBacgroundView.clipsToBounds = true
 		}
 	}
-	@IBOutlet weak var shadowView: UIView! {
+	@IBOutlet private weak var shadowView: UIView! {
 		didSet {
 			shadowView.backgroundColor = popupMode ? .clear : UIConstants.SelfView.shadowColor
 		}
 	}
-	@IBOutlet weak var shopImageView: UIImageView!
-	@IBOutlet weak var closeButton: UIButton!
-	@IBOutlet weak var jewellerIndicatorContainer: UIView!
-	@IBOutlet weak var jewellerImageView: UIImageView!
-	@IBOutlet weak var jewellerLabel: UILabel!
-	@IBOutlet weak var shopAdressLabel: UILabel!
-	@IBOutlet weak var shopStateContainerView: UIView!
-	@IBOutlet weak var shopStateLabel: UILabel!
-	@IBOutlet weak var shopStateDetailLabel: UILabel!
-	@IBOutlet weak var scheduleContainerView: UIStackView! {
+	@IBOutlet private weak var shopImageView: UIImageView!
+	@IBOutlet private weak var closeButton: UIButton!
+	@IBOutlet private weak var jewellerIndicatorContainer: UIView!
+	@IBOutlet private weak var jewellerImageView: UIImageView!
+	@IBOutlet private weak var jewellerLabel: UILabel!
+	@IBOutlet private weak var shopAdressLabel: UILabel!
+	@IBOutlet private weak var shopStateContainerView: UIView!
+	@IBOutlet private weak var shopStateLabel: UILabel!
+	@IBOutlet private weak var shopStateDetailLabel: UILabel!
+	@IBOutlet private weak var scheduleContainerView: UIStackView! {
 		didSet {
 			scheduleContainerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(scheduleDetailsTapGesture)))
 		}
 	}
-	@IBOutlet weak var scheduleHeaderContainer: UIView!
-	@IBOutlet weak var scheduleClockImageView: UIImageView!
-	@IBOutlet weak var scheduleLabel: UILabel!
-	@IBOutlet weak var scheduleArrowImageView: UIImageView!
-	@IBOutlet weak var scheduleDetailsTableView: UITableView! {
+	@IBOutlet private weak var scheduleHeaderContainer: UIView!
+	@IBOutlet private weak var scheduleClockImageView: UIImageView!
+	@IBOutlet private weak var scheduleLabel: UILabel!
+	@IBOutlet private weak var scheduleArrowImageView: UIImageView!
+	@IBOutlet private weak var scheduleDetailsTableView: UITableView! {
 		didSet {
 			scheduleDetailsTableView.delegate = self
 			scheduleDetailsTableView.dataSource = self
 			scheduleDetailsTableView.register(UINib(nibName: "SceduleTableViewCell", bundle: nil), forCellReuseIdentifier: UIConstants.ReuseIdentifiers.scheduleDetailsCell)
 		}
 	}	
-	@IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
+	@IBOutlet private weak var imageViewHeightConstraint: NSLayoutConstraint!
 	private var status: ShopStatus = .isOpened
 	private var weekDays = [String]()
 	private var shop: NewShopsItem?
@@ -91,24 +91,24 @@ class ShopInfoViewXIB: UIView {
 		
 	}
 	
-	fileprivate func jewellerConfigure(_ shop: NewShopsItem) {
+	private func jewellerConfigure(_ shop: NewShopsItem) {
 		jewellerIndicatorContainer.backgroundColor = UIConstants.JewelerTitle.backgroundColor
 		jewellerIndicatorContainer.roundCorners(radius: UIConstants.JewelerTitle.cornerRadius)
 		jewellerLabel.text = Localizator.standard.localizedString("Есть ювелир")
 		jewellerIndicatorContainer.isHidden = !(shop.jeweler ?? false)
 	}
 		
-	fileprivate func shopImageViewConfigure(_ shop: NewShopsItem) {
+	private func shopImageViewConfigure(_ shop: NewShopsItem) {
 		if isShortView {
 			imageViewHeightConstraint.constant = 0
 		}
 		shopImageView.contentMode = .scaleAspectFill
-		let imageViewModel = ImageViewModel.url(URL(string: shop.image ?? ""), placeholder: UIImage(named: "shopPlaceholder"))
+		let imageViewModel = ImageViewModel.url(URL(string: shop.image ?? ""), placeholder: #imageLiteral(resourceName: "shopPlaceholder"))
 		shopImageView.setImage(from: imageViewModel)
 		shopImageView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 16)
 	}
 	
-	fileprivate func scheduleConfigure(_ shop: NewShopsItem) {
+	private func scheduleConfigure(_ shop: NewShopsItem) {
 		shopStateDetailLabel.text = StringComposer.shared.getScheduleString(shop: shop, status: status)
 		switch status {
 		case .isOpened:
@@ -125,28 +125,28 @@ class ShopInfoViewXIB: UIView {
 		scheduleDetailsTableView.reloadData()
 	}
 	
-	fileprivate func shopUIConfigure() {
+	private func shopUIConfigure() {
 		shopStateLabel.font = UIConstants.AvailabilityLabel.font
 		shopStateLabel.textColor = UIConstants.AvailabilityLabel.textColor
 		
 		shopStateDetailLabel.font = UIConstants.Text.font
 		shopStateDetailLabel.textColor = UIConstants.Text.color
 		
-		scheduleClockImageView.image = UIImage(named: "icon_clock")
+		scheduleClockImageView.image = #imageLiteral(resourceName: "icon_clock")
 		scheduleLabel.text = Localizator.standard.localizedString("График работы")
 		scheduleLabel.font = UIFont.regularAppFont(of: 14)
 		
 		closeButton.layer.cornerRadius = closeButton.frame.height / 2
-		closeButton.setImage(UIImage(named: "controlsCloseBlack"), for: .normal)
+		closeButton.setImage(#imageLiteral(resourceName: "controlsCloseBlack"), for: .normal)
 		
 		shopStateContainerView.roundCorners(radius: UIConstants.AvailabilityLabel.cornerRadius)
-		shopStateContainerView.backgroundColor = status == .isOpened ?  UIConstants.AvailabilityLabel.availableBackgroundColor : UIConstants.AvailabilityLabel.unavailableBackgroundColor
+		shopStateContainerView.backgroundColor = status == .isOpened ? UIConstants.AvailabilityLabel.availableBackgroundColor : UIConstants.AvailabilityLabel.unavailableBackgroundColor
 		
 		scheduleContainerView.backgroundColor = UIConstants.JewelerTitle.backgroundColor
 		scheduleContainerView.roundCorners(radius: UIConstants.ScheduleStackView.cornerRadius, borderWidth: UIConstants.ScheduleStackView.borderWidth, borderColor: UIConstants.ScheduleStackView.borderColor)
 	}
 	
-	fileprivate func shopAddressLabelConfigure(_ shop: NewShopsItem) {
+	private func shopAddressLabelConfigure(_ shop: NewShopsItem) {
 		shopAdressLabel.text = shop.title
 		shopAdressLabel.font = UIConstants.Text.font
 	}
@@ -168,6 +168,10 @@ class ShopInfoViewXIB: UIView {
 		setShopStatus(shop)
 		configureOutlets(shop: shop)
 	}
+  
+  func getCloseButton() -> UIButton {
+    return closeButton
+  }
 	
 	@objc func scheduleDetailsTapGesture() {
 		scheduleDetailsTableView.isHidden.toggle()
@@ -307,7 +311,7 @@ private enum UIConstants {
 	enum ScheduleTitle {
 		static let top: CGFloat = 10
 	}
-	enum ScheduleStackView{
+	enum ScheduleStackView {
 		static let space: CGFloat = 10
 		static let top: CGFloat = 15
 		static let bottom: CGFloat = -25
@@ -317,8 +321,8 @@ private enum UIConstants {
 		static let borderWidth: CGFloat = 1
 		static let borderColor: CGColor = CGColor(red: 0.902, green: 0.902, blue: 0.902, alpha: 1)
 		static let backgroundColor: UIColor = .white
-		static let showList: UIImage? = UIImage(named: "arrow_down")
-		static let hiddenList: UIImage? = UIImage(named: "arrow_up")
+		static let showList: UIImage? = #imageLiteral(resourceName: "arrow_down")
+		static let hiddenList: UIImage? = #imageLiteral(resourceName: "arrow_up")
 	}
 	enum ScheduleDescription {
 		static let trailing: CGFloat = 5
@@ -329,4 +333,3 @@ private enum UIConstants {
 		static let height: CGFloat = 14
 	}
 }
-

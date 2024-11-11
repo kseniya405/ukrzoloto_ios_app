@@ -17,8 +17,8 @@ class PlaceholderTextViewController: AUIDefaultViewController, AUITextViewContro
   // MARK: - View
   
   var placeholderTextView: CommentView? {
-    set { view = newValue }
     get { return view as? CommentView }
+    set { view = newValue }
   }
   
   // MARK: - Delegates
@@ -39,8 +39,8 @@ class PlaceholderTextViewController: AUIDefaultViewController, AUITextViewContro
   }
   
   var text: String? {
-    set { textViewController.text = newValue }
     get { return textViewController.text }
+    set { textViewController.text = newValue }
   }
   
   var maxCharacters: Int {
@@ -62,8 +62,8 @@ class PlaceholderTextViewController: AUIDefaultViewController, AUITextViewContro
   }
   
   var isScrollEnabled: Bool {
-    set { textViewController.isScrollEnabled = newValue }
     get { return textViewController.isScrollEnabled }
+    set { textViewController.isScrollEnabled = newValue }
   }
   
   // MARK: - View life cycle
@@ -87,12 +87,6 @@ class PlaceholderTextViewController: AUIDefaultViewController, AUITextViewContro
     textViewController.textView = nil
     textViewController.removeDidChangeTextObserver(self)
     placeholderTextView?.button.removeTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-  }
-  
-  // MARK: - Life cycle
-  
-  override func setup() {
-    super.setup()
   }
   
   // MARK: - AUITextViewControllerDidChangeTextDelegate

@@ -78,8 +78,7 @@ class DiscountViewController: BlurAlertController {
       selfView.setTitle(Localizator.standard.localizedString("Дисконтная карта будет доступна только после первой покупки"))
     }
   }
-  
-  
+    
   private func logEvent() {
     EventService.shared.logOpenDiscountCart()
   }

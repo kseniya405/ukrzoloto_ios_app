@@ -31,7 +31,7 @@ struct Product {
 	let credits: Credits
 	let stickers: [Sticker]
 	var indicative: Bool
-	let displayedCreditIcon: [[String : String?]]?
+	let displayedCreditIcon: [[String: String?]]?
 	
 	var hasSize: Bool {
 		return !variants.filter { $0.quantity != 0 }.compactMap { $0.size }.isEmpty
@@ -73,7 +73,7 @@ struct Product {
 		self.credits = Credits(json: json[NetworkResponseKey.Product.credits])
 		self.indicative = json[NetworkResponseKey.Product.indicative].bool ?? false
 		self.stickers = json[NetworkResponseKey.Product.stickers].arrayValue.compactMap { Sticker(json: $0) }
-		self.displayedCreditIcon = json[NetworkResponseKey.Product.credits].dictionaryValue.compactMap { [$0.key : $0.value.string] }
+		self.displayedCreditIcon = json[NetworkResponseKey.Product.credits].dictionaryValue.compactMap { [$0.key: $0.value.string] }
 		setIndicative(json: json, categories: self.categories)
 		debugPrint(">>>>>> Product json ", json)
 	}
@@ -107,4 +107,3 @@ struct Goods {
 		self.value = value
 	}
 }
-

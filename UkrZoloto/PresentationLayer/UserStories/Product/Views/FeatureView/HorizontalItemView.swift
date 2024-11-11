@@ -49,7 +49,7 @@ class HorizontalItemView: InitView {
   }
 
   func configure(imageName: String, titleText: String) {
-    imageView.image = UIImage(named: imageName)
+    imageView.image = #imageLiteral(resourceName: imageName)
     titleLabel.text = titleText
   }
 }
@@ -69,4 +69,3 @@ private enum UIConstants {
     static let size: CGFloat = 48
   }
 }
-

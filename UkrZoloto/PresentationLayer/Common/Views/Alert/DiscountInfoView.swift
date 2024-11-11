@@ -129,7 +129,7 @@ class DiscountInfoView: InitView {
       make.height.equalTo(UIConstants.StackView.height)
     }
 
-    let persentsImageView = UIImageView(image: UIImage(named: "discount_icon"))
+    let persentsImageView = UIImageView(image: #imageLiteral(resourceName: "discount_icon"))
     persentsImageView.backgroundColor = .clear
     discountStackView.addArrangedSubview(persentsImageView)
 
@@ -165,7 +165,7 @@ class DiscountInfoView: InitView {
       make.height.equalTo(UIConstants.StackView.height)
     }
 
-    let birthdayImageView = UIImageView(image: UIImage(named: "birthday_discount_red_icon"))
+    let birthdayImageView = UIImageView(image: #imageLiteral(resourceName: "birthday_discount_red_icon"))
     birthdayImageView.backgroundColor = .clear
 
     birthdayStackView.addArrangedSubview(birthdayImageView)
@@ -188,7 +188,7 @@ class DiscountInfoView: InitView {
       make.height.equalTo(UIConstants.StackView.height)
     }
 
-    let birthdayImageView = UIImageView(image: UIImage(named: "bonus_usage_icon"))
+    let birthdayImageView = UIImageView(image: #imageLiteral(resourceName: "bonus_usage_icon"))
     birthdayImageView.backgroundColor = .clear
 
     cashbackStackView.addArrangedSubview(birthdayImageView)
@@ -223,13 +223,13 @@ class DiscountInfoView: InitView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   enum MainView {
     static let height: CGFloat = 148
     static let imageSize: CGFloat = 85
     static let cornerRadius: CGFloat = 22
-    static let icon = UIImage(named: "bigPercentsIcon")!
-    static let gradient = [.white, UIColor(red: 1, green: 0.95, blue: 0.89, alpha: 1)]
+    static let icon = #imageLiteral(resourceName: "bigPercentsIcon")
+    static let gradient = [.white, #colorLiteral(red: 1, green: 0.95, blue: 0.89, alpha: 1)]
     static let borderColor = UIColor(named: "card")!
     static let borderWidth: CGFloat = 1
   }
@@ -245,4 +245,3 @@ fileprivate enum UIConstants {
     static let numbersLabelFont = UIFont.boldAppFont(of: 14.0)
   }
 }
-

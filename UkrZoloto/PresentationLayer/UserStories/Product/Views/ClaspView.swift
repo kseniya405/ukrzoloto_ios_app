@@ -29,7 +29,7 @@ class ClaspView: InitView {
     stackView.spacing = 8
     
     // Add image view
-    let imageView = UIImageView(image: UIImage(named: "claspWarning"))
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "claspWarning"))
     imageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
     imageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
     imageView.contentMode = .center

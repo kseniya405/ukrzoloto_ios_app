@@ -116,7 +116,7 @@ class UserTypeView: RoundedContainerView {
   private func configureTextField() {
     addSubview(textField)
     textField.snp.makeConstraints { make in
-      make.top.lessThanOrEqualTo(subtitleLabel.snp.bottom) //lessThanOrEqualTo
+      make.top.lessThanOrEqualTo(subtitleLabel.snp.bottom) // lessThanOrEqualTo
         .offset(UIConstants.TextField.top)
       make.leading.trailing.equalToSuperview()
         .inset(UIConstants.TextField.insets)
@@ -233,7 +233,7 @@ private enum UIConstants {
   enum Image {
     static let opacity: Float = 0.8
     
-    static let top: CGFloat =  Constants.Screen.heightCoefficient > 1 ? 100 : 5
+    static let top: CGFloat = Constants.Screen.heightCoefficient > 1 ? 100 : 5
     static let side: CGFloat = 101
   }
   

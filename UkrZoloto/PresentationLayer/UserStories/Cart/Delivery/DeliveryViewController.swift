@@ -101,8 +101,7 @@ class DeliveryViewController: LocalizableViewController, ErrorAlertDisplayable {
     selfView.getTableView().delegate = self
     selfView.getTableView().dataSource = self
   }
-  
-  
+    
   func localizeLabels() {
     selfView.setContinueTitle(Localizator.standard.localizedString("Продолжить").uppercased())
   }
@@ -334,8 +333,6 @@ extension DeliveryViewController: ShopDeliveryScheduleViewDelegate {
 	func needUIUpdate() {
 		selfView.getTableView().performBatchUpdates(nil)
 	}
-	
-	
 }
 
 // MARK: - UITableViewDataSource

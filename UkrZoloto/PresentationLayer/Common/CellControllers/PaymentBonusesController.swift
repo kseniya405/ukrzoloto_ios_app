@@ -22,8 +22,8 @@ class PaymentBonusesController: AUIDefaultViewController {
   weak var delegate: (PaymentBonusesControllerDelegate & UITextFieldDelegate)?
   
   var paymentBonusesView: PaymentBonusesView? {
-    set { view = newValue }
     get { return view as? PaymentBonusesView }
+    set { view = newValue }
   }
   
   var bonusesViewModel: PaymentBonusesViewModel? {
@@ -35,7 +35,7 @@ class PaymentBonusesController: AUIDefaultViewController {
   }
   
   // MARK: - Private variables
-  private var currentText: String? = nil
+  private var currentText: String?
 
   // MARK: - Actions
   private func didSetViewModel() {
@@ -72,10 +72,6 @@ class PaymentBonusesController: AUIDefaultViewController {
   override func setupView() {
     super.setupView()
     didSetViewModel()
-  }
-  
-  override func unsetupView() {
-    super.unsetupView()
   }
   
   func resetInputPriceIfNeeded() {
@@ -145,6 +141,4 @@ class PaymentBonusesController: AUIDefaultViewController {
   private func setDisableBonusesView(isFreezedBonuses: Bool) {
     paymentBonusesView?.setDisableBonusesView(isDisable: isFreezedBonuses || bonusesViewModel?.isWriteOffActive == false)
   }
-  
-  
 }

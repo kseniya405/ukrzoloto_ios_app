@@ -24,8 +24,8 @@ class InstallmentPaymentController: PaymentController {
   }
   
   var paymentView: InstallmentPaymentView? {
-    set { view = newValue }
     get { return view as? InstallmentPaymentView }
+    set { view = newValue }
   }
   
   var paymentViewModel: InstallmentPaymentViewModel? {
@@ -48,7 +48,6 @@ class InstallmentPaymentController: PaymentController {
     paymentViewModel?.updateTotalPrice(price: price)
   }
 
-  
   // MARK: - Actions
   private func didSetViewModel() {
     
@@ -95,4 +94,3 @@ private enum UIConstants {
   static let textColor = UIColor.color(r: 63, g: 76, b: 75)
   static let placeholderTextColor = UIColor.color(r: 63, g: 76, b: 75, a: 0.8)
 }
-

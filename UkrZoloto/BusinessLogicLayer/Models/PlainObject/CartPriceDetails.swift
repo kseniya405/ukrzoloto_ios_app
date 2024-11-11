@@ -44,7 +44,7 @@ struct CartPriceDetails: Equatable {
 	
 	let amountExchange: Decimal
   
-  private (set) var totalPriceForCredits: Decimal? = nil
+  private(set) var totalPriceForCredits: Decimal?
   
   let promoBonus: Decimal
 	
@@ -183,7 +183,6 @@ struct GoodsItem {
 	}
 }
 
-
 struct ExtraServiceItem {
 	let code: String
 	let options: [ExtraServiceOption]
@@ -220,4 +219,3 @@ enum ExchangeItem: String {
 	case nineMonths = "9"
 	case none = "-"
 }
-

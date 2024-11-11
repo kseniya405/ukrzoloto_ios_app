@@ -132,7 +132,7 @@ class ShopsDeliveryView: RoundedContainerView {
 																								 textAlignment: .center,
 																								 segmentSpace: 10,
 																								 cornerRadius: 20,
-																								 normalBorderColor: UIColor(red: 0.051, green: 0.408, blue: 0.263, alpha: 1),
+																								 normalBorderColor: #colorLiteral(red: 0.051, green: 0.408, blue: 0.263, alpha: 1),
 																								 selectedBorderColor: UIColor(named: "yellow"),
 																								 borderWidth: 1)
 

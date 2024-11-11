@@ -20,4 +20,3 @@ struct PromoBonusesViewModel {
   let resultVM: ResultPromoViewModel?
   let isActive: Bool
 }
-

@@ -10,7 +10,7 @@ import UIKit
 
 class CustomPresentViewController: UIViewController {
 
-    fileprivate let transitionController = AnimationTransitionController()
+    private let transitionController = AnimationTransitionController()
     
     // MARK: - Life Cycle
     init(view: (UIView & AnimationTransitionView)) {

@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class InstallmentPaymentViewModel {
   
   var providerName: String
@@ -32,7 +31,7 @@ class InstallmentPaymentViewModel {
   init(providerName: String,
        allowedMonths: [Int],
        description: String,
-       selectedMonth: Int? = nil,
+       selectedMonth: Int?,
        isSelected: Bool,
        code: String,
        icon: UIImage?,

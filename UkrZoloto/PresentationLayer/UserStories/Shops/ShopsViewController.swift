@@ -55,7 +55,6 @@ class ShopsViewController: LocalizableViewController, NavigationButtoned, ErrorA
 
     super.viewDidAppear(animated)
   }
-
   
   // MARK: - Setup
   override func initConfigure() {
@@ -85,7 +84,7 @@ class ShopsViewController: LocalizableViewController, NavigationButtoned, ErrorA
     tableViewController.view = selfView.getTableView()
 		selfView.shopCellDelegate = self
     reloadCellControllers()
-    selfView.getShopInfoView().closeButton.addTarget(self,
+    selfView.getShopInfoView().getCloseButton().addTarget(self,
                                                      action: #selector(didTapOnCloseInfoButton),
                                                      for: .touchUpInside)
 		setupNavigationBar()
@@ -160,30 +159,30 @@ class ShopsViewController: LocalizableViewController, NavigationButtoned, ErrorA
     if !silently {
       HUD.showProgress()
     }
-		var parameters: [String: Any] = [:]
-		parameters["page"] = pageForLoad
-		if let city = selectedCity?.id {
-			parameters["city"] = city
-		}
-		if onlyOpen {
-			parameters["open"] = 1
-		}
-		if hasJeweller {
-			parameters["jeweler"] = 1
-		}
-		ShopsService.shared.getShopsList(parameters: parameters) { [weak self] response in
-				DispatchQueue.main.async {
-			 HUD.hide()
-			 guard let self = self else { return }
-			 self.selfView.getRefreshControl().endRefreshing()
-			 switch response {
-			 case .failure(let error):
-				 self.handleError(error)
-			 case .success(let shops):
-				 self.setupDataSource(shops)
-			 }
-			}
-		}
+    var parameters: [String: Any] = [:]
+    parameters["page"] = pageForLoad
+    if let city = selectedCity?.id {
+      parameters["city"] = city
+    }
+    if onlyOpen {
+      parameters["open"] = 1
+    }
+    if hasJeweller {
+      parameters["jeweler"] = 1
+    }
+    ShopsService.shared.getShopsList(parameters: parameters) { [weak self] response in
+      DispatchQueue.main.async {
+        HUD.hide()
+        guard let self = self else { return }
+        self.selfView.getRefreshControl().endRefreshing()
+        switch response {
+        case .failure(let error):
+          self.handleError(error)
+        case .success(let shops):
+          self.setupDataSource(shops)
+        }
+      }
+    }
   }
 	
 	private func setupDataSource(_ shops: NewShops?) {
@@ -203,7 +202,7 @@ class ShopsViewController: LocalizableViewController, NavigationButtoned, ErrorA
 		}
 		if let cities = shops?.cities, let shopItems = shops?.items, let coordinates = shops?.coordinates {
 			self.loadedPage = self.pageForLoad
-			if shopItems.count > 0 {
+      if !shopItems.isEmpty {
 				self.newCities = cities
 				self.shopItems.append(contentsOf: shopItems)
 				self.coordinates.append(contentsOf: coordinates)
@@ -236,17 +235,18 @@ class ShopsViewController: LocalizableViewController, NavigationButtoned, ErrorA
 		
 		let cityCellController = SelectionViewCellController()
 		cityCellController.titleViewModel = ImageTitleViewModel(title: selectedCity?.title ?? Localizator.standard.localizedString("Выберите город"), image: .image(nil))
-		let selectedCityController = AUIElementTableViewCellController(controller: cityCellController,
-																															 cell: selfView.createSelectedCityCell)
-		let citySectionController = AUIDefaultTableViewSectionController()
-		citySectionController.cellControllers = [selectedCityController]
-		sectionControllers.append(citySectionController)
-		let sectionController = shopsSection(from: shopItems)
-		sectionControllers.append(sectionController)
-    sectionControllers.forEach { $0.cellControllers.forEach { 
-			$0.didSelectDelegate = self
-			$0.willDisplayDelegate = self
-		} }
+    let selectedCityController = AUIElementTableViewCellController(controller: cityCellController,
+                                                                   cell: selfView.createSelectedCityCell)
+    let citySectionController = AUIDefaultTableViewSectionController()
+    citySectionController.cellControllers = [selectedCityController]
+    sectionControllers.append(citySectionController)
+    let sectionController = shopsSection(from: shopItems)
+    sectionControllers.append(sectionController)
+    sectionControllers.forEach { $0.cellControllers.forEach {
+      $0.didSelectDelegate = self
+      $0.willDisplayDelegate = self
+    }
+    }
     tableViewController.sectionControllers = sectionControllers
     tableViewController.reload()
   }

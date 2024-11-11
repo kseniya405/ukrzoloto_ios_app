@@ -33,7 +33,6 @@ class TotalPriceView: InitView {
     return label
   }()
   
-  
   override func initConfigure() {
     super.initConfigure()
    
@@ -65,7 +64,7 @@ class TotalPriceView: InitView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   static let titleFont = UIFont.boldAppFont(of: 18.0)
   static let valueFont = UIFont.boldAppFont(of: 18.0)

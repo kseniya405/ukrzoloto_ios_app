@@ -33,7 +33,7 @@ class GoogleAnalyticsService {
     if let source = builder.get(kGAICampaignSource),
       let medium = builder.get(kGAICampaignMedium),
       let host = url.host,
-      host.count != 0 {
+       !host.isEmpty {
       builder.set("refferer", forKey: medium)
       builder.set(host, forKey: source)
     }

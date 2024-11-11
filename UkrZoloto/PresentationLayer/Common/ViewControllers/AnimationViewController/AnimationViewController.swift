@@ -36,8 +36,7 @@ class AnimationViewController: LocalizableViewController {
     edgesForExtendedLayout = [.top, .bottom]
     extendedLayoutIncludesOpaqueBars = true
   }
-  
-  
+    
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.configureSubview()

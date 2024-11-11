@@ -35,10 +35,10 @@ class EventService {
     Analytics.logEvent(AnalyticsEventAddToCart,
                        parameters: params)
 
-    let fbParams: [AppEvents.ParameterName : Any] = [
+    let fbParams: [AppEvents.ParameterName: Any] = [
       AppEvents.ParameterName.contentID: productId,
-      AppEvents.ParameterName.contentType : "product",
-      AppEvents.ParameterName.currency : currency
+      AppEvents.ParameterName.contentType: "product",
+      AppEvents.ParameterName.currency: currency
     ]
 
     AppEvents.shared.logEvent(.addedToCart,
@@ -69,10 +69,9 @@ class EventService {
     Analytics.logEvent(AnalyticsEventBeginCheckout,
                        parameters: params)
     
-    let parameters: [AppEvents.ParameterName : Any] = [
-      AppEvents.ParameterName.contentID: ids.map{ "\($0)" }.joined(separator: ","),
-      AppEvents.ParameterName.currency : currency
-    ]
+    let parameters: [AppEvents.ParameterName: Any] =
+    [AppEvents.ParameterName.contentID: ids.map { "\($0)" }.joined(separator: ","),
+     AppEvents.ParameterName.currency: currency]
 
     AppEvents.shared.logEvent(.initiatedCheckout,
                        valueToSum: Double(truncating: price as NSNumber),
@@ -88,7 +87,7 @@ class EventService {
 //                                 "platform": "iOS"
 //    ]
 //    
-//      if let deepLinkEventParameters = defaults.value(forKey: deepLinkEventParameters) as?  [String : Any] {
+//      if let deepLinkEventParameters = defaults.value(forKey: deepLinkEventParameters) as?  [String: Any] {
 //          
 //          deepLinkEventParameters.forEach({ key, value in
 //        params[key] = value
@@ -115,10 +114,10 @@ class EventService {
 				AnalyticsParameterItemName: item.name,
 				AnalyticsParameterItemCategory: item.categoryExternalId ?? "",
 				AnalyticsParameterItemVariant: item.size ?? "",
-				AnalyticsParameterPrice: item.price,
+				AnalyticsParameterPrice: item.price
 			])
 		}
-		itemsProduct.append([AnalyticsParameterQuantity : itemsProduct.count])
+		itemsProduct.append([AnalyticsParameterQuantity: itemsProduct.count])
 
 		var purchaseParams: [String: Any] = [
 			AnalyticsParameterTransactionID: order.number,
@@ -131,11 +130,10 @@ class EventService {
 		purchaseParams[AnalyticsParameterItems] = [itemsProduct]
 		Analytics.logEvent(AnalyticsEventPurchase, parameters: purchaseParams)
 
-
 		var purchaseParams2: [String: Any] = [
 			AnalyticsParameterTransactionID: order.number,
 			AnalyticsParameterCurrency: currency,
-			AnalyticsParameterValue: order.totalPrice,
+			AnalyticsParameterValue: order.totalPrice
 		]
 
 		purchaseParams2[AnalyticsParameterItems] = [itemsProduct]
@@ -149,7 +147,7 @@ class EventService {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd.MM.YYYY HH:mm:ss.SSS"
 
-    let fbParams: [AppEvents.ParameterName : Any] = [
+    let fbParams: [AppEvents.ParameterName: Any] = [
       AppEvents.ParameterName(rawValue: "app_version_code"): appVersion,
       AppEvents.ParameterName(rawValue: "app_version_name"): appName,
       AppEvents.ParameterName(rawValue: "request"): request,
@@ -157,7 +155,7 @@ class EventService {
       AppEvents.ParameterName(rawValue: "status_from_server"): statusFromServer,
       AppEvents.ParameterName(rawValue: "headers"): headers,
       AppEvents.ParameterName(rawValue: "time"): dateFormatter.string(from: date),
-      AppEvents.ParameterName(rawValue: "platform"): "iOS",
+      AppEvents.ParameterName(rawValue: "platform"): "iOS"
     ]
 
     AppEvents.shared.logEvent(AppEvents.Name(rawValue: "auto_logout"), parameters: fbParams)
@@ -191,7 +189,7 @@ class EventService {
   }
   
   func logProfileStatus(isFull: Bool) {
-    let params = ["isFull" : isFull]
+    let params = ["isFull": isFull]
     Analytics.logEvent("profile_status", parameters: params)
   }
   
@@ -212,7 +210,7 @@ class EventService {
     Analytics.logEvent("first_client_open", parameters: params)
   }
     
-    func logUniversalLinkEvent(data:  [String : Any]) {
+    func logUniversalLinkEvent(data: [String: Any]) {
       defaults.setValue(data, forKey: deepLinkEventParameters)
             
       Analytics.logEvent("first_client_open", parameters: data)
@@ -282,7 +280,7 @@ class EventService {
 //    }
   }
   
-  //MARK: Checkout & Wishlist
+  // MARK: Checkout & Wishlist
   
   func logAddToWithlist(productSKU: String) {
     Analytics.logEvent("add_to_wishlist", parameters: ["item_id": productSKU])
@@ -308,8 +306,8 @@ class EventService {
       
       result["payment_type"] = paymentCode
       
-      if let m = months {
-        result["months_credit"] = m
+      if let months = months {
+        result["months_credit"] = months
       }
       
       return result
@@ -330,8 +328,7 @@ class EventService {
     Analytics.logEvent("select_type_credit_in_card", parameters: params)
   }
   
-  //MARK: Profile Form Events
-  
+  // MARK: Profile Form Events
   func trackProfileFormOpened() {
     Analytics.logEvent("open_anketa_auth", parameters: [:])
   }
@@ -344,7 +341,7 @@ class EventService {
     Analytics.logEvent("save_anketa_auth", parameters: [:])
   }
 
-  //MARK: Discount Hint
+  // MARK: Discount Hint
   func trackDiscountHintAppearing() {
     Analytics.logEvent("open_discount_info_listing", parameters: [:])
   }
@@ -397,8 +394,6 @@ extension EventService {
     }
   }
   
-  
-
   private var isUserRegistered: Bool {
     let isUserRegisteredBoolValue = self.defaults.bool(forKey: UserDefaultsKeys.isUserRegistered)
 
@@ -464,8 +459,8 @@ extension EventService {
     }
   }
   
-  func getQueryItems(_ urlString: String) -> [String : String] {
-    var queryItems: [String : String] = [:]
+  func getQueryItems(_ urlString: String) -> [String: String] {
+    var queryItems: [String: String] = [:]
     let components: NSURLComponents? = getURLComonents(urlString)
     for item in components?.queryItems ?? [] {
       queryItems[item.name] = item.value?.removingPercentEncoding
@@ -474,7 +469,7 @@ extension EventService {
   }
   
   func getURLComonents(_ urlString: String?) -> NSURLComponents? {
-      var components: NSURLComponents? = nil
+      var components: NSURLComponents?
       let linkUrl = URL(string: urlString?.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")
       if let linkUrl = linkUrl {
           components = NSURLComponents(url: linkUrl, resolvingAgainstBaseURL: true)

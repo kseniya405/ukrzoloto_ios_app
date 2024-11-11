@@ -38,7 +38,7 @@ class RoundedButtonTableViewCell: UITableViewCell, Reusable {
     initConfigure()
   }
   
-  //MARK: - Private methods
+  // MARK: - Private methods
   private func initConfigure() {
     selectionStyle = .none
     configureSelfView()
@@ -71,7 +71,7 @@ class RoundedButtonTableViewCell: UITableViewCell, Reusable {
     delegate?.roundedButtonTapped()
   }
   
-  //MARK: - Public methods
+  // MARK: - Public methods
   func set(title: String, fillColor: UIColor) {
     
     button.backgroundColor = fillColor
@@ -83,7 +83,7 @@ class RoundedButtonTableViewCell: UITableViewCell, Reusable {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   static let backgroundColor = UIColor.clear
   static let buttonTitleFont = UIFont.boldAppFont(of: 14.0)

@@ -16,7 +16,7 @@ protocol CreditInfoTipViewDelegate: AnyObject {
 
 class CreditInfoTipView: UIView {
   
-  var onDismiss: (()->())?
+  var onDismiss: (() -> Void)?
 	var delegate: CreditInfoTipViewDelegate?
   private var clickedText: String?
   private var originRect: CGRect!
@@ -57,7 +57,7 @@ class CreditInfoTipView: UIView {
   }
 }
 
-fileprivate extension CreditInfoTipView {
+private extension CreditInfoTipView {
   
   func initConfigure() {
     backgroundColor = .clear
@@ -82,8 +82,7 @@ fileprivate extension CreditInfoTipView {
 			label.enabledTypes = [dataClickedType]
 		}
 	}
-	
-  
+	  
   func displayInternal(container: UIView) {
     
     self.frame = container.bounds
@@ -118,14 +117,13 @@ fileprivate extension CreditInfoTipView {
     } else {
       
       tipView.snp.makeConstraints { make in
-        make.top.equalToSuperview().offset(originRect.minY - UIConstants.bottomPadding - getMessageHeight() - UIConstants.textInset*2)
+        make.top.equalToSuperview().offset(originRect.minY - UIConstants.bottomPadding - getMessageHeight() - UIConstants.textInset * 2)
       }
     }
-    
-    
+        
     let view = UIView()
     view.backgroundColor = .white
-    view.transform = CGAffineTransform(rotationAngle: .pi/4)
+    view.transform = CGAffineTransform(rotationAngle: .pi / 4)
     self.addSubview(view)
     view.snp.makeConstraints { make in
       make.centerX.equalTo(self.snp.leading).offset(originRect.midX)
@@ -175,8 +173,7 @@ fileprivate extension CreditInfoTipView {
     
     return tipViewRect.height
   }
-  
-  
+    
   @objc private func onOutsideTap() {
     
     UIView.animate(withDuration: 0.3) {
@@ -195,7 +192,7 @@ extension CreditInfoTipView: UIGestureRecognizerDelegate {
 	}
 }
   
-fileprivate enum UIConstants {
+private enum UIConstants {
   
 	static let messageFont = UIFont.regularAppFont(of: 12)
   static let numberFont = UIFont.boldAppFont(of: 12.0)
@@ -206,7 +203,6 @@ fileprivate enum UIConstants {
   static let bottomPadding: CGFloat = 14.0
   static let leftpadding: CGFloat = 20.0
   static let rightPadding: CGFloat = 53.0
-
   
   static let textInset: CGFloat = 16.0
 	

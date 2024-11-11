@@ -61,4 +61,3 @@ class ProfileMainGuestTableViewCell: UITableViewCell, Reusable {
 private enum UIConstants {
 
 }
-

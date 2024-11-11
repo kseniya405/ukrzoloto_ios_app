@@ -22,8 +22,8 @@ class AddressDeliveryController: AUIDefaultViewController {
   weak var delegate: AddressDeliveryControllerDelegate?
   
   var deliveryView: AddressDeliveryTypeView? {
-    set { view = newValue }
     get { return view as? AddressDeliveryTypeView }
+    set { view = newValue }
   }
   
   var addressDeliveryViewModel: AddressDeliveryViewModel? {

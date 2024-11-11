@@ -266,7 +266,6 @@ class MainViewController: AnimationViewController, NavigationButtoned, ErrorAler
     self.discountsController.setProducts(discountsVM)
     self.discountsController.setShowMoreTitle(Localizator.standard.localizedString("Смотреть все").uppercased())
 
-
 //    contactsUpdated()
     self.socials = ContactsHelper().socials
     setupBusinessChatButton()
@@ -417,9 +416,6 @@ class MainViewController: AnimationViewController, NavigationButtoned, ErrorAler
           let _ = items
 
           return
-
-          //TODO: - Replace MindBoxService with new service integration
-          //MindBoxService.shared.didEditFavorites(favoritesItems: items)
         case .failure(let error):
           self.handleError(error)
         }
@@ -528,8 +524,6 @@ class MainViewController: AnimationViewController, NavigationButtoned, ErrorAler
 //    contactsController.setInfo(socials)
   }
 }
-
-
 
 private enum UIConstants {
   enum TableView {
@@ -648,8 +642,8 @@ extension MainViewController: ProductsGroupCellControllerDelegate {
     Localizator.standard.localizedString("Ваша Скидка") :
     Localizator.standard.localizedString("Скидка сразу после регистрации")
 
-    var subTitle: String? = nil
-    var bottomTitle: String? = nil
+    var subTitle: String?
+    var bottomTitle: String?
 
     if isAuthorized {
       bottomTitle = Localizator.standard.localizedString("Цена со скидкой")

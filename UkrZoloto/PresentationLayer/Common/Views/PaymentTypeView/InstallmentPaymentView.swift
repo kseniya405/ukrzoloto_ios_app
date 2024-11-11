@@ -103,8 +103,6 @@ class InstallmentPaymentView: DeliveryTypeView {
       make.top.equalToSuperview().offset(-15.0)
       make.left.right.equalToSuperview()
     }
-    
-    
   }
   
   private func configureImageView() {
@@ -177,11 +175,10 @@ class InstallmentPaymentView: DeliveryTypeView {
   }
   
   func setPartsAction(target: Any, action: Selector) {
-    let tap = UITapGestureRecognizer(target:target, action: action)
+    let tap = UITapGestureRecognizer(target: target, action: action)
     partsView.addGestureRecognizer(tap)
   }
 }
-
 
 // MARK: - UIConstants
 private enum UIConstants {
@@ -211,7 +208,6 @@ private enum UIConstants {
     
     static let top: CGFloat = 14
   }
-  
   
   enum TitleLabel {
     static let textAlignment = NSTextAlignment.left

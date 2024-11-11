@@ -23,7 +23,7 @@ class CartCoordinator: Coordinator {
   private weak var mainCoordinator: MainCoordinator?
   private weak var authCoordinator: AuthCoordinator?
   
-  private var orderVCOrder: Order? = nil
+  private var orderVCOrder: Order?
   
   // MARK: - Public variables
   weak var output: CartCoordinatorOutput?
@@ -300,7 +300,6 @@ extension CartCoordinator: UserTypeViewControllerOutput {
   }
 }
 
-
 // MARK: - SMSViewControllerOutput
 extension CartCoordinator: SMSViewControllerOutput {
   func smsWasConfirmed(from vc: SMSViewController) {
@@ -367,6 +366,4 @@ extension CartCoordinator: ShopsFilterViewControllerOutput {
 	func didTapOnBack(from: ShopsFilterViewController) {
 		navigationController.popViewController(animated: true)
 	}
-	
-	
 }

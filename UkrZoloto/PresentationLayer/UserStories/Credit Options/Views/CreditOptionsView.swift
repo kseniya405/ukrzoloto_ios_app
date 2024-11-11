@@ -86,7 +86,7 @@ class CreditOptionsView: InitView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   static let backgroundColor = UIColor(named: "darkGreen")!
 
   enum TableView {

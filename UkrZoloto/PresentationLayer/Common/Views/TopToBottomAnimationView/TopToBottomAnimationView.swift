@@ -13,11 +13,6 @@ class TopToBottomAnimationView: InitView, AnimationTransitionView {
   // MARK: - Public variables
   var duration: TimeInterval = 0.3
   
-  // MARK: - Life Cycle
-  override func initConfigure() {
-    super.initConfigure()
-  }
-  
   // MARK: - Animations
   func applyPresentAnimationChanges() {
     let oldFrame = frame
@@ -41,4 +36,3 @@ class TopToBottomAnimationView: InitView, AnimationTransitionView {
     })
   }
 }
-

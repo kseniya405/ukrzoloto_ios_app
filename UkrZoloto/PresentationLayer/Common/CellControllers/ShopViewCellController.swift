@@ -13,8 +13,8 @@ class ShopViewCellController: AUIDefaultViewController {
 	
 	// MARK: - Public variables
 	var selectionView: ShopInfoViewXIB? {
-		set { view = newValue }
 		get { return view as? ShopInfoViewXIB }
+    set { view = newValue }
 	}
 	
 	var titleViewModel: TitleViewModel?
@@ -41,4 +41,3 @@ class ShopViewCellController: AUIDefaultViewController {
 		didSetViewModel()
 	}
 }
-

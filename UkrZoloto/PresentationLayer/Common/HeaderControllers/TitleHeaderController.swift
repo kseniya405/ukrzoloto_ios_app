@@ -13,8 +13,8 @@ class TitleHeaderController: AUIDefaultViewController {
 
   // MARK: - Public variables
   var headerView: AUIGenericContainerTableViewHeaderFooterView<UILabel>? {
-    set { view = newValue }
     get { return view as? AUIGenericContainerTableViewHeaderFooterView<UILabel> }
+    set { view = newValue }
   }
   
   var titleViewModel: TitleViewModel? {

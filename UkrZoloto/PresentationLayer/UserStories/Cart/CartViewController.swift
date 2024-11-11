@@ -193,10 +193,8 @@ class CartViewController: LocalizableViewController, ErrorAlertDisplayable {
 		var selectedExchangesCount = 0
 		for item in cart.cartItems {
 			for service in item.services ?? [] {
-				for option in service.options {
-						if option.selected {
-							selectedExchangesCount += 1
-						}
+				for option in service.options where option.selected {
+          selectedExchangesCount += 1
 				}
 			}
 		}
@@ -219,7 +217,7 @@ class CartViewController: LocalizableViewController, ErrorAlertDisplayable {
         result.append(.discount(.promoBonus, cartPriceDetails.actionBonuses))
       }
 
-      //certificate
+      // certificate
       
       if cartPriceDetails.personalDiscount > 0 {
         result.append(.discount(.discount, cartPriceDetails.personalDiscount))
@@ -279,7 +277,7 @@ class CartViewController: LocalizableViewController, ErrorAlertDisplayable {
     }
   }
   
-  private func performLoadCartRequest(completion: @escaping (Cart?)->()) {
+  private func performLoadCartRequest(completion: @escaping (Cart?) -> Void) {
     CartService.shared.getCart { [weak self] response in
       DispatchQueue.main.async {
         guard let self = self else { return }
@@ -296,7 +294,7 @@ class CartViewController: LocalizableViewController, ErrorAlertDisplayable {
     }
   }
   
-  private func calculateCart(completion: @escaping (()->())) {
+  private func calculateCart(completion: @escaping (() -> Void)) {
       
     CartService.shared.calculateCart { [weak self] result in
       DispatchQueue.main.async {
@@ -317,7 +315,7 @@ class CartViewController: LocalizableViewController, ErrorAlertDisplayable {
     }
   }
 	
-	private func addExchangeOptionToCart(variantId: Int, sku: String, exchange: ExtraServiceOption?, completion:  @escaping (_ result: Result<Cart>) -> Void) {
+	private func addExchangeOptionToCart(variantId: Int, sku: String, exchange: ExtraServiceOption?, completion: @escaping (_ result: Result<Cart>) -> Void) {
 		CartService.shared.addToCartVariantBy(variantId: variantId, sku: sku, exchange: exchange, completion: completion)
 	}
   
@@ -330,8 +328,8 @@ class CartViewController: LocalizableViewController, ErrorAlertDisplayable {
         switch response {
         case .failure(let error):
           self.handleError(error)
-        case .success(let cart):          
-          if cart.cartItems.count > 0 {
+        case .success(let cart):
+          if !cart.cartItems.isEmpty {
            
             self.calculateCart {
               HUD.hide()
@@ -521,9 +519,9 @@ extension CartViewController: CartItemTableViewCellDelegate {
 	}
 }
 
-//MARK: - Picker
+// MARK: - Picker
 
-fileprivate extension CartViewController {
+private extension CartViewController {
 	
 	func presentPicker() {
 
@@ -540,8 +538,7 @@ fileprivate extension CartViewController {
 	func handleSelectedMonths(_ months: String) {
 		
 		guard let index = pickerDataSource?.indexPath else { return }
-		
-		
+				
 		if case let CartDataSourceItem.cartItem(cartItem) = dataSource[index],
 			 let newVariant = ExchangeItem(rawValue: months) {
 			if cartItem.preselectedExchangeVariant != newVariant {
@@ -558,7 +555,4 @@ extension CartViewController: CreditInfoTipViewDelegate {
 	func didTapOnActiveLabel(from: CreditInfoTipView) {
 		output?.didTapOnExchangeDetailsLink(from: self)
 	}
-	
-	
 }
-

@@ -13,8 +13,8 @@ class FilterSelectValueCellController: AUIDefaultViewController {
   
   // MARK: - Public variables
   var valueView: FilterSelectValueView? {
-    set { view = newValue }
     get { return view as? FilterSelectValueView }
+    set { view = newValue }
   }
   
   private(set) var isSelected: Bool?

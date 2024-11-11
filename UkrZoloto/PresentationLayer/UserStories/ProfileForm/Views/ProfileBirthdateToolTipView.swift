@@ -11,8 +11,8 @@ import UIKit
 
 class ProfileBirthdateToolTipView: UIView {
   
-  var onDismiss: (()->())?
-  var onPhoneNumberTap: (()->())?
+  var onDismiss: (() -> Void)?
+  var onPhoneNumberTap: (() -> Void)?
   
   private var originRect: CGRect!
   private var tipView: UIView!
@@ -64,7 +64,7 @@ class ProfileBirthdateToolTipView: UIView {
   }
 }
 
-fileprivate extension ProfileBirthdateToolTipView {
+private extension ProfileBirthdateToolTipView {
   
   func initConfigure() {
     backgroundColor = .clear
@@ -108,7 +108,7 @@ fileprivate extension ProfileBirthdateToolTipView {
     
     let view = UIView()
     view.backgroundColor = .white
-    view.transform = CGAffineTransform(rotationAngle: .pi/4)
+    view.transform = CGAffineTransform(rotationAngle: .pi / 4)
     self.addSubview(view)
     view.snp.makeConstraints { make in
       make.trailing.equalTo(tipView.snp.trailing).offset(-16.0)
@@ -122,8 +122,7 @@ fileprivate extension ProfileBirthdateToolTipView {
 
     container.addSubview(self)
   }
-  
-  
+    
   @objc private func onOutsideTap(_ sender: UITapGestureRecognizer) {
     
     UIView.animate(withDuration: 0.3) {
@@ -140,7 +139,7 @@ fileprivate extension ProfileBirthdateToolTipView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   enum TipView {
     static let cornerRadius: CGFloat = 16.0
@@ -148,8 +147,7 @@ fileprivate enum UIConstants {
     static let bottomPadding: CGFloat = 14.0
     static let leftpadding: CGFloat = 60.0
     static let rightPadding: CGFloat = 13.0
-    
-    
+        
 		static let messageFont = UIFont.regularAppFont(of: 12)
     static let numberFont = UIFont.boldAppFont(of: 12.0)
     static let textColor = UIColor(named: "textDarkGreen")!.withAlphaComponent(0.7)
@@ -158,4 +156,3 @@ fileprivate enum UIConstants {
     static let textInset: CGFloat = 16.0
   }
 }
-

@@ -138,6 +138,6 @@ private enum UIConstants {
   }
 
   enum DiscountHint {
-    static let icon = UIImage(named: "iconsDiscountHintInfo")!
+    static let icon = #imageLiteral(resourceName: "iconsDiscountHintInfo")
   }
 }

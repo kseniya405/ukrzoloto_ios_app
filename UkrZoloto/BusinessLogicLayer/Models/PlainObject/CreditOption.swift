@@ -11,13 +11,13 @@ import SwiftyJSON
 
 class CreditOption {
   
-  private (set) var title: String!
-  private (set) var descriptionString: String!
-  private (set) var comission: Double!
-  private (set) var month: [Int]!
-	private (set) var code: String!
-	private (set) var icon: String
-	private (set) var showAsIcon: Bool
+  private(set) var title: String!
+  private(set) var descriptionString: String!
+  private(set) var comission: Double!
+  private(set) var month: [Int]!
+	private(set) var code: String!
+	private(set) var icon: String
+	private(set) var showAsIcon: Bool
   
   init?(json: JSON) {
     

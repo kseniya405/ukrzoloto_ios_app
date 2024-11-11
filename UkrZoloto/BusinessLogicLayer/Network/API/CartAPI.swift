@@ -74,39 +74,37 @@ class CartAPI: NetworkAPI {
 			completion(.failure(ServerError.noInternetConnection))
 			return
 		}
-			var params : [String : Any] = [:]
+			var params: [String: Any] = [:]
 			if let exchange = exchange {
-				let exchangeOptions = [[NetworkRequestKey.Cart.code : exchange.code]]
-				let options: [String : Any] = [NetworkRequestKey.Cart.code : NetworkRequestKey.Cart.exchange,
-											 NetworkRequestKey.Cart.options : exchangeOptions]
+				let exchangeOptions = [[NetworkRequestKey.Cart.code: exchange.code]]
+				let options: [String: Any] = [NetworkRequestKey.Cart.code: NetworkRequestKey.Cart.exchange,
+											 NetworkRequestKey.Cart.options: exchangeOptions]
 				params = [NetworkRequestKey.Cart.variantId: variantId,
 				NetworkRequestKey.Cart.options: [options]]
-			} else
-			{
+			} else {
 				params = [
 				NetworkRequestKey.Cart.variantId: variantId,
 				NetworkRequestKey.Cart.options: []]
 			}
 
-			
-    alamofireRequest(endpoint: Endpoint.cart,
-                     method: .post,
-                     parameters: params) { [weak self] dataResponse in
-                      guard let self = self else { return }
-                      let parsedResult = self.parseResponse(dataResponse, showDebugInfo: true)
-                      switch parsedResult {
-                      case .failure(let error):
-                        completion(.failure(error))
-                      case .success(let data):
-                        guard let cart = Cart(json: data) else {
-                          completion(.failure(ServerError.unknown))
-                          return
-                        }
-                        completion(.success(cart))
-												debugPrint(data)
-                      }
+      alamofireRequest(endpoint: Endpoint.cart,
+                       method: .post,
+                       parameters: params) { [weak self] dataResponse in
+        guard let self = self else { return }
+        let parsedResult = self.parseResponse(dataResponse, showDebugInfo: true)
+        switch parsedResult {
+        case .failure(let error):
+          completion(.failure(error))
+        case .success(let data):
+          guard let cart = Cart(json: data) else {
+            completion(.failure(ServerError.unknown))
+            return
+          }
+          completion(.success(cart))
+          debugPrint(data)
+        }
+      }
     }
-  }
   
   func removeFromCart(variantId: Int, completion: @escaping (_ result: Result<Cart>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
@@ -199,7 +197,7 @@ class CartAPI: NetworkAPI {
   
   // MARK: - PaymentMethods
   
-  func getCreditOptions(for variantId: Int, completion: @escaping ((Result<[CreditOption]>) -> ())) {
+  func getCreditOptions(for variantId: Int, completion: @escaping ((Result<[CreditOption]>) -> Void)) {
     
     alamofireRequest(endpoint: Endpoint.credit(variantId: variantId),
                      method: .get,
@@ -394,7 +392,6 @@ class CartAPI: NetworkAPI {
     }
   }
 
-  
   // MARK: - Private methods
   func getOrderParameters(for recipient: Recipient,
                           delivery: DeliveryMethod,
@@ -477,4 +474,3 @@ class CartAPI: NetworkAPI {
     return params
   }
 }
-

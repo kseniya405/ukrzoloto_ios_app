@@ -221,7 +221,7 @@ extension LocationSearchViewController: UISearchBarDelegate {
 
 	private func applyFiltrationBy(text: String) {
 		let oneWordSlice = allLocations.filter({ $0.title.lowercased().hasPrefix(text.lowercased()) }).sorted(by: { $0.title < $1.title })
-			//allLocations.filter({ $0.title.lowercased().contains(text.lowercased()) }).sorted(by: { $0.title < $1.title })
+			// allLocations.filter({ $0.title.lowercased().contains(text.lowercased()) }).sorted(by: { $0.title < $1.title })
 		
     filteredLocations = oneWordSlice
 

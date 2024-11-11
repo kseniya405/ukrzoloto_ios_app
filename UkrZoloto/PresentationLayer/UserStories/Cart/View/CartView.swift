@@ -65,8 +65,7 @@ class CartView: RoundedContainerView {
         .priority(.low)
     }
   }
-  
-  
+    
   // MARK: - Interface
   func getTableView() -> UITableView {
     return tableView

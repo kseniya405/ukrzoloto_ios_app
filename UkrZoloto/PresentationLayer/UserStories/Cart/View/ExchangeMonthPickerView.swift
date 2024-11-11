@@ -8,10 +8,9 @@
 
 import Foundation
 
-
 class ExchangeMonthPickerView: InitView {
 	
-	var onDoneTap: ((String)->())?
+	var onDoneTap: ((String) -> Void)?
 	
 	private var months: [String]!
 	private var selectedMonth: String!
@@ -103,7 +102,7 @@ extension ExchangeMonthPickerView: UIPickerViewDataSource, UIPickerViewDelegate 
 	}
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
 	static let height: CGFloat = 90.0
 	static let borderColor = UIColor(named: "card")!
 	static let headerHeight: CGFloat = 30.0

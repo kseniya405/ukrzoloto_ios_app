@@ -162,7 +162,7 @@ class ProfileDataViewController: LocalizableViewController, NavigationButtoned, 
   }
   
   private func getDateData(date: Date? = nil) -> ProfileData {
-    var stringDate: String? = nil
+    var stringDate: String?
     if let date = date {
       let formatter = DateFormattersFactory.dateOnlyFormatter()
       stringDate = formatter.string(from: date)
@@ -193,10 +193,10 @@ class ProfileDataViewController: LocalizableViewController, NavigationButtoned, 
   // MARK: - Actions
   @objc
   private func didTapOnSave() {
-    var name: String? = nil
-    var surname: String? = nil
-    var email: String? = nil
-    var birthday: Date? = nil
+    var name: String?
+    var surname: String?
+    var email: String?
+    var birthday: Date?
     var gender: Gender = .undefined
     
     for case let ProfileItem.field((data, type)) in dataSource {
@@ -416,22 +416,22 @@ extension ProfileDataViewController: UnderlineTableViewCellDelegate {
   }
 }
  
-//MARK: - GenderPickerTableViewCellDelegate
+// MARK: - GenderPickerTableViewCellDelegate
 extension ProfileDataViewController: GenderPickerTableViewCellDelegate {
   
   func genderPickerChangeSelection(to gender: Gender) {
     
-    var i = 0
+    var indexItem = 0
         
     for (index, item) in dataSource.enumerated() {
       if case ProfileItem.gender(_) = item {
-        i = index
+        indexItem = index
       } else {
         continue
       }
     }
 
-    dataSource[i] = ProfileItem.gender(gender)
+    dataSource[indexItem] = ProfileItem.gender(gender)
   }
 }
 

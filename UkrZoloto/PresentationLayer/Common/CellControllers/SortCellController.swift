@@ -19,9 +19,9 @@ class SortCellController: AUIDefaultViewController {
   weak var delegate: SortCellControllerDelegate?
   
   var sortView: SortView? {
-    set { view = newValue }
     get { return view as? SortView }
-  }
+    set { view = newValue }
+}
   
   private(set) var sortTitle: String?
   
@@ -36,10 +36,6 @@ class SortCellController: AUIDefaultViewController {
   override func unsetupView() {
     super.unsetupView()
     sortView?.removeTarget(nil, action: nil)
-  }
-  
-  override func setup() {
-    super.setup()
   }
   
   // MARK: - Interface

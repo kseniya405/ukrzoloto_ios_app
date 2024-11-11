@@ -463,7 +463,7 @@ class ProductView: InitView {
 	}
 	
 	func addCollapseDescriptionButtonTarget() {
-		guard let _ = product?.id else {
+		guard product?.id != nil else {
 			return
 		}
 		

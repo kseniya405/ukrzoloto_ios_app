@@ -35,8 +35,7 @@ class DatePickerBottomView: InitView {
   private func configureSelfView() {
     backgroundColor = UIConstants.SelfView.backgroundColor
   }
-  
-  
+    
   private func configureDatePicker() {
     addSubview(datePicker)
     datePicker.snp.makeConstraints { make in

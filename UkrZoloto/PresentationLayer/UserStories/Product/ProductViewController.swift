@@ -343,8 +343,6 @@ class ProductViewController: LocalizableViewController, NavigationButtoned, Erro
           let _ = items
 
           return
-          //TODO: - Replace MindBoxService with new service integration
-          //MindBoxService.shared.didEditFavorites(favoritesItems: items)
         case .failure(let error):
           self.handleError(error)
         }
@@ -603,8 +601,8 @@ extension ProductViewController: ProductViewDelegate {
     Localizator.standard.localizedString("Ваша Скидка") :
     Localizator.standard.localizedString("Скидка сразу после регистрации")
 
-    var subTitle: String? = nil
-    var bottomTitle: String? = nil
+    var subTitle: String?
+    var bottomTitle: String?
 
     if isAuthorized {
       bottomTitle = Localizator.standard.localizedString("Цена со скидкой")

@@ -13,8 +13,8 @@ class TitleViewCellController: AUIDefaultViewController {
   
   // MARK: - Public variables
   var titleView: TitleView? {
-    set { view = newValue }
     get { return view as? TitleView }
+    set { view = newValue }
   }
   
   private(set) var title: String

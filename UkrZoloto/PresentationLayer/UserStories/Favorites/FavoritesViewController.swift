@@ -170,9 +170,6 @@ class FavoritesViewController: LocalizableViewController, NavigationButtoned, Er
           let _ = items
           
           return
-
-          //TODO: - Replace MindBoxService with new service integration
-          //MindBoxService.shared.didEditFavorites(favoritesItems: items)
         case .failure(let error):
           self.handleError(error)
         }
@@ -281,7 +278,7 @@ extension FavoritesViewController: ProductsGroupCellControllerDelegate {
     let product = controller.products[index]
 
     didTapOnDiscountHintFor(product.price)
-    //TODO: Implement SHOW DISCOUNT HINT
+    // TODO: Implement SHOW DISCOUNT HINT
   }
 
   func didTapOnDiscountHintFor(_ price: Price) {
@@ -293,8 +290,8 @@ extension FavoritesViewController: ProductsGroupCellControllerDelegate {
     Localizator.standard.localizedString("Ваша Скидка") :
     Localizator.standard.localizedString("Скидка сразу после регистрации")
 
-    var subTitle: String? = nil
-    var bottomTitle: String? = nil
+    var subTitle: String?
+    var bottomTitle: String?
 
     if isAuthorized {
       bottomTitle = Localizator.standard.localizedString("Цена со скидкой")

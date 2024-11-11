@@ -111,7 +111,7 @@ class LocationShopsViewController: LocalizableViewController, NavigationButtoned
     selfView.getSaveButton().addTarget(self,
                                        action: #selector(didTapOnSaveButton),
                                        for: .touchUpInside)
-		selfView.getShopInfoView().closeButton.addTarget(self,
+		selfView.getShopInfoView().getCloseButton().addTarget(self,
 																										 action: #selector(didTapOnCloseInfoButton),
 																										 for: .touchUpInside)
 		tableViewController.view = selfView.getTableView()
@@ -168,7 +168,7 @@ class LocationShopsViewController: LocalizableViewController, NavigationButtoned
 	}
 	
 	private func setupDataSource(_ shops: NewShops?) {
-		if let cities = shops?.cities, let city = cities.first(where:  { $0.title == self.hostLocation.title }) {
+		if let cities = shops?.cities, let city = cities.first(where: { $0.title == self.hostLocation.title }) {
 			if city != self.city {
 				self.city = city
 				selfView.hideShopInfoView()
@@ -195,7 +195,7 @@ class LocationShopsViewController: LocalizableViewController, NavigationButtoned
 		}
 		if let shopItems = shops?.items, let coordinates = shops?.coordinates {
 			self.loadedPage = self.pageForLoad
-			if shopItems.count > 0 {
+      if !shopItems.isEmpty {
 				self.shopItems.append(contentsOf: shopItems)
 				self.coordinates.append(contentsOf: coordinates)
 				self.pageForLoad += 1
@@ -206,18 +206,19 @@ class LocationShopsViewController: LocalizableViewController, NavigationButtoned
 		reloadCellControllers()
 	}
 	
-	private func reloadCellControllers() {
-		associatedShops = [:]
-		var sectionControllers = [AUIDefaultTableViewSectionController]()
-		let sectionController = shopsSection(from: shopItems)
-		sectionControllers.append(sectionController)
-		sectionControllers.forEach { $0.cellControllers.forEach {
-			$0.didSelectDelegate = self
-			$0.willDisplayDelegate = self
-		} }
-		tableViewController.sectionControllers = sectionControllers
-		tableViewController.reload()
-	}
+  private func reloadCellControllers() {
+    associatedShops = [:]
+    var sectionControllers = [AUIDefaultTableViewSectionController]()
+    let sectionController = shopsSection(from: shopItems)
+    sectionControllers.append(sectionController)
+    sectionControllers.forEach { $0.cellControllers.forEach {
+      $0.didSelectDelegate = self
+      $0.willDisplayDelegate = self
+    }
+    }
+    tableViewController.sectionControllers = sectionControllers
+    tableViewController.reload()
+  }
 	
 	private func shopsSection(from shops: [NewShopsItem]) -> AUIDefaultTableViewSectionController {
 		let sectionController = AUIDefaultTableViewSectionController()
@@ -401,7 +402,6 @@ extension LocationShopsViewController: AUITableViewCellControllerWillDisplayDele
 	}
 }
 
-
 // MARK: - GMSMapViewDelegate
 extension LocationShopsViewController: GMSMapViewDelegate {
   func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
@@ -467,4 +467,3 @@ private enum UIConstants {
 	
 	static let availableMarker = #imageLiteral(resourceName: "ShopMarker")
 }
-

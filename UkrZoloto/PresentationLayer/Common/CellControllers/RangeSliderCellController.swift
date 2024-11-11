@@ -25,8 +25,8 @@ class RangeSliderCellController: AUIDefaultViewController {
   }
   
   var rangeView: RangeSliderView? {
-    set { view = newValue }
     get { return view as? RangeSliderView }
+    set { view = newValue }
   }
   
   private(set) var filter: RangeFilter {
@@ -64,7 +64,7 @@ class RangeSliderCellController: AUIDefaultViewController {
   @objc
   private func didChangeRangeValue(_ sender: RangeSlider) {
     let lowValue = Int(sender.lowerValue)
-    let upValue =  Int(sender.upperValue)
+    let upValue = Int(sender.upperValue)
     
     guard lowValue != filter.minPrice ||
       upValue != filter.maxPrice else {

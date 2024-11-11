@@ -18,9 +18,9 @@ class AvalibleTimeCellController: AUIDefaultViewController {
   // MARK: - Public variables
   weak var delegate: AvalibleTimeCellControllerDelegate?
   
-  var productsView: TimeTableView? {
-    set { view = newValue }
+  var productsView: TimeTableView? {    
     get { return view as? TimeTableView }
+    set { view = newValue }
   }
   
   private(set) var info = ImageTitleSubtitleViewModel(title: "", subtitle: "", image: nil)

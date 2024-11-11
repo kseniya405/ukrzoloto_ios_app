@@ -35,7 +35,7 @@ extension UINavigationController {
   func pushViewControllerWithFlipAnimation(viewController: UIViewController) {
     self.pushViewController(viewController, animated: false)
     if let transitionView = view {
-      UIView.transition(with:transitionView,
+      UIView.transition(with: transitionView,
                         duration: 0.8,
                         options: .curveEaseInOut,
                         animations: nil,

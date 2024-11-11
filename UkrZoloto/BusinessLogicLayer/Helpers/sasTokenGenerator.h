@@ -9,7 +9,7 @@
 #ifndef sasTokenGenerator_h
 #define sasTokenGenerator_h
 
-@interface SasTokenGenerator : NSObject
+@interface SasTokenGenerator: NSObject
 
 -(NSString*) generateSasToken:(NSString*)resourceUri :(NSString*)key :(NSString*)keyName;
 -(NSString *)CF_URLEncodedString:(NSString *)inputString;

@@ -164,8 +164,8 @@ class ProductSearchViewController: SearchViewController, NavigationButtoned, Err
   // MARK: - Private func
   private func setDataSource(searchData: SearchPageData = .zero) {
     configureFilterButton(for: searchData)
-    if searchData.products.isEmpty,
-       (dataSource.isEmpty || pageForLoading == 1) {
+    guard !searchData.products.isEmpty,
+       !(dataSource.isEmpty || pageForLoading == 1) else {
       self.dataSource.removeAll()
       setNoFoundView()
       self.removeButtonItemOn(.right)
@@ -321,9 +321,6 @@ class ProductSearchViewController: SearchViewController, NavigationButtoned, Err
           let _ = items
 
           return
-
-          //TODO: - Replace MindBoxService with new service integration
-          //MindBoxService.shared.didEditFavorites(favoritesItems: items)
         case .failure(let error):
           self.handleError(error)
         }
@@ -522,8 +519,7 @@ extension ProductSearchViewController: UISearchBarDelegate {
 
     perform(#selector(checkSearchBarText), with: nil, afterDelay: TimeInterval(Constants.searchTimeInterval))
   }
-  
-  
+    
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     guard let searchText = searchBar.text, searchText.count > 2 else {
       return
@@ -639,7 +635,6 @@ extension ProductSearchViewController: UITableViewDelegate {
       }
     }
   }
-
 }
 
 // MARK: - ProductsGroupCellControllerDelegate
@@ -667,7 +662,7 @@ extension ProductSearchViewController: ProductsGroupCellControllerDelegate {
     let product = controller.products[index]
 
     didTapOnDiscountHintFor(product.price)
-    //TODO: Implement SHOW DISCOUNT HINT
+    // TODO: Implement SHOW DISCOUNT HINT
   }
 
   private func didTapOnDiscountHintFor(_ price: Price) {
@@ -679,8 +674,8 @@ extension ProductSearchViewController: ProductsGroupCellControllerDelegate {
     Localizator.standard.localizedString("Ваша Скидка") :
     Localizator.standard.localizedString("Скидка сразу после регистрации")
 
-    var subTitle: String? = nil
-    var bottomTitle: String? = nil
+    var subTitle: String?
+    var bottomTitle: String?
 
     if isAuthorized {
       bottomTitle = Localizator.standard.localizedString("Цена со скидкой")
@@ -696,9 +691,9 @@ extension ProductSearchViewController: ProductsGroupCellControllerDelegate {
         title: Localizator.standard.localizedString("Зарегистрироваться").uppercased(),
         isEmphasized: true) { [weak self] in
           guard let self = self else { return }
-
+          
           EventService.shared.trackDiscountHintAuthAction()
-
+          
           self.output?.showLogin(from: self)
         })
     }

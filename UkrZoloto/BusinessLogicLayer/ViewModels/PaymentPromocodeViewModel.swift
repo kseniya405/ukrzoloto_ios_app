@@ -26,4 +26,3 @@ struct PaymentPromocodeViewModel {
   let appliedString: String?
   let isActive: Bool
 }
-

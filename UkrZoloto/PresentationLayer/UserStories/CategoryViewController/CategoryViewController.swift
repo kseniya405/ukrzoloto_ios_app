@@ -476,8 +476,8 @@ extension CategoryViewController: ProductsGroupCellControllerDelegate {
     Localizator.standard.localizedString("Ваша Скидка") :
     Localizator.standard.localizedString("Скидка сразу после регистрации")
 
-    var subTitle: String? = nil
-    var bottomTitle: String? = nil
+    var subTitle: String?
+    var bottomTitle: String?
 
     if isAuthorized {
       bottomTitle = Localizator.standard.localizedString("Цена со скидкой")

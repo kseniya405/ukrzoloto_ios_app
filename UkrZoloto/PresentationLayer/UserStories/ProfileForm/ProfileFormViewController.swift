@@ -125,8 +125,8 @@ class ProfileFormViewController: LocalizableViewController, ErrorAlertDisplayabl
     selfView.localize()
   }
   
-  private func getDateData(date: Date? = nil) -> ProfileData {
-    var stringDate: String? = nil
+  private func getDateData(date: Date?) -> ProfileData {
+    var stringDate: String?
     if let date = date {
       let formatter = DateFormattersFactory.dateOnlyFormatter()
       stringDate = formatter.string(from: date)
@@ -243,8 +243,8 @@ extension ProfileFormViewController: UITableViewDataSource, UITableViewDelegate 
   }
 }
 
-//MARK: - Validation
-fileprivate extension ProfileFormViewController {
+// MARK: - Validation
+private extension ProfileFormViewController {
   
   func validate(formData: ProfileFormDTO) -> Bool {
 
@@ -276,7 +276,6 @@ fileprivate extension ProfileFormViewController {
       cell.setError()
       formValid = false
     }
-
     
     if formData.gender == .undefined {
       
@@ -290,10 +289,10 @@ fileprivate extension ProfileFormViewController {
   
   func extractFormData() -> ProfileFormDTO {
     
-    var name: String? = nil
-    var surname: String? = nil
-    var email: String? = nil
-    var birthday: Date? = nil
+    var name: String?
+    var surname: String?
+    var email: String?
+    var birthday: Date?
     var genderType: Gender = .undefined
     
     for case let ProfileItem.field((data, type)) in dataSource {
@@ -387,7 +386,6 @@ fileprivate extension ProfileFormViewController {
     return cell
   }
 }
-
 
 // MARK: - UnderlineTableViewCellDelegate
 extension ProfileFormViewController: UnderlineTableViewCellDelegate {
@@ -537,16 +535,16 @@ extension ProfileFormViewController: GenderPickerTableViewCellDelegate {
   
   func genderPickerChangeSelection(to gender: Gender) {
     
-    var i = 0
-        
+    var indexItem = 0
+  
     for (index, item) in dataSource.enumerated() {
       if case ProfileItem.gender(_) = item {
-        i = index
+        indexItem = index
       } else {
         continue
       }
     }
 
-    dataSource[i] = ProfileItem.gender(gender)
+    dataSource[indexItem] = ProfileItem.gender(gender)
   }
 }

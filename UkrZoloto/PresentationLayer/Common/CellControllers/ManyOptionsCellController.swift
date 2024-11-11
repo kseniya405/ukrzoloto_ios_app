@@ -19,8 +19,8 @@ class ManyOptionsCellController: AUIDefaultViewController {
   weak var delegate: ManyOptionsCellControllerDelegate?
   
   var manyOptionsView: ManyOptionsView? {
-    set { view = newValue }
     get { return view as? ManyOptionsView }
+    set { view = newValue }
   }
   
   private(set) var filter: SelectFilter {
@@ -54,7 +54,7 @@ class ManyOptionsCellController: AUIDefaultViewController {
       return
     }
     manyOptionsView?.setTitles(
-      title:  StringComposer.shared.getFilterValueString(from: filter),
+      title: StringComposer.shared.getFilterValueString(from: filter),
       value: filter.title)
   }
   

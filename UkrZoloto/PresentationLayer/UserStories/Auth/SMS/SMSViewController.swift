@@ -172,12 +172,13 @@ class SMSViewController: LocalizableViewController, NavigationButtoned, ErrorAle
   }
   
   private func handleOTPError(_ error: Error) {
-    if let serverError = error as? ServerError,
-       (serverError.type == .smsLimit || serverError.type == .waitForNextSms) {
-      handleError(error)
-    } else {
-      self.state = .error
+    guard let serverError = error as? ServerError,
+          [.smsLimit, .waitForNextSms].contains(serverError.type) else {
+      state = .error
+      return
     }
+    
+    handleError(error)
   }
   
   private func resendCode() {

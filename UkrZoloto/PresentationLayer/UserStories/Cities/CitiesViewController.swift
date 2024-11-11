@@ -83,7 +83,6 @@ public class HighlightedCitiesAdapter {
 	}
 }
 
-
 protocol CitiesViewControllerOutput: AnyObject {
   func selectCity(_ city: NewCity?)
   func didTapOnBack(from: CitiesViewController)
@@ -119,10 +118,6 @@ class CitiesViewController: SearchViewController, NavigationButtoned {
 
   override func loadView() {
     view = selfView
-  }
-
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
   }
 
   // MARK: - Setup
@@ -277,7 +272,7 @@ extension CitiesViewController: UISearchBarDelegate {
 
     filterCities = beginingMatchSorted
 
-    let restTwoWordNameLocation =  Array(Set(cities).subtracting(Set(beginingMatchSorted))).filter({ $0.title.contains(" ") })
+    let restTwoWordNameLocation = Array(Set(cities).subtracting(Set(beginingMatchSorted))).filter({ $0.title.contains(" ") })
 
     restTwoWordNameLocation.forEach { someLocation in
       let locatonNameSubpieces = someLocation.title.components(separatedBy: " ")

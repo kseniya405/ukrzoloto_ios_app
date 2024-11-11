@@ -31,7 +31,7 @@ class IrregularityContentView: BaseTabBarItemContentView {
   }
   
   override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-    let p = CGPoint.init(x: point.x - imageView.frame.origin.x,
+    let p = CGPoint(x: point.x - imageView.frame.origin.x,
                          y: point.y - imageView.frame.origin.y)
     let w2 = pow(imageView.bounds.size.width / 2.0 - p.x, 2)
     let h2 = pow(imageView.bounds.size.height / 2.0 - p.y, 2)
@@ -41,26 +41,26 @@ class IrregularityContentView: BaseTabBarItemContentView {
   override func updateLayout() {
     super.updateLayout()
     self.imageView.sizeToFit()
-    self.imageView.center = CGPoint.init(x: self.bounds.size.width / 2.0,
+    self.imageView.center = CGPoint(x: self.bounds.size.width / 2.0,
                                          y: self.bounds.size.height / 2.0)
   }
   
-  public override func reselectAnimation(animated: Bool, completion: (() -> ())?) {
+  public override func reselectAnimation(animated: Bool, completion: (() -> Void)?) {
     completion?()
   }
   
-  public override func deselectAnimation(animated: Bool, completion: (() -> ())?) {
+  public override func deselectAnimation(animated: Bool, completion: (() -> Void)?) {
     completion?()
   }
   
-  public override func highlightAnimation(animated: Bool, completion: (() -> ())?) {
+  public override func highlightAnimation(animated: Bool, completion: (() -> Void)?) {
     UIView.animate(withDuration: 0.2) {
       let transform = self.imageView.transform.scaledBy(x: 0.8, y: 0.8)
       self.imageView.transform = transform
     }
   }
   
-  public override func dehighlightAnimation(animated: Bool, completion: (() -> ())?) {
+  public override func dehighlightAnimation(animated: Bool, completion: (() -> Void)?) {
     UIView.animate(withDuration: 0.2) {
       let transform = CGAffineTransform.identity
       self.imageView.transform = transform

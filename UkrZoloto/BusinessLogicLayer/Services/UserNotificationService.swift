@@ -100,7 +100,7 @@ extension UserNotificationService: UNUserNotificationCenterDelegate {
 		} else {
 			let actionIdentifier = response.actionIdentifier
 			
-			let uniqueId = userInfo["uniqueKey"] as! String
+      _ = userInfo["uniqueKey"] as? String
 			
 			if actionIdentifier == "com.apple.UNNotificationDefaultActionIdentifier",
 				 let clickUrl = userInfo["clickUrl"] as? String,
@@ -108,8 +108,6 @@ extension UserNotificationService: UNUserNotificationCenterDelegate {
 				
 				DeeplinkService.shared.handleScreen(with: url)
 				DeeplinkService.shared.openHandledScreenIfNeeded()
-				
-				let _ = uniqueId
 				
 				completionHandler()
 				return
@@ -129,9 +127,6 @@ extension UserNotificationService: UNUserNotificationCenterDelegate {
 						DeeplinkService.shared.openHandledScreenIfNeeded()
 						
 						let _ = buttonUniqueId
-						
-						//TODO: - Replace MindBoxService with new service integration
-						//MindBoxService.shared.didOpenPush(uniqueId: uniqueId, buttonUniqueId: buttonUniqueId)
 					}
 				}
 				completionHandler()

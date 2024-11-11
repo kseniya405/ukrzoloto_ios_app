@@ -17,7 +17,7 @@ class ShopsFilterFilter: UIView {
 			applyButton.layer.cornerRadius = 16
 			applyButton.layer.masksToBounds = true
 			applyButton.setTitle(Localizator.standard.localizedString("Применить").uppercased(), for: .normal)
-			applyButton.titleLabel?.font =  UIFont(name: "OpenSans-Bold", size: 14)
+			applyButton.titleLabel?.font = UIFont(name: "OpenSans-Bold", size: 14)
 		}
 	}
 	

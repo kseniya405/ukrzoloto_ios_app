@@ -135,7 +135,7 @@ private enum UIConstants {
     static let font = UIFont.boldAppFont(of: 16)
     static let top: CGFloat = 10
     static let height: CGFloat = 48
-    static let insets: CGFloat  = 35
+    static let insets: CGFloat = 35
   }
   enum ButtonsStackView {
     static let top: CGFloat = 32

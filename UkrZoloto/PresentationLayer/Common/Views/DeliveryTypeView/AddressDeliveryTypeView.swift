@@ -155,7 +155,6 @@ class AddressDeliveryTypeView: DeliveryTypeView {
   }
 }
 
-
 // MARK: - UIConstants
 private enum UIConstants {
   static let containerViewColor = UIColor.clear

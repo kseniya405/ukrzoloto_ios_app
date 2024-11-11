@@ -23,9 +23,9 @@ class LocationDeliveryController: AUIDefaultViewController {
 	weak var scheduleDelegate: ShopDeliveryScheduleViewDelegate?
   
   var deliveryView: LocationDeliveryTypeView? {
-    set { view = newValue }
     get { return view as? LocationDeliveryTypeView }
-  }
+    set { view = newValue }
+}
   
   var locationDeliveryViewModel: LocationDeliveryViewModel? {
     didSet { didSetViewModel() }

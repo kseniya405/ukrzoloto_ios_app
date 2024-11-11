@@ -10,7 +10,6 @@ import UIKit
 import BetterSegmentedControl
 import PKHUD
 
-
 protocol OrderViewControllerOutput: AnyObject {
   func didTapOnBack(from viewController: OrderViewController)
   func showSelectLocationDialog(for deliveryCode: String,
@@ -219,7 +218,7 @@ class OrderViewController: LocalizableViewController, NavigationButtoned, AlertD
   private func moveTo(_ viewController: UIViewController, withForwardingAnimation: Bool) {
     pageViewController.setViewControllers(
       [viewController],
-      direction: withForwardingAnimation ? .forward : .reverse ,
+      direction: withForwardingAnimation ? .forward : .reverse,
       animated: true)
   }
 
@@ -404,12 +403,12 @@ extension OrderViewController {
     }
   }
 
-  private func findSegmentedViewNormalView(by Image: UIImage) -> UIView? {
+  private func findSegmentedViewNormalView(by image: UIImage) -> UIView? {
     let segments = selfView.getSegmentedControl().segments
     let foundSegmentedView = segments.first(where: { segment in
       for subview in segment.normalView.subviews {
         if let imageView = subview as? UIImageView,
-        imageView.image == Image {
+        imageView.image == image {
           return true
         }
       }

@@ -13,8 +13,8 @@ class CardImageViewController: AUIDefaultViewController {
 
   // MARK: - Public variables
   var cardImageView: CardImageView? {
-    set { view = newValue }
     get { return view as? CardImageView }
+    set { view = newValue }
   }
   
   var imageViewModel: ImageViewModel? {

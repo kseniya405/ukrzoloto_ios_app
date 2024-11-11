@@ -81,11 +81,11 @@ class MainTabBarController: ESTabBarController {
   
   private func configureAppearance() {
       let appearance = self.tabBar.standardAppearance.copy()
-      appearance.shadowImage = nil;
-      appearance.shadowColor = nil;
+      appearance.shadowImage = nil
+      appearance.shadowColor = nil
       appearance.backgroundColor = .clear
       appearance.backgroundEffect = nil
-      self.tabBar.standardAppearance = appearance;
+      self.tabBar.standardAppearance = appearance
   }
   
   // MARK: - Private methods

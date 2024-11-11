@@ -17,13 +17,8 @@ class ShopTableViewCell: UITableViewCell {
 	@IBOutlet weak var openTimeLabel: UILabel!
 	@IBOutlet weak var jewelerLabel: UILabel!
 	
-	
-	override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-	
 	override func prepareForReuse() {
+    super.prepareForReuse()
 		shopImageView.image = nil
 		addressLabel.text = ""
 		shopStatusLabel.text = ""
@@ -32,12 +27,6 @@ class ShopTableViewCell: UITableViewCell {
 		openTimeLabel.isHidden = true
 		jewelerLabel.isHidden = true
 	}
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 	
 	func setupLayout() {
 		mainStackView.spacing = 15

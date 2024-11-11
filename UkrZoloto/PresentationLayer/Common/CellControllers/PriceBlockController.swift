@@ -18,9 +18,9 @@ class PriceBlockController: AUIDefaultViewController {
   // MARK: - Public variables
   weak var delegate: (PriceBlockControllerDelegate & PriceBlockViewDelegate)?
   
-  var priceBlockView: PriceBlockView? {
-    set { view = newValue }
+  var priceBlockView: PriceBlockView? {    
     get { return view as? PriceBlockView }
+    set { view = newValue }
   }
   
   var priceDetailsViewModel: PriceDetailsViewModel? {
@@ -49,10 +49,6 @@ class PriceBlockController: AUIDefaultViewController {
   override func setupView() {
     super.setupView()
     didSetViewModel()
-  }
-  
-  override func unsetupView() {
-    super.unsetupView()
   }
   
   // MARK: - Interface

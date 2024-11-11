@@ -337,7 +337,7 @@ class ProductTileView: UIView {
       imgView.roundCorners(
         radius: 12,
         borderWidth: 1,
-        borderColor: UIColor(red: 0.892, green: 0.892, blue: 0.892, alpha: 1).cgColor
+        borderColor: #colorLiteral(red: 0.892, green: 0.892, blue: 0.892, alpha: 1).cgColor
       )
       
       if let path = model.icon {

@@ -32,7 +32,7 @@
         NSString* toSign = [NSString stringWithFormat:@"%@\n%qu", targetUri, expires];
         
         // Get an hmac_sha1 Mac instance and initialize with the signing key
-        const char *cKey  = [key cStringUsingEncoding:NSUTF8StringEncoding];
+        const char *cKey = [key cStringUsingEncoding:NSUTF8StringEncoding];
         const char *cData = [toSign cStringUsingEncoding:NSUTF8StringEncoding];
         unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
         CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);

@@ -98,7 +98,7 @@ class ShopInfoView: InitView {
 				.offset(UIConstants.JewelerTitle.bottom)
 			make.height.equalTo(UIConstants.JewelerTitle.height)
 		}
-		jewelerLabel.setLeftImage(ImageViewModel.image(UIImage(named: "jeweler")))
+		jewelerLabel.setLeftImage(ImageViewModel.image(#imageLiteral(resourceName: "jeweler")))
 		jewelerLabel.setRightImage(nil)
 		jewelerLabel.setSeparatorPosition()
 		jewelerLabel.setTitle(Localizator.standard.localizedString("Есть ювелир"))
@@ -207,7 +207,7 @@ class ShopInfoView: InitView {
 			make.leading.equalToSuperview()
 			make.height.equalTo(UIConstants.JewelerTitle.height)
 		}
-		scheduleTitle.setLeftImage(ImageViewModel.image(UIImage(named: "icon_clock")))
+		scheduleTitle.setLeftImage(ImageViewModel.image(#imageLiteral(resourceName: "icon_clock")))
 		scheduleTitle.setRightImage(ImageViewModel.image(UIConstants.ScheduleStackView.showList))
 		scheduleTitle.setSeparatorPosition()
 		scheduleTitle.setTitle(Localizator.standard.localizedString("График работы"))
@@ -216,7 +216,6 @@ class ShopInfoView: InitView {
 		scheduleTitle.roundCorners(radius: UIConstants.ScheduleStackView.cornerRadius, borderWidth: UIConstants.ScheduleStackView.borderWidth, borderColor: UIConstants.ScheduleStackView.borderColor)
 	}
 	
-  
   // MARK: - Interface
   func localize() {
 //    scheduleTitleLabel.text = "График работы".localized()
@@ -249,8 +248,6 @@ extension ShopInfoView: UITableViewDelegate, UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "SceduleTableViewCell", for: indexPath) as! SceduleTableViewCell
 		return cell
 	}
-	
-	
 }
 
 // MARK: - UIConstants
@@ -308,7 +305,7 @@ private enum UIConstants {
   enum ScheduleTitle {
     static let top: CGFloat = 10
   }
-	enum ScheduleStackView{
+	enum ScheduleStackView {
 		static let space: CGFloat = 10
 		static let top: CGFloat = 15
 		static let bottom: CGFloat = -25
@@ -318,8 +315,8 @@ private enum UIConstants {
 		static let borderWidth: CGFloat = 1
 		static let borderColor: CGColor = CGColor(red: 0.902, green: 0.902, blue: 0.902, alpha: 1)
 		static let backgroundColor: UIColor = .white
-		static let showList: UIImage? = UIImage(named: "arrow_down")
-		static let hiddenList: UIImage? = UIImage(named: "arrow_up")
+		static let showList: UIImage? = #imageLiteral(resourceName: "arrow_down")
+		static let hiddenList: UIImage? = #imageLiteral(resourceName: "arrow_up")
 	}
   enum ScheduleDescription {
     static let trailing: CGFloat = 5

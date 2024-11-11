@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-
 class ShopsAPI: NetworkAPI {
   
   // MARK: - Variables

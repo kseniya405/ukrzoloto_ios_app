@@ -127,8 +127,7 @@ class GiftViewController: LocalizableViewController, NavigationButtoned, ErrorAl
   private func removeObservers() {
     NotificationCenter.default.removeObserver(self)
   }
-  
-  
+    
   private func setupSenderControllers() {
     senderControllers.nameController = ValidateController(textField: selfView.getSenderNameTextField(),
                                                           type: .name)
@@ -295,17 +294,9 @@ extension GiftViewController: PhoneNumberControllerDelegate {
   }
 }
 
-
 // MARK: - EmailControllerDelegate
 extension GiftViewController: EmailControllerDelegate {
   func didChangeEmail() {
     updateContinueButtonState()
   }
 }
-
-//// MARK: - BetterSegmentedControlDelegate
-//extension GiftViewController: BetterSegmentedControlDelegate {
-//  func shouldSwitchTo(index: Int) -> Bool {
-//    return index <= selfView.getSegmentedControl().index
-//  }
-//}

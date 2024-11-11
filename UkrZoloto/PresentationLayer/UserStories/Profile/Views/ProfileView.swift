@@ -77,7 +77,6 @@ class ProfileView: InitView {
 
 }
 
-
 // MARK: - UIConstants
 private enum UIConstants {
   enum TableView {

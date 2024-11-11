@@ -126,8 +126,4 @@ extension WebViewController: WKNavigationDelegate {
   func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
     HUD.hide()
   }
-  
-  
-  
 }
-

@@ -19,8 +19,8 @@ class ImageViewCellController: AUIDefaultViewController {
   weak var delegate: ImageViewCellControllerDelegate?
   
   var imageView: UIImageView? {
-    set { view = newValue }
     get { return view as? UIImageView }
+    set { view = newValue }
   }
   
   var imageViewModel: ImageViewModel? {

@@ -19,8 +19,8 @@ class MultiSelectCellController: AUIDefaultViewController {
   weak var delegate: MultiSelectCellControllerDelegate?
   
   var multiSelectView: MultiSelectView? {
-    set { view = newValue }
     get { return view as? MultiSelectView }
+    set { view = newValue }
   }
   
   private(set) var filter: SelectFilter {

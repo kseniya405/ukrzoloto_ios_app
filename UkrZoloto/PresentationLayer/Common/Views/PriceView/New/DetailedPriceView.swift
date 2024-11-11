@@ -99,7 +99,7 @@ class DetailedPriceView: InitView {
   // MARK: - Interface
   func configure(with viewModel: PriceDetailsViewModel) {
       
-    //header view: total goods count and total price before discount
+    // header view: total goods count and total price before discount
     
     if let header = viewModel.header {
       
@@ -134,7 +134,6 @@ class DetailedPriceView: InitView {
 			exchangeView.isHidden = true
  }
 		
-		
     goodsStackView.setNeedsLayout()
     goodsStackView.layoutIfNeeded()
     
@@ -142,7 +141,7 @@ class DetailedPriceView: InitView {
     
     let discountSeparatorIndex = mainStackView.arrangedSubviews.firstIndex(of: discountStackView)! + 1
     
-    if viewModel.discounts.count > 0 {
+    if !viewModel.discounts.isEmpty {
       
       discountStackView.isHidden = false
       mainStackView.arrangedSubviews[discountSeparatorIndex].isHidden = false
@@ -161,17 +160,12 @@ class DetailedPriceView: InitView {
                        icon: item.icon,
                        additionalText: nil,
                        textColor: discount.shouldHighlightValue ? UIColor(named: "red")! : nil)
-            
-            
             discountStackView.addArrangedSubview(view)
           }
-          
         default: break
         }
       }
-    
     } else {
-      
       mainStackView.arrangedSubviews[discountSeparatorIndex].isHidden = true
       discountStackView.isHidden = true
     }
@@ -217,10 +211,10 @@ class DetailedPriceView: InitView {
     
     totalView.setup(title: total.title, valueString: total.valueString)
     
-    [mainStackView, discountStackView, self].forEach { v in
+    [mainStackView, discountStackView, self].forEach { value in
     
-      v.setNeedsLayout()
-      v.layoutIfNeeded()
+      value.setNeedsLayout()
+      value.layoutIfNeeded()
     }
     
     setNeedsLayout()
@@ -228,10 +222,9 @@ class DetailedPriceView: InitView {
   }
 }
 
-fileprivate extension DetailedPriceView {
+private extension DetailedPriceView {
   
   func createSeparator() -> UIView {
-    
     let view = UIView()
     view.backgroundColor = UIColor(named: "card")!
     view.prepareForStackView()
@@ -241,8 +234,7 @@ fileprivate extension DetailedPriceView {
   }
 }
 
-
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   enum Background {
     static let color = UIColor(hex: "#F6F6F6")

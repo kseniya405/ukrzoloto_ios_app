@@ -30,7 +30,7 @@ struct DeliveryMethod {
     guard let code = json[NetworkResponseKey.Delivery.code].string,
       let id = json[NetworkResponseKey.Delivery.id].int,
       let title = json[NetworkResponseKey.Delivery.title].string,
-          let _ = json[NetworkResponseKey.Delivery.type].string else {
+          json[NetworkResponseKey.Delivery.type].string != nil else {
         return nil
     }
     self.id = id

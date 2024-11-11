@@ -48,7 +48,7 @@ class SearchView<T: HashableTitle>: InitView, UITableViewDataSource, UITableView
   // MARK: - Layout
   override func layoutSubviews() {
     super.layoutSubviews()
-    mainView.roundCorners(corners:[.layerMinXMinYCorner, .layerMinXMaxYCorner],
+    mainView.roundCorners(corners: [.layerMinXMinYCorner, .layerMinXMaxYCorner],
                           radius: UIConstants.MainView.corderRadius)
   }
   

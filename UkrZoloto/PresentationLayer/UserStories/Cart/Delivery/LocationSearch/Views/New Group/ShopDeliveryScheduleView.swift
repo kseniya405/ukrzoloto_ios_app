@@ -14,15 +14,15 @@ protocol ShopDeliveryScheduleViewDelegate: AnyObject {
 
 class ShopDeliveryScheduleView: UIView {
 
-	@IBOutlet weak var shopStateIndicatorLabel: UILabel!
-	@IBOutlet weak var shopStateDetailsLabel: UILabel!
-	@IBOutlet weak var openScheduleTitleLabel: UILabel!
-	@IBOutlet weak var scheduleContainerView: UIStackView!
-	@IBOutlet weak var scheduleHeaderContainer: UIView!
-	@IBOutlet weak var scheduleClockImageView: UIImageView!
-	@IBOutlet weak var scheduleLabel: UILabel!
-	@IBOutlet weak var scheduleArrowImageView: UIImageView!
-	@IBOutlet weak var scheduleTableView: UITableView! {
+	@IBOutlet private weak var shopStateIndicatorLabel: UILabel!
+	@IBOutlet private weak var shopStateDetailsLabel: UILabel!
+	@IBOutlet private weak var openScheduleTitleLabel: UILabel!
+	@IBOutlet private weak var scheduleContainerView: UIStackView!
+	@IBOutlet private weak var scheduleHeaderContainer: UIView!
+	@IBOutlet private weak var scheduleClockImageView: UIImageView!
+	@IBOutlet private weak var scheduleLabel: UILabel!
+	@IBOutlet private weak var scheduleArrowImageView: UIImageView!
+	@IBOutlet private weak var scheduleTableView: UITableView! {
 		didSet {
 			scheduleTableView.delegate = self
 			scheduleTableView.dataSource = self
@@ -36,8 +36,7 @@ class ShopDeliveryScheduleView: UIView {
 	private var shop: NewShopsItem?
 	private var status: ShopStatus = .isOpened
 	private var weekDays = [String]()
-	
-		
+			
 	func set(shop: NewShopsItem, delegate: ShopDeliveryScheduleViewDelegate?) {
 		self.shop = shop
 		self.delegate = delegate
@@ -69,8 +68,8 @@ class ShopDeliveryScheduleView: UIView {
 		scheduleTableView.reloadData()
 	}
 	
-	fileprivate func shopUIConfigure() {
-		scheduleClockImageView.image = UIImage(named: "icon_clock")
+	private func shopUIConfigure() {
+		scheduleClockImageView.image = #imageLiteral(resourceName: "icon_clock")
 		scheduleLabel.text = Localizator.standard.localizedString("График работы")
 		scheduleLabel.font = UIFont.regularAppFont(of: 14)
 		
@@ -161,7 +160,7 @@ private enum UIConstants {
 		static let numberOfLines = 0
 	}
 	
-	enum ScheduleStackView{
+	enum ScheduleStackView {
 		static let space: CGFloat = 10
 		static let top: CGFloat = 15
 		static let bottom: CGFloat = -25
@@ -171,7 +170,7 @@ private enum UIConstants {
 		static let borderWidth: CGFloat = 1
 		static let borderColor: CGColor = CGColor(red: 0.902, green: 0.902, blue: 0.902, alpha: 1)
 		static let backgroundColor: UIColor = .white.withAlphaComponent(0.8)
-		static let showList: UIImage? = UIImage(named: "arrow_down")
-		static let hiddenList: UIImage? = UIImage(named: "arrow_up")
+		static let showList: UIImage? = #imageLiteral(resourceName: "arrow_down")
+		static let hiddenList: UIImage? = #imageLiteral(resourceName: "arrow_up")
 	}
 }

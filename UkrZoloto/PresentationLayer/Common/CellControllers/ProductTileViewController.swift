@@ -20,8 +20,8 @@ class ProductTileViewController: AUIDefaultViewController {
   weak var delegate: ProductTileViewControllerDelegate?
   
   var tileView: ProductTileView? {
-    set { view = newValue }
     get { return view as? ProductTileView }
+    set { view = newValue }
   }
   
   var tileViewModel: ProductTileViewModel? {

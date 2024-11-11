@@ -186,12 +186,8 @@ class ProfileService {
         EventService.shared.tryUpdateUserInformation()
 
         if authData.isUserExist {
-          //TODO: - Replace MindBoxService with new service integration
-          //MindBoxService.shared.didLogin(with: response.user.phone)
           EventService.shared.logLogin()
         } else {
-          //TODO: - Replace MindBoxService with new service integration
-          //MindBoxService.shared.didRegister(with: response.user.phone)
           EventService.shared.logSignUp()
         }
         completion(.success(nil))
@@ -303,8 +299,7 @@ class ProfileService {
                                   EventService.shared.logProfileStatus(isFull: user.isFull)
 
                                   EventService.shared.updateUserInformation(user, isForceUpdate: true)
-                                  //TODO: - Replace MindBoxService with new service integration
-                                  //MindBoxService.shared.didEditProfile()
+
                                 case .failure(let error):
                                   completion(.failure(error))
                                 }
@@ -315,7 +310,7 @@ class ProfileService {
     self.userId = userId
   }
   
-  //MARK: - Contacts
+  // MARK: - Contacts
   
   func updateContacts() {
     

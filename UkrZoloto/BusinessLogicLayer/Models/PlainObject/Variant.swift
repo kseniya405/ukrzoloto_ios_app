@@ -39,6 +39,6 @@ struct Variant {
     self.size = Property(json: json[NetworkResponseKey.Product.size])
     self.properties = json[NetworkResponseKey.Product.properties].arrayValue.compactMap { Property(json: $0) }
     isInCart = json[NetworkResponseKey.Product.inCart].boolValue
-		self.creditList = json[NetworkResponseKey.Product.creditList].arrayValue.compactMap { CreditOption (json: $0) }
+		self.creditList = json[NetworkResponseKey.Product.creditList].arrayValue.compactMap { CreditOption(json: $0) }
   }
 }

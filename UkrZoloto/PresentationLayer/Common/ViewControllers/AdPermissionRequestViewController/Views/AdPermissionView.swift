@@ -68,11 +68,6 @@ class AdPermissionView: RoundedContainerView {
   private let button = RoundedButton(fillColor: UIColor.color(r: 255, g: 220, b: 136),
                                      textColor: UIColor.color(r: 31, g: 35, b: 35))
   
-  override func draw(_ rect: CGRect) {
-    super.draw(rect)
-    
-  }
-  
   override func layoutSubviews() {
     super.layoutSubviews()
     gradientLayer.frame = bounds
@@ -90,7 +85,7 @@ class AdPermissionView: RoundedContainerView {
   }
 }
 
-//MARK: - Public methods
+// MARK: - Public methods
 extension AdPermissionView {
   
   func setTitle(_ text: String) {
@@ -133,7 +128,7 @@ extension AdPermissionView {
   }
 }
 
-fileprivate extension AdPermissionView {
+private extension AdPermissionView {
   
   func setupView() {
     
@@ -163,15 +158,15 @@ fileprivate extension AdPermissionView {
     
     let topSubview = IconLabelView()
     topSubview.tag = 1
-    topSubview.setIcon(UIImage(named: "iconsGem"))
+    topSubview.setIcon(#imageLiteral(resourceName: "iconsGem"))
     
     let middleSubview = IconLabelView()
     middleSubview.tag = 2
-    middleSubview.setIcon(UIImage(named: "iconsBell"))
+    middleSubview.setIcon(#imageLiteral(resourceName: "iconsBell"))
     
     let bottomSubview = IconLabelView()
     bottomSubview.tag = 3
-    bottomSubview.setIcon(UIImage(named: "iconsBluehorn"))
+    bottomSubview.setIcon(#imageLiteral(resourceName: "iconsBluehorn"))
     
     stackView.addArrangedSubview(topSubview)
     stackView.addArrangedSubview(middleSubview)
@@ -198,7 +193,7 @@ fileprivate extension AdPermissionView {
   
   func setupIllustration() {
     
-    let image = UIImage(named: "idfa_illustration")
+    let image = #imageLiteral(resourceName: "idfa_illustration")
     imageView.image = image
     
     addSubview(imageView)
@@ -226,7 +221,7 @@ fileprivate extension AdPermissionView {
   }
 }
 
-fileprivate extension AdPermissionView {
+private extension AdPermissionView {
   
   enum UIConstants {
     

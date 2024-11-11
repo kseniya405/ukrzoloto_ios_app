@@ -114,7 +114,7 @@ class CartItemTableViewCell: UITableViewCell, Reusable {
   
   private let removeButton = UIButton()
 	
-	private var cartItem: CartItem? = nil
+	private var cartItem: CartItem?
   
   // MARK: - Life Cycle
   required init?(coder aDecoder: NSCoder) {
@@ -286,14 +286,14 @@ class CartItemTableViewCell: UITableViewCell, Reusable {
 	
 	private func configureExchangeView(cartItem: CartItem) {
 		if cartItem.availableExchangeVariants.isEmpty {
-			exchangeContainerView.snp.updateConstraints{ make in
+			exchangeContainerView.snp.updateConstraints { make in
 				make.height.equalTo(0)
 			}
 			exchangeContainerView.isHidden = true
 			return
 		}
 		exchangeContainerView.isHidden = false
-		exchangeContainerView.snp.updateConstraints{ make in
+		exchangeContainerView.snp.updateConstraints { make in
 			make.height.equalTo(30)
 		}
 		exchangeTitleLabel.text = Localizator.standard.localizedString("Обмен украшений")
@@ -313,16 +313,14 @@ class CartItemTableViewCell: UITableViewCell, Reusable {
 		exchangeTooltipImageView.image = #imageLiteral(resourceName: "info_icon_highlighted")
 		var selectedExchangeVariant: ExchangeItem = .none
 		for service in cartItem.services ?? [] {
-			for option in service.options {
-					if option.selected {
-						if let item = ExchangeItem(rawValue: option.code), option.price != 0 {
-							selectedExchangeVariant = item
-						}
-					}
+			for option in service.options where option.selected {
+        if let item = ExchangeItem(rawValue: option.code), option.price != 0 {
+          selectedExchangeVariant = item
+        }
 			}
 		}
 		if preselectedExchangeVariant != selectedExchangeVariant {
-			checkboxImageView.image = 	#imageLiteral(resourceName: "iconsCheckBoxDisactive")
+			checkboxImageView.image = #imageLiteral(resourceName: "iconsCheckBoxDisactive")
 			return
 		}
 		switch selectedExchangeVariant {
@@ -457,7 +455,7 @@ private enum UIConstants {
 	enum ExchangeVariantsLabel {
 		static let font = UIFont.boldAppFont(of: 13)
 		static let color = UIColor.color(r: 4, g: 35, b: 32)
-		static let borderColor = UIColor(red: 0.122, green: 0.137, blue: 0.137, alpha: 0.25).cgColor
+		static let borderColor = #colorLiteral(red: 0.122, green: 0.137, blue: 0.137, alpha: 0.25).cgColor
 	}
 	
 	enum ExchangeTooltipLabel {

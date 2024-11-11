@@ -163,10 +163,6 @@ class FloatingTextField: UITextField {
     }
     return result
   }
-  
-  override func layoutSubviews() {
-    super.layoutSubviews()
-  }
 }
 
 private extension FloatingTextField {

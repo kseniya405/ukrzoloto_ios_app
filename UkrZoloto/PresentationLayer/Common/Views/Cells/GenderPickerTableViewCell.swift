@@ -67,7 +67,7 @@ class GenderPickerTableViewCell: UITableViewCell, Reusable {
     initConfigure()
   }
   
-  //MARK: - Public methods
+  // MARK: - Public methods
   
   func setGenderSelected(gender: Gender) {
     
@@ -92,7 +92,7 @@ class GenderPickerTableViewCell: UITableViewCell, Reusable {
     errorLabel.isHidden = true
   }
   
-  //MARK: - Private methods
+  // MARK: - Private methods
   private func initConfigure() {
     selectionStyle = .none
     configureSelfView()
@@ -152,7 +152,7 @@ class GenderPickerTableViewCell: UITableViewCell, Reusable {
     imageView.backgroundColor = UIConstants.indicatorEmptyBackgroundColor
     imageView.contentMode = .scaleAspectFill
     imageView.clipsToBounds = true
-    imageView.layer.cornerRadius = UIConstants.height/2
+    imageView.layer.cornerRadius = UIConstants.height / 2
     view.addSubview(imageView)
     
     imageView.snp.makeConstraints { make in
@@ -194,9 +194,9 @@ class GenderPickerTableViewCell: UITableViewCell, Reusable {
     var counter = 0
     var index = 0
     
-    Gender.allCases.forEach { g in
+    Gender.allCases.forEach { genderItem in
       
-      if g == gender {
+      if genderItem == gender {
         index = counter
         return
       }
@@ -209,7 +209,7 @@ class GenderPickerTableViewCell: UITableViewCell, Reusable {
   
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   static let backgroundColor = UIColor.clear
   static let stackViewSpacing: CGFloat = 5.0
@@ -219,7 +219,7 @@ fileprivate enum UIConstants {
   static let height: CGFloat = 24.0
   static let font = UIFont.semiBoldAppFont(of: 13)
   static let indicatorEmptyBackgroundColor = UIColor(hex: "#E7E7E7")
-  static let selectedIcon = UIImage(named: "radio_icon")
+  static let selectedIcon = #imageLiteral(resourceName: "radio_icon")
   static let titleColor = UIColor.black
   static let titleFont = UIFont.semiBoldAppFont(of: 13)
   static let topOffset: CGFloat = 16.0

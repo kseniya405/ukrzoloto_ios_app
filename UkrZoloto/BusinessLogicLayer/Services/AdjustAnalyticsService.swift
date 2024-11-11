@@ -41,7 +41,7 @@ class AdjustAnalyticsService {
   }
 }
 
-//MARK: - Events
+// MARK: - Events
 extension AdjustAnalyticsService {
   class var userPhoneNumber: String? {
     get {

@@ -18,8 +18,8 @@ class ContactsViewController: AUIDefaultViewController {
   weak var delegate: ContactsCellControllerDelegate?
 
   var supportView: SupportView? {
-    set { view = newValue }
     get { return view as? SupportView }
+    set { view = newValue }
   }
 
   private(set) var info: [Social] = []

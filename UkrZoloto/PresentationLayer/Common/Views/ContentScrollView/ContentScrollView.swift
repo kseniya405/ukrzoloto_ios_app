@@ -60,4 +60,3 @@ class ContentScrollView: InitView {
     scrollView.scrollRectToVisible(frame, animated: true)
   }
 }
-

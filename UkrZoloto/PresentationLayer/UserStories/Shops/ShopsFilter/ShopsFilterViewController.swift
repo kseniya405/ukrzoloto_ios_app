@@ -28,14 +28,10 @@ class ShopsFilterViewController: LocalizableViewController, NavigationButtoned {
 	
 	var showHasJewelerFilter = true
 	
-	private var titles =  [String]()
+	private var titles = [String]()
 	
 	override func loadView() {
 		view = selfView
-	}
-	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
 	}
 	
 	// MARK: - Setup
@@ -55,7 +51,7 @@ class ShopsFilterViewController: LocalizableViewController, NavigationButtoned {
 												button: ButtonsFactory.backButtonForNavigationItem(),
 												side: .left)
 		addNavigationButton(#selector(didTapOnClearFilters),
-												button:  ButtonsFactory.clearFilterButtonForNavItem(),
+												button: ButtonsFactory.clearFilterButtonForNavItem(),
 												side: .right)
 	}
 	

@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class CartPriceTableViewCell: UITableViewCell, Reusable {
   
   private let priceView = DetailedPriceView()
@@ -44,7 +43,7 @@ class CartPriceTableViewCell: UITableViewCell, Reusable {
   }
 }
 
-fileprivate extension CartPriceTableViewCell {
+private extension CartPriceTableViewCell {
   
   func initConfigure() {
     setupSubviews()

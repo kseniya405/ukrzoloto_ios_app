@@ -42,8 +42,8 @@ class FullPaymentController: PaymentController {
   }
   
   var paymentView: DeliveryTypeView? {
-    set { view = newValue }
     get { return view as? DeliveryTypeView }
+    set { view = newValue }
   }
 
   var paymentViewModel: FullPaymentViewModel? {

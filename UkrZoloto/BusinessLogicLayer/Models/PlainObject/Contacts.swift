@@ -32,11 +32,11 @@ struct Contacts {
     guard let phone = contacts[NetworkResponseKey.Contacts.phone]?.string,
           let weekday = contacts[NetworkResponseKey.Contacts.weekday]?.string,
           let weekend = contacts[NetworkResponseKey.Contacts.weekend]?.string,
-          let telegram = socials[NetworkResponseKey.Contacts.telegram_bot]?.string,
+          let telegram = socials[NetworkResponseKey.Contacts.telegramBot]?.string,
           let viber = socials[NetworkResponseKey.Contacts.viber]?.string,
           let messenger = socials[NetworkResponseKey.Contacts.messenger]?.string,
           let instagram = socials[NetworkResponseKey.Contacts.instagram]?.string,
-          let appleChat = socials[NetworkResponseKey.Contacts.apple_chat]?.string else {
+          let appleChat = socials[NetworkResponseKey.Contacts.appleChat]?.string else {
       return nil
     }
      

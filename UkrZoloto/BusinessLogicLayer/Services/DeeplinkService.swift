@@ -76,7 +76,7 @@ final class DeeplinkService {
 //    EventService.shared.logUniversalLinkEvent(urlPath: urlString)
   }
   
-  public func handleScreen(with data:  [String : Any]) {
+  public func handleScreen(with data: [String: Any]) {
 //		guard !deepLinkWasUsed else { return }
 //    var data = data
     if let path = data["path"] as? String, path.contains("catalog") {

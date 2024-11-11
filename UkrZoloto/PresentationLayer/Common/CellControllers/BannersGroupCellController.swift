@@ -19,8 +19,8 @@ class BannersGroupCellController: AUIDefaultViewController {
   weak var delegate: BannersGroupCellControllerDelegate?
   
   var compilationsView: BannersGroupView? {
-    set { view = newValue }
     get { return view as? BannersGroupView }
+    set { view = newValue }
   }
   
   private(set) var title: String?

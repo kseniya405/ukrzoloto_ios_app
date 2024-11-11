@@ -148,7 +148,7 @@ extension CatalogCoordinator: ProductSearchViewControllerOutput {
   }
 }
 
-//MARK: - AuthCoordinatorOutput
+// MARK: - AuthCoordinatorOutput
 extension CatalogCoordinator: AuthCoordinatorOutput {
   func didAuthorize() {
     ProfileFormService.shared.displayProfileDataIfNeeded(context: navigationController)
@@ -288,7 +288,7 @@ extension CatalogCoordinator: GiftViewControllerOutput {
   }
 }
 
-//MARK: - CreditOptionsViewControllerOutput
+// MARK: - CreditOptionsViewControllerOutput
 extension CatalogCoordinator: CreditOptionsViewControllerOutput {
   func creditOptionsViewControllerSelectedCreditOption(viewController: UIViewController) {
     output?.showCart()
@@ -299,4 +299,3 @@ extension CatalogCoordinator: CreditOptionsViewControllerOutput {
     navigationController.popViewController(animated: true)
   }
 }
-

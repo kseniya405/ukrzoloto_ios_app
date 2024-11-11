@@ -68,14 +68,13 @@ class ProfileFormView: InitView {
   }()
     
   private var tableViewTopOffset: CGFloat = UIConstants.SelfView.TableView.defaultTopOffset
-  
-  
+    
   override func initConfigure() {
     super.initConfigure()
     configureSelf()
   }
   
-  //MARK: - Public methods
+  // MARK: - Public methods
   
   func localize() {
     titleLabel.text = Localizator.standard.localizedString("Один шаг до скидок")
@@ -109,8 +108,8 @@ class ProfileFormView: InitView {
   }
 }
 
-//MARK: - Private methods
-fileprivate extension ProfileFormView {
+// MARK: - Private methods
+private extension ProfileFormView {
   
   func configureSelf() {
     backgroundColor = UIConstants.SelfView.backgroundColor
@@ -184,10 +183,10 @@ fileprivate extension ProfileFormView {
         .offset(UIConstants.SelfView.Enumeration.top)
     }
 
-    let generalDiscountIcon = UIImage(named: "general_discount_icon")!
-    let birthdayDiscountIcon = UIImage(named: "birthday_discount_icon")!
-    let cashbackDiscountIcon = UIImage(named: "cashback_discount_icon")!
-    let specialPromoIcon = UIImage(named: "special_promo_icon")!
+    let generalDiscountIcon = #imageLiteral(resourceName: "general_discount_icon")
+    let birthdayDiscountIcon = #imageLiteral(resourceName: "birthday_discount_icon")
+    let cashbackDiscountIcon = #imageLiteral(resourceName: "cashback_discount_icon")
+    let specialPromoIcon = #imageLiteral(resourceName: "special_promo_icon")
         
     stackView.addArrangedSubview(constructHorizontalStackView(icon: generalDiscountIcon,
                                                               label: generalDiscountLabel))
@@ -284,10 +283,10 @@ fileprivate extension ProfileFormView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   enum SelfView {
-    static let backgroundColor = UIColor(red: 0, green: 0.314, blue: 0.184, alpha: 1)
+    static let backgroundColor = #colorLiteral(red: 0, green: 0.314, blue: 0.184, alpha: 1)
     static let labelColor = UIColor.white
     
     enum Title {

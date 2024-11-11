@@ -62,4 +62,3 @@ private enum UIConstants {
     static let insets: CGFloat = 24
   }
 }
-

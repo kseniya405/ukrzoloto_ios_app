@@ -13,8 +13,7 @@ class CartService {
   // MARK: - Public variables
   static let shared = CartService()
   
-  private(set) var cart: Cart?
-	{
+  private(set) var cart: Cart? {
 	 didSet {
 		 cartWasUpdated()
 	 }
@@ -33,7 +32,7 @@ class CartService {
     return selectedCreditOption?.bank.rawValue
   }
 	
-	var cartDidUpdated: ((Cart?)->())?
+	var cartDidUpdated: ((Cart?) -> Void)?
 
   // MARK: - Life cycle
   private init() { }
@@ -190,7 +189,6 @@ class CartService {
 				switch result {
 				case .failure(_):
 					completion(result)
-					break
 				case .success(let model):
 					self.priceDetails = model
 					if model.changedResponse ?? false {
@@ -219,8 +217,7 @@ class CartService {
                                completion: completion)
   }
   
-  func getCreditOptions(for variantId: Int, completion: @escaping ((Result<[CreditOption]>) -> ())) {
-    
+  func getCreditOptions(for variantId: Int, completion: @escaping ((Result<[CreditOption]>) -> Void )) {
     CartAPI.shared.getCreditOptions(for: variantId, completion: completion)
   }
 	

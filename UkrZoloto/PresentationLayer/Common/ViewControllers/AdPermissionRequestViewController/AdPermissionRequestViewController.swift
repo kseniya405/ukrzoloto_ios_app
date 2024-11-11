@@ -21,17 +21,16 @@ class AdPermissionRequestViewController: LocalizableViewController {
       }
   }
   
-  //MARK: - Public variables
+  // MARK: - Public variables
   var output: AdPermissionRequestViewControllerOutput?
   
-  //MARK: - Private variables
+  // MARK: - Private variables
   private let selfView = AdPermissionView()
   
-  //MARK: - Life cycle
+  // MARK: - Life cycle
   override func loadView() {
     view = selfView
   }
-
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -57,8 +56,8 @@ class AdPermissionRequestViewController: LocalizableViewController {
   }
 }
 
-//MARK: - UI Routine
-fileprivate extension AdPermissionRequestViewController {
+// MARK: - UI Routine
+private extension AdPermissionRequestViewController {
 
   func setupView() {
     selfView.addTargetOnProceedButton(self, action: #selector(onProceedButtonTapped(_:)), for: .touchUpInside)

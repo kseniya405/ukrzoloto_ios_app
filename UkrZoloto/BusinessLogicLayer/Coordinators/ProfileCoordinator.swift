@@ -186,7 +186,7 @@ extension ProfileCoordinator: FavoritesViewControllerOutput {
   }
 }
 
-//MARK: - AuthCoordinatorOutput
+// MARK: - AuthCoordinatorOutput
 extension ProfileCoordinator: AuthCoordinatorOutput {
   
   func didAuthorize() {

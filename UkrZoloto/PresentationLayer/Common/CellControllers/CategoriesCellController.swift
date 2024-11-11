@@ -39,20 +39,20 @@ class CategoriesCellController: NSObject, AUIViewController {
   weak var delegate: CategoriesCellControllerDelegate?
   
   var categoriesView: CategoriesView? {
-    set { view = newValue }
     get { return view as? CategoriesView }
+    set { view = newValue }
   }
   
   var view: UIView? {
+    get {
+      return _view
+    }
     set {
       if newValue !== _view {
         unsetupView()
         _view = newValue
         setupView()
       }
-    }
-    get {
-      return _view
     }
   }
   

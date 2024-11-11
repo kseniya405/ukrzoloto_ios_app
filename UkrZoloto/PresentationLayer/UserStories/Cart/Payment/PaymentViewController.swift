@@ -73,7 +73,6 @@ class PaymentViewController: LocalizableViewController, ErrorAlertDisplayable {
   }
   
   private var totalPrice: Decimal {
-
     return priceDetails.totalPrice!
   }
 	
@@ -353,11 +352,8 @@ class PaymentViewController: LocalizableViewController, ErrorAlertDisplayable {
   }
   
   private func scrollToSelectedPaymentController() {
-    
     guard let payment = selectedPayment else { return }
-    
     if let controller = paymentControllers.filter({ $0.paymentMethodTitle == payment.title }).first {
-      
       selfView.scrollToView(controller.view!)
     }
   }
@@ -442,7 +438,6 @@ class PaymentViewController: LocalizableViewController, ErrorAlertDisplayable {
         
         let controller = InstallmentPaymentController()
 
-        
         let viewModel = InstallmentPaymentViewModel(providerName: payment.title,
                                                     allowedMonths: payment.allowedMonths,
                                                     description: payment.description,
@@ -503,7 +498,6 @@ class PaymentViewController: LocalizableViewController, ErrorAlertDisplayable {
       return
     }
 
-    
     paymentControllers
       .filter({ $0 is InstallmentPaymentController && $0.paymentMethodTitle == selectedPayment.title})
       .map({$0 as! InstallmentPaymentController})
@@ -547,7 +541,7 @@ class PaymentViewController: LocalizableViewController, ErrorAlertDisplayable {
         result.append(.discount(.promoBonus, priceDetails.actionBonuses))
       }
       
-      //certificate
+      // certificate
       
       if priceDetails.personalDiscount > 0 {
         result.append(.discount(.discount, priceDetails.personalDiscount))
@@ -579,10 +573,8 @@ class PaymentViewController: LocalizableViewController, ErrorAlertDisplayable {
 		
 		for item in CartService.shared.cart?.cartItems ?? [] {
 			for service in item.services ?? [] {
-				for option in service.options {
-						if option.selected {
-							selectedExchanges += 1
-						}
+				for option in service.options where option.selected {
+          selectedExchanges += 1
 				}
 			}
 		}
@@ -708,7 +700,7 @@ extension PaymentViewController: FullPaymentControllerDelegate {
   }
 }
 
-//MARK: - InstallmentOaymentControllerDelegate
+// MARK: - InstallmentOaymentControllerDelegate
 extension PaymentViewController: InstallmentPaymentControllerDelegate {
   
   func tappedOnMonths(installmentPaymentController: InstallmentPaymentController) {
@@ -733,7 +725,7 @@ extension PaymentViewController: InstallmentPaymentControllerDelegate {
     guard let payment = selectedPayment as? InstallmentPaymentMethod,
           let parentView = parent?.view  else {
             
-            //month picker displaying is allowed only for credit payment methods
+            // month picker displaying is allowed only for credit payment methods
             return
           }
     
@@ -920,9 +912,9 @@ extension PaymentViewController: AlphabankPaymentViewDelegate {
   
   func paymentViewDidEnteredCardNumbers(_ lastNumbersComponent: String) {
     guard let payment = selectedPayment as? InstallmentPaymentMethod,
-          let _ = Bank(rawValue: payment.providerCode) else {
-            return
-          }
+          Bank(rawValue: payment.providerCode) != nil else {
+      return
+    }
     
     payment.cardNumbers = lastNumbersComponent
   }

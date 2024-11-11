@@ -386,7 +386,7 @@ extension MainCoordinator: OptionsViewControllerOutput {
   }
 }
 
-//MARK: - AuthCoordinatorOutput
+// MARK: - AuthCoordinatorOutput
 extension MainCoordinator: AuthCoordinatorOutput {
   
   func didAuthorize() {
@@ -488,8 +488,7 @@ extension MainCoordinator: GiftViewControllerOutput {
   }  
 }
 
-//MARK: - CreditOptionsViewControllerOutput
-
+// MARK: - CreditOptionsViewControllerOutput
 extension MainCoordinator: CreditOptionsViewControllerOutput {
 
   func creditOptionsViewControllerSelectedCreditOption(viewController: UIViewController) {

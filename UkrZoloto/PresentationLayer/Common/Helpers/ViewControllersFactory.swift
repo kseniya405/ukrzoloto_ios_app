@@ -31,7 +31,7 @@ class ViewControllersFactory {
   
   // MARK: - Private methods
   private static func getWebURL(_ type: WebViewControllerType) -> URL? {
-    return LocalizationService.shared.language.code  == AppLanguage.ISO639Alpha2.russian ? getRussianURL(type) : getUkrainianURL(type)
+    return LocalizationService.shared.language.code == AppLanguage.ISO639Alpha2.russian ? getRussianURL(type) : getUkrainianURL(type)
   }
   
   private static func getUkrainianURL(_ type: WebViewControllerType) -> URL? {
@@ -50,9 +50,9 @@ class ViewControllersFactory {
       return URL(string: "https://ukrzoloto.ua/uk/page/publichna-oferta/")
     case .site:
       return URL(string: "ukrzoloto.ua")
-		case .exchangeDetails:
-			return URL(string: "https://ukrzoloto.ua/uk/page/exchange-service/")
-		}
+    case .exchangeDetails:
+      return URL(string: "https://ukrzoloto.ua/uk/page/exchange-service/")
+    }
   }
   
   private static func getRussianURL(_ type: WebViewControllerType) -> URL? {

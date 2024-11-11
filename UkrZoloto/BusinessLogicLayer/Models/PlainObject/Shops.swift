@@ -26,7 +26,7 @@ struct NewShops {
 			}
 			self.cities = cities
 			var coordinatesArray: [ShopCoordinates] = []
-			let rawCoordinates =  json[NetworkResponseKey.NewShops.coordinates].dictionaryObject as? [String: Int] ?? [:]
+			let rawCoordinates = json[NetworkResponseKey.NewShops.coordinates].dictionaryObject as? [String: Int] ?? [:]
 			for (key, value) in rawCoordinates {
 				if let coordinate = key.toCLLocationCoordinate2D() {
 					coordinatesArray.append(ShopCoordinates(shopID: value, coordinates: coordinate))

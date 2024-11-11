@@ -161,7 +161,6 @@ class GiftView: RoundedContainerView {
     senderView.setPhonePlaceholder(phone)
   }
   
-
   func showSenderView() {
     segmentedControl.setIndex(1)
     senderView.isHidden = false

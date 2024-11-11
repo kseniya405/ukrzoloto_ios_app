@@ -11,47 +11,44 @@ import Foundation
 class ContactsHelper {
   
   private var defaults = UserDefaults.standard
-
+  
   var formattedPhone: String {
-    set {
-      defaults.setValue(newValue, forKey: Keys.phone.rawValue)
-    }
-    
     get {
-      if let v = defaults.value(forKey: Keys.phone.rawValue) as? String {
-        return v
+      if let value = defaults.value(forKey: Keys.phone.rawValue) as? String {
+        return value
       }
       return "0 800 75 92 29"
     }
+    set {
+      defaults.setValue(newValue, forKey: Keys.phone.rawValue)
+    }
   }
-    
+  
   var phone: String {
     return formattedPhone.replacingOccurrences(of: " ", with: "")
   }
   
   var workdayHrs: String {
-    set {
-      defaults.setValue(newValue, forKey: Keys.workdayHrs.rawValue)
-    }
-    
     get {
-      if let v = defaults.value(forKey: Keys.workdayHrs.rawValue) as? String {
-        return v
+      if let value = defaults.value(forKey: Keys.workdayHrs.rawValue) as? String {
+        return value
       }
       return "9:00 - 20:00"
+    }
+    set {
+      defaults.setValue(newValue, forKey: Keys.workdayHrs.rawValue)
     }
   }
   
   var weekendHrs: String {
-    set {
-      defaults.setValue(newValue, forKey: Keys.weekendHrs.rawValue)
-    }
-    
     get {
-      if let v = defaults.value(forKey: Keys.weekendHrs.rawValue) as? String {
-        return v
+      if let value = defaults.value(forKey: Keys.weekendHrs.rawValue) as? String {
+        return value
       }
       return "10:00 - 19:00"
+    }
+    set {
+      defaults.setValue(newValue, forKey: Keys.weekendHrs.rawValue)
     }
   }
   
@@ -59,11 +56,11 @@ class ContactsHelper {
     
     let defaultArray: [SocialType] = [.viber, .telegram, .facebook, .instagram]
     
-    return defaultArray.map({getSocialModel(socialType: $0)})    
+    return defaultArray.map({getSocialModel(socialType: $0)})
   }
   
   func getSocialModel(socialType: SocialType) -> Social {
-   
+    
     let image: UIImage = {
       switch socialType {
       case .telegram:
@@ -115,7 +112,6 @@ class ContactsHelper {
   }
   
   func storeSocialUrl(contacts: Contacts) {
-
     let telegramKey = socialKeyPrefix + SocialType.telegram.rawValue
     defaults.setValue(contacts.telegramUrl, forKey: telegramKey)
     
@@ -135,7 +131,7 @@ class ContactsHelper {
   private let socialKeyPrefix = "social_url_"
 }
 
-fileprivate extension ContactsHelper {
+private extension ContactsHelper {
   
   enum Keys: String {
     case phone

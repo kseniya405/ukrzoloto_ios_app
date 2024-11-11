@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-
 class IconedPriceView: InitView {
-  
   
   private let imageView: UIImageView = {
     
@@ -141,10 +139,9 @@ class IconedPriceView: InitView {
       make.leading.equalTo(stackView.snp.trailing).offset(8.0)
     }
   }
-  
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   static let font = UIFont.regularAppFont(of: 14)
   static let lineHeight: CGFloat = 24.0

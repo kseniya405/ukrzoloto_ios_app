@@ -22,8 +22,8 @@ class HorizontalProductsGroupCellController: AUIDefaultViewController {
   weak var delegate: HorizontalProductsGroupCellControllerDelegate?
 
   var productsView: HorizontalProductsGroupView? {
-    set { view = newValue }
     get { return view as? HorizontalProductsGroupView }
+    set { view = newValue }
   }
 
   private(set) var title: String?
@@ -56,10 +56,6 @@ class HorizontalProductsGroupCellController: AUIDefaultViewController {
     super.unsetupView()
     collectionViewController.collectionView = nil
     productsView?.getShowMoreButton().removeTarget(nil, action: nil, for: .touchUpInside)
-  }
-
-  override func setup() {
-    super.setup()
   }
 
   // MARK: - Interface

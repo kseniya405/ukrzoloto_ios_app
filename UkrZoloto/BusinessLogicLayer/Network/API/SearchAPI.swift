@@ -89,12 +89,10 @@ class SearchAPI: NetworkAPI {
       }
     }
     
-    for (k, v) in filterAttr {
-      attr[k] = v
+    for (key, value) in filterAttr {
+      attr[key] = value
     }
     
     return attr
   }
-  
-  
 }

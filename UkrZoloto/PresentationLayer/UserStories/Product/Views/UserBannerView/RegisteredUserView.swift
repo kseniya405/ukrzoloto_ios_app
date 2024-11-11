@@ -41,7 +41,7 @@ class RegisteredUserView: InitView {
         label.textColor = UIConstants.DiscountStackView.textColor
         label.numberOfLines = 0
         label.backgroundColor = .clear
-        label.setContentCompressionResistancePriority(.defaultLow-1, for: .horizontal)
+        label.setContentCompressionResistancePriority(.defaultLow - 1, for: .horizontal)
         
         return label
     }()
@@ -65,7 +65,7 @@ class RegisteredUserView: InitView {
         label.textColor = UIConstants.DiscountStackView.textColor
         label.numberOfLines = 0
         label.backgroundColor = .clear
-        label.setContentCompressionResistancePriority(.defaultLow-1, for: .horizontal)
+        label.setContentCompressionResistancePriority(.defaultLow - 1, for: .horizontal)
         
         return label
     }()
@@ -86,7 +86,7 @@ class RegisteredUserView: InitView {
             make.height.equalTo(UIConstants.DiscountStackView.height)
         }
         
-        let persentsImageView = UIImageView(image: UIImage(named: "discount_icon"))
+        let persentsImageView = UIImageView(image: #imageLiteral(resourceName: "discount_icon"))
         persentsImageView.backgroundColor = .clear
         discountStackView.addArrangedSubview(persentsImageView)
         persentsImageView.snp.makeConstraints { make in
@@ -99,7 +99,7 @@ class RegisteredUserView: InitView {
         discountStackView.addArrangedSubview(discountLabel)
         discountStackView.addArrangedSubview(discountValueLabel)
         
-        let cashbackImageView = UIImageView(image: UIImage(named: "bonus_usage_icon"))
+        let cashbackImageView = UIImageView(image: #imageLiteral(resourceName: "bonus_usage_icon"))
         cashbackImageView.backgroundColor = .clear
       cashbackImageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
@@ -148,13 +148,13 @@ class RegisteredUserView: InitView {
     }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
     enum MainView {
         static let height: CGFloat = 148
         static let imageSize: CGFloat = 85
         static let cornerRadius: CGFloat = 22
-        static let icon = UIImage(named: "bigPercentsIcon")!
-        static let gradient = [.white, UIColor(red: 1, green: 0.95, blue: 0.89, alpha: 1)]
+        static let icon = #imageLiteral(resourceName: "bigPercentsIcon")
+        static let gradient = [.white, #colorLiteral(red: 1, green: 0.95, blue: 0.89, alpha: 1)]
         static let borderColor = UIColor(named: "card")!
         static let borderWidth: CGFloat = 1
     }

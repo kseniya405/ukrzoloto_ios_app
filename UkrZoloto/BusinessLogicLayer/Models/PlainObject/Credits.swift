@@ -9,7 +9,6 @@
 import Foundation
 import SwiftyJSON
 
-
 struct Credits {
   
   let monobank: Credit?
@@ -41,26 +40,26 @@ struct Credits {
 		var result = [DisplayableCredit?]()
 
 		if (monobank?.icon) != nil {
-			result.append(DisplayableCredit(image: UIImage(named:monobankInactiveIconName)))
+			result.append(DisplayableCredit(image: #imageLiteral(resourceName: monobankInactiveIconName)))
 		}
 
 		if (privatBankCredit?.icon) != nil {
-			result.append(DisplayableCredit(image: UIImage(named:privatInactiveIconName)))
+			result.append(DisplayableCredit(image: #imageLiteral(resourceName: privatInactiveIconName)))
 		}
 
 		if (abank?.icon) != nil {
-			result.append(DisplayableCredit(image: UIImage(named:abankIconName)))
+			result.append(DisplayableCredit(image: #imageLiteral(resourceName: abankIconName)))
 		}
 		
-		if (alphabank?.icon) != nil {
-			result.append(DisplayableCredit(image: UIImage(named:alphabankInactiveIconName)))
-		}
+    if (alphabank?.icon) != nil {
+      result.append(DisplayableCredit(image: #imageLiteral(resourceName: alphabankInactiveIconName)))
+    }
 		
 		if (privatBankInstantInstallment?.icon) != nil {
-			result.append(DisplayableCredit(image: UIImage(named:privatInstallmentInactiveIconName)))
+			result.append(DisplayableCredit(image: #imageLiteral(resourceName: privatInstallmentInactiveIconName)))
 		}
 		if (otp?.icon) != nil {
-			result.append(DisplayableCredit(image: UIImage(named:otpInactiveIconName)))
+			result.append(DisplayableCredit(image: #imageLiteral(resourceName: otpInactiveIconName)))
 		}
 		return result.compactMap({$0})
 	}

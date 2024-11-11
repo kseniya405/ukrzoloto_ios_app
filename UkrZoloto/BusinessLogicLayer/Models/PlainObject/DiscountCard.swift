@@ -20,12 +20,12 @@ struct DiscountCard {
   init?(json: JSON) {
     guard let dictionary = json.dictionary,
       let goldDiscount = dictionary[NetworkResponseKey.DiscountCard.discountGold]?.intValue,
-      //let silverDiscount = dictionary[NetworkResponseKey.DiscountCard.discountSilver]?.intValue,
+      // let silverDiscount = dictionary[NetworkResponseKey.DiscountCard.discountSilver]?.intValue,
       let cardNumber = dictionary[NetworkResponseKey.DiscountCard.cardNumber]?.string else {
         return nil
     }
     self.goldDiscount = goldDiscount
-    self.silverDiscount = 5//silverDiscount
+    self.silverDiscount = 5 // silverDiscount
     self.cardNumber = cardNumber
   }
   

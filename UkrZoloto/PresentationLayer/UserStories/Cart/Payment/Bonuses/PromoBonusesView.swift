@@ -257,6 +257,4 @@ private enum UIConstants {
     static let width: CGFloat = 200
     static let bottom: CGFloat = 24
   }
-  
 }
-

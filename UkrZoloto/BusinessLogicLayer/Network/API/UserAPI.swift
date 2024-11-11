@@ -114,7 +114,7 @@ class UserAPI: NetworkAPI {
     }
   }
   
-  func updateContacts(completion: @escaping (_ result: Result<Contacts>) -> ()) {
+  func updateContacts(completion: @escaping (_ result: Result<Contacts>) -> Void) {
     
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))

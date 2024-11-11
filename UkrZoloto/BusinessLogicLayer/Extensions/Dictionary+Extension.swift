@@ -11,8 +11,8 @@ import UIKit
 extension Dictionary {
   
   static func += (left: inout [String: Any], right: [String: Any]) {
-    for (k, v) in right {
-      left[k] = v
+    for (key, value) in right {
+      left[key] = value
     }
   }
   

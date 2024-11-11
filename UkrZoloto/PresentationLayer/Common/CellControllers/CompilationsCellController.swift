@@ -19,8 +19,8 @@ class CompilationsCellController: AUIDefaultViewController {
   weak var delegate: CompilationsCellControllerDelegate?
   
   var compilationsView: CompilationsView? {
-    set { view = newValue }
     get { return view as? CompilationsView }
+    set { view = newValue }
   }
   
   private(set) var title: String?

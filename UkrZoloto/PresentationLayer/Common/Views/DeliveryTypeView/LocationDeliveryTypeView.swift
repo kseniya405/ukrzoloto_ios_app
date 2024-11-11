@@ -123,7 +123,6 @@ class LocationDeliveryTypeView: DeliveryTypeView {
   }
 }
 
-
 // MARK: - UIConstants
 private enum UIConstants {
   static let containerViewColor = UIColor.clear

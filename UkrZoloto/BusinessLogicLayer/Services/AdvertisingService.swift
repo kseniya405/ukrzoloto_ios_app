@@ -37,8 +37,8 @@ class AdvertisingService {
   }
 }
 
-//MARK: - Internal logic
-fileprivate extension AdvertisingService {
+// MARK: - Internal logic
+private extension AdvertisingService {
   func idfaFeatureAvailable() -> Bool {
       let actualStatus = ATTrackingManager.trackingAuthorizationStatus
       

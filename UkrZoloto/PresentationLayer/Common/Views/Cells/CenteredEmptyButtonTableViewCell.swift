@@ -63,7 +63,7 @@ class CenteredEmptyButtonTableViewCell: UITableViewCell, Reusable {
     delegate?.didTapOnEmptyButton(title: emptyButton.attributedTitle(for: .normal)!.string)
   }
   
-  //MARK: - Public methods
+  // MARK: - Public methods
   
   func setTitle(_ title: String) {
     
@@ -78,7 +78,7 @@ class CenteredEmptyButtonTableViewCell: UITableViewCell, Reusable {
   }
 }
 
-fileprivate extension CenteredEmptyButtonTableViewCell {
+private extension CenteredEmptyButtonTableViewCell {
   
   enum UIConstants {
     

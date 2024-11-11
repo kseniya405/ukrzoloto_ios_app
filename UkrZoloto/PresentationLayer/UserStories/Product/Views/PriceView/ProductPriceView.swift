@@ -67,8 +67,7 @@ class ProductPriceView: InitView {
   
   private let priceLabel = UILabel()
   private let oldPriceLabel = UILabel()
-  
-  
+    
   override func initConfigure() {
     super.initConfigure()
     
@@ -83,7 +82,7 @@ class ProductPriceView: InitView {
 
 		let displayableCredits = credits.filter({ $0.showAsIcon })
     
-    guard displayableCredits.count > 0 else {
+    guard !displayableCredits.isEmpty else {
       
       mainStackView.removeArrangedSubviews([separatorView, creditStackView])
       priceStackView.snp.removeConstraints()
@@ -161,7 +160,7 @@ class ProductPriceView: InitView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   enum MainStackView {
     static let spacing: CGFloat = 10.0
   }
@@ -175,7 +174,7 @@ fileprivate enum UIConstants {
   }
 }
 
-fileprivate class CreditView: InitView {
+private class CreditView: InitView {
   private let imageView: UIImageView = {
     
     let imageView = UIImageView()
@@ -201,10 +200,10 @@ fileprivate class CreditView: InitView {
 			imageView.setImage(path: path, size:
 													CGSize(width: 16,
 																 height: 16))
-			imageView.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+			imageView.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
 			imageView.roundCorners(radius: 12,
 														 borderWidth: 1,
-														 borderColor: UIColor(red: 0.892, green: 0.892, blue: 0.892, alpha: 1).cgColor)
+														 borderColor: #colorLiteral(red: 0.892, green: 0.892, blue: 0.892, alpha: 1).cgColor)
 			imageView.contentMode = .center
 		} else {
 			imageView.image = nil
@@ -215,10 +214,10 @@ fileprivate class CreditView: InitView {
 		if let icon = icon {
 			imageView.contentMode = .scaleAspectFit
 			imageView.image = icon
-			imageView.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+			imageView.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
 			imageView.roundCorners(radius: 12,
 													 borderWidth: 1,
-													 borderColor: UIColor(red: 0.892, green: 0.892, blue: 0.892, alpha: 1).cgColor)
+													 borderColor: #colorLiteral(red: 0.892, green: 0.892, blue: 0.892, alpha: 1).cgColor)
 		} else {
 			imageView.image = nil
 		}

@@ -18,9 +18,9 @@ class SocialsCellController: AUIDefaultViewController {
   // MARK: - Public variables
   weak var delegate: SocialsCellControllerDelegate?
   
-  var productsView: ImageTitleImagesView? {
-    set { view = newValue }
+  var productsView: ImageTitleImagesView? {    
     get { return view as? ImageTitleImagesView }
+    set { view = newValue }
   }
   
   private(set) var info = ImageTitleImagesViewModel(title: "", image: nil, images: [])

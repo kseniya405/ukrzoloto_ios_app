@@ -8,10 +8,9 @@
 
 import Foundation
 
-
 class CreditMonthPickerView: InitView {
   
-  var onDoneTap: ((Int)->())?
+  var onDoneTap: ((Int) -> Void)?
   
   private var months: [Int]!
   private var selectedMonth: Int!
@@ -103,7 +102,7 @@ extension CreditMonthPickerView: UIPickerViewDataSource, UIPickerViewDelegate {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   static let height: CGFloat = 180.0
   static let borderColor = UIColor(named: "card")!
   static let headerHeight: CGFloat = 30.0

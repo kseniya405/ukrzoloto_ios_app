@@ -27,23 +27,23 @@ class ProductService {
     ProductAPI.shared.getMainPage(completion: completion)
   }
   
-  func getSaleHits(for categoryId: Int, completion: @escaping(_ result: Result<ProductsBanners>) -> Void) {
+  func getSaleHits(for categoryId: Int, completion: @escaping (_ result: Result<ProductsBanners>) -> Void) {
     ProductAPI.shared.getSaleHits(for: categoryId, completion: completion)
   }
   
-  func getProduct(productId: String, completion: @escaping(_ result: Result<Product>) -> Void) {
+  func getProduct(productId: String, completion: @escaping (_ result: Result<Product>) -> Void) {
     ProductAPI.shared.getProduct(productId: productId, completion: completion)
   }
   
-  func getAssociatedProducts(productId: String, completion: @escaping(_ result: Result<ProductsBanners>) -> Void) {
+  func getAssociatedProducts(productId: String, completion: @escaping (_ result: Result<ProductsBanners>) -> Void) {
     ProductAPI.shared.getAssociatedProducts(productId: productId, completion: completion)
   }
   
-  func getFilterProducts(for filterKey: FilterResponseKey, completion: @escaping(_ result: Result<FilterPageData>) -> Void) {
+  func getFilterProducts(for filterKey: FilterResponseKey, completion: @escaping (_ result: Result<FilterPageData>) -> Void) {
     ProductAPI.shared.getFilterProducts(for: filterKey, completion: completion)
   }
   
-  func getHits(ofType type: HitsType, completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func getHits(ofType type: HitsType, completion: @escaping (_ result: Result<[Product]>) -> Void) {
     switch type {
     case .saleHits:
       ProductAPI.shared.getSaleHits(completion: completion)
@@ -54,11 +54,11 @@ class ProductService {
     }
   }
 
-  func getFavoritesProducts(completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func getFavoritesProducts(completion: @escaping (_ result: Result<[Product]>) -> Void) {
     ProductAPI.shared.getFavoritesProducts(completion: completion)
   }
 
-  func addProductToFavorites(with productId: String, sku: String, completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func addProductToFavorites(with productId: String, sku: String, completion: @escaping (_ result: Result<[Product]>) -> Void) {
     
     EventService.shared.logAddToWithlist(productSKU: sku)
     
@@ -73,7 +73,7 @@ class ProductService {
     }
   }
 
-  func deleteProductFromFavorites(with productId: String, completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func deleteProductFromFavorites(with productId: String, completion: @escaping (_ result: Result<[Product]>) -> Void) {
     ProductAPI.shared.deleteProductFromFavorites(with: productId) { [weak self] result in
       switch result {
       case .success(let products):
@@ -92,4 +92,3 @@ class ProductService {
                                                Notification.Key.newFavoriteStatus: isFavorite])
   }
 }
-

@@ -73,6 +73,4 @@ extension ShopsCoordinator: ShopsFilterViewControllerOutput {
 	func didTapOnBack(from: ShopsFilterViewController) {
 		navigationController.popViewController(animated: true)
 	}
-	
-	
 }

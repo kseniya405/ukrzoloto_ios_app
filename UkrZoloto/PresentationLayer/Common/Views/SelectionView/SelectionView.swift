@@ -85,7 +85,7 @@ class SelectionView: UIView {
     }
   }
 	
-	private func getTopLeftImageView(style: SelectionViewStyle) -> CGFloat{
+	private func getTopLeftImageView(style: SelectionViewStyle) -> CGFloat {
 		switch style {
 		case .small, .selectedCity:
 			return UIConstants.ImageView.smallTop

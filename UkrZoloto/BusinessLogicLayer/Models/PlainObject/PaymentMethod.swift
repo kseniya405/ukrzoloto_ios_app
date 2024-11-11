@@ -82,10 +82,10 @@ class InstallmentPaymentMethod: PaymentMethod {
     switch bank {
       
     case .privatInstallment:
-      return allowedMonths.max()!
+      return allowedMonths.max() ?? 0
       
     default:
-      return allowedMonths.min()!
+      return allowedMonths.min() ?? 0
     }
   }()
   
@@ -99,7 +99,7 @@ class InstallmentPaymentMethod: PaymentMethod {
 
   override func nestedRepresentation() -> [String: Any] {
     if rawRepresentation() == NetworkResponseKey.Credits.alphabank {
-      return ["type": rawRepresentation(), "data": ["partsCount": "\(selectedMonth)", "card" : "\(cardNumbers ?? "")"]]
+      return ["type": rawRepresentation(), "data": ["partsCount": "\(selectedMonth)", "card": "\(cardNumbers ?? "")"]]
     } else {
       return ["type": rawRepresentation(), "data": ["partsCount": "\(selectedMonth)"]]
     }
@@ -122,7 +122,6 @@ class InstallmentPaymentMethod: PaymentMethod {
     
     guard let bank = Bank(rawValue: self.providerCode) else { return nil }
 
-    
     if let month = creditInfo[NetworkResponseKey.Payment.month].int {
       
       self.allowedMonths = bank.getAvailableMonths([month])

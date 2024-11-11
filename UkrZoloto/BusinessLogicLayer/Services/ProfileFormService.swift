@@ -9,7 +9,6 @@
 import Foundation
 import PKHUD
 
-
 struct ProfileFormDTO {
   let name: String?
   let surname: String?
@@ -38,7 +37,7 @@ class ProfileFormService {
   }
 }
 
-//MARK: - FormViewController output
+// MARK: - FormViewController output
 extension ProfileFormService: ProfileFormViewControllerOutput {
   
   func profileFormTappedSkip(_ viewController: UIViewController) {
@@ -79,7 +78,7 @@ extension ProfileFormService: ProfileFormViewControllerOutput {
   }
 }
 
-//MARK: - Success ViewController output
+// MARK: - Success ViewController output
 extension ProfileFormService: ProfileFormSavedViewControllerDelegate {
   
   func profileFormSavedViewControllerTappedClose() {
@@ -94,8 +93,8 @@ extension ProfileFormService: ProfileFormSavedViewControllerDelegate {
   }
 }
 
-//MARK: - Internal Routes
-fileprivate extension ProfileFormService {
+// MARK: - Internal Routes
+private extension ProfileFormService {
   
   func presentFormViewController(context: UIViewController) {
     
@@ -129,7 +128,7 @@ fileprivate extension ProfileFormService {
   }
 }
 
-//MARK: - User Agreement
+// MARK: - User Agreement
 extension ProfileFormService: WebViewControllerOutput {
   func back(from: WebViewController) {
     
@@ -137,8 +136,7 @@ extension ProfileFormService: WebViewControllerOutput {
   }
   
   func successRedirect(from: WebViewController) { }
-  
-  
+    
   func presentPolicyViewController() {
     guard let webVC = ViewControllersFactory.webViewVC(
             ofType: .agreement,
@@ -149,9 +147,9 @@ extension ProfileFormService: WebViewControllerOutput {
   }
 }
 
-//MARK: - Interaction Tracking
+// MARK: - Interaction Tracking
 
-fileprivate extension ProfileFormService {
+private extension ProfileFormService {
   
   func trackUserSavedForm() {
     EventService.shared.trackProfileFormSaved()

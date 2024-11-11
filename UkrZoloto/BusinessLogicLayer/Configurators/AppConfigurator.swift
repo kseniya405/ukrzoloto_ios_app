@@ -92,6 +92,7 @@ class AppConfigurator {
 		DispatchQueue.main.asyncAfter(deadline: .now() + 10, execute: {
 			Analytics.sessionID { sessionId, error in
 				EventService.shared.sessionId = sessionId
+        debugPrint(error ?? "error")
 			}
 		})
 	}
@@ -113,7 +114,7 @@ class AppConfigurator {
 
     let appCoordinator = AppCoordinator(
       navigationController: navigationController,
-      options: launchOptions?[.remoteNotification] as? [AnyHashable : Any])
+      options: launchOptions?[.remoteNotification] as? [AnyHashable: Any])
 
     self.appCoordinator = appCoordinator
     appDelegate.appCoordinator = appCoordinator

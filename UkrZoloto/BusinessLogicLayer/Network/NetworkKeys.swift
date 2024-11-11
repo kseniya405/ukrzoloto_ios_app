@@ -40,7 +40,6 @@ enum NetworkResponseKey {
 
   enum Inusrence {
     static let price = "price"
-    static let price_format = "price_format"
   }
   
   enum Product {
@@ -128,7 +127,6 @@ enum NetworkResponseKey {
     static let title = "title"
   }
 
-  
   enum City {
     static let cities = "cities"
     static let id = "id"
@@ -288,8 +286,8 @@ enum NetworkResponseKey {
     static let messenger = "social_mobile.messenger"
     static let instagram = "social_mobile.instagram"
     static let viber = "social_mobile.viber"
-    static let apple_chat = "social_mobile.apple_chat"
-    static let telegram_bot = "social_mobile.telegram_bot"
+    static let appleChat = "social_mobile.apple_chat"
+    static let telegramBot = "social_mobile.telegram_bot"
     static let callCenter = "call_center"
     static let weekday = "main.weekdays_schedule"
     static let weekend = "main.weekend_schedule"
@@ -506,4 +504,3 @@ enum NetworkRequestKey {
     static let productId = "product_id"
   }
 }
-

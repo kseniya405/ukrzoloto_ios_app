@@ -101,7 +101,7 @@ class ProductAPI: NetworkAPI {
     }
   }
   
-  func getSaleHits(for categoryId: Int, completion: @escaping(_ result: Result<ProductsBanners>) -> Void) {
+  func getSaleHits(for categoryId: Int, completion: @escaping (_ result: Result<ProductsBanners>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -123,7 +123,7 @@ class ProductAPI: NetworkAPI {
     }
   }
   
-  func getProduct(productId: String, completion: @escaping(_ result: Result<Product>) -> Void) {
+  func getProduct(productId: String, completion: @escaping (_ result: Result<Product>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -147,7 +147,7 @@ class ProductAPI: NetworkAPI {
     }
   }
   
-  func getAssociatedProducts(productId: String, completion: @escaping(_ result: Result<ProductsBanners>) -> Void) {
+  func getAssociatedProducts(productId: String, completion: @escaping (_ result: Result<ProductsBanners>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -169,7 +169,7 @@ class ProductAPI: NetworkAPI {
     }
   }
   
-  func getFilterProducts(for filterKey: FilterResponseKey, completion: @escaping(_ result: Result<FilterPageData>) -> Void) {
+  func getFilterProducts(for filterKey: FilterResponseKey, completion: @escaping (_ result: Result<FilterPageData>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -202,7 +202,7 @@ class ProductAPI: NetworkAPI {
     }
   }
 
-  func getFavoritesProducts(completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func getFavoritesProducts(completion: @escaping (_ result: Result<[Product]>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -217,7 +217,7 @@ class ProductAPI: NetworkAPI {
     }
   }
 
-  func addProductToFavorites(with productId: String, completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func addProductToFavorites(with productId: String, completion: @escaping (_ result: Result<[Product]>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -232,7 +232,7 @@ class ProductAPI: NetworkAPI {
     }
   }
 
-  func deleteProductFromFavorites(with productId: String, completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func deleteProductFromFavorites(with productId: String, completion: @escaping (_ result: Result<[Product]>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -248,7 +248,7 @@ class ProductAPI: NetworkAPI {
   }
 
   // MARK: - Hits
-  func getSaleHits(completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func getSaleHits(completion: @escaping (_ result: Result<[Product]>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -269,7 +269,7 @@ class ProductAPI: NetworkAPI {
     }
   }
   
-  func getNoveltiesHits(completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func getNoveltiesHits(completion: @escaping (_ result: Result<[Product]>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -290,7 +290,7 @@ class ProductAPI: NetworkAPI {
     }
   }
   
-  func getDiscountHits(completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  func getDiscountHits(completion: @escaping (_ result: Result<[Product]>) -> Void) {
     if !ReachabilityService.shared.isInternetAvailable {
       completion(.failure(ServerError.noInternetConnection))
       return
@@ -337,8 +337,8 @@ class ProductAPI: NetworkAPI {
       }
     }
     
-    for (k, v) in filterAttr {
-      attr[k] = v
+    for (key, value) in filterAttr {
+      attr[key] = value
     }
     
     return attr
@@ -348,7 +348,7 @@ class ProductAPI: NetworkAPI {
     return [NetworkRequestKey.Favorites.productId: productId]
   }
 
-  private func parseFavoritesProducts(response result: Result<JSON>, completion: @escaping(_ result: Result<[Product]>) -> Void) {
+  private func parseFavoritesProducts(response result: Result<JSON>, completion: @escaping (_ result: Result<[Product]>) -> Void) {
     switch result {
     case .success(let data):
       let products = data[NetworkResponseKey.Favorites.favorites].arrayValue.compactMap { Product(json: $0) }

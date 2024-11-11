@@ -14,7 +14,7 @@ class StickersView: InitView {
 
   // MARK: - Private variables
   private let stickersStackView = UIStackView() // UICollectionView(frame: .zero,
-                                                    //collectionViewLayout: UICollectionViewLayout())
+                                                    // collectionViewLayout: UICollectionViewLayout())
 
   override func initConfigure() {
     super.initConfigure()

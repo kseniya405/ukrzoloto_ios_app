@@ -18,9 +18,9 @@ class ContactPhoneCellController: AUIDefaultViewController {
   // MARK: - Public variables
   weak var delegate: ContactPhoneCellControllerDelegate?
   
-  var productsView: PhoneNumberContactView? {
-    set { view = newValue }
+  var productsView: PhoneNumberContactView? {    
     get { return view as? PhoneNumberContactView }
+    set { view = newValue }
   }
   
   private(set) var info = ImageTitleSubtitleViewModel(title: "", subtitle: "", image: nil)

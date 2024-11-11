@@ -39,22 +39,22 @@ extension UIView {
 			return Bundle.main.loadNibNamed(String(describing: self), owner: nil, options: nil)?[0] as! T
 	}
 	
-	func addShadow(shadowColor: UIColor, offSet: CGSize, opacity: Float, shadowRadius: CGFloat, cornerRadius: CGFloat, corners: UIRectCorner, fillColor: UIColor = .white, width: CGFloat? = nil) {
-					
-					let shadowLayer = CAShapeLayer()
-					let size = CGSize(width: cornerRadius, height: cornerRadius)
-		var rect = self.bounds
-		if let width = width  {
-			rect = CGRect(x: 0, y: shadowRadius, width: width, height: self.bounds.height)
-		}
-					let cgPath = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: size).cgPath //1
-					shadowLayer.path = cgPath //2
-					shadowLayer.fillColor = fillColor.cgColor //3
-					shadowLayer.shadowColor = shadowColor.cgColor //4
-					shadowLayer.shadowPath = cgPath
-					shadowLayer.shadowOffset = offSet //5
-					shadowLayer.shadowOpacity = opacity
-					shadowLayer.shadowRadius = shadowRadius
-		self.layer.insertSublayer(shadowLayer, at: 0)
-			}
+  func addShadow(shadowColor: UIColor, offSet: CGSize, opacity: Float, shadowRadius: CGFloat, cornerRadius: CGFloat, corners: UIRectCorner, fillColor: UIColor = .white, width: CGFloat? = nil) {
+    
+    let shadowLayer = CAShapeLayer()
+    let size = CGSize(width: cornerRadius, height: cornerRadius)
+    var rect = self.bounds
+    if let width = width {
+      rect = CGRect(x: 0, y: shadowRadius, width: width, height: self.bounds.height)
+    }
+    let cgPath = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: size).cgPath
+    shadowLayer.path = cgPath
+    shadowLayer.fillColor = fillColor.cgColor
+    shadowLayer.shadowColor = shadowColor.cgColor
+    shadowLayer.shadowPath = cgPath
+    shadowLayer.shadowOffset = offSet
+    shadowLayer.shadowOpacity = opacity
+    shadowLayer.shadowRadius = shadowRadius
+    self.layer.insertSublayer(shadowLayer, at: 0)
+  }
 }

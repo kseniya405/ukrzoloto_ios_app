@@ -20,8 +20,8 @@ class PromoBonusesController: AUIDefaultViewController {
   weak var delegate: PromoBonusesControllerDelegate?
   
   var promoBonusesView: PromoBonusesView? {
-    set { view = newValue }
     get { return view as? PromoBonusesView }
+    set { view = newValue }
   }
   
   var promoBonusesViewModel: PromoBonusesViewModel? {
@@ -44,10 +44,6 @@ class PromoBonusesController: AUIDefaultViewController {
     didSetViewModel()
   }
   
-  override func unsetupView() {
-    super.unsetupView()
-  }
-
   // MARK: - Private methods
   @objc
   private func didTapOnWriteOff() {
@@ -58,7 +54,4 @@ class PromoBonusesController: AUIDefaultViewController {
   private func didTapOnCancelButton() {
     delegate?.didTapOnCancelButton(from: self)
   }
-
-  
-  
 }

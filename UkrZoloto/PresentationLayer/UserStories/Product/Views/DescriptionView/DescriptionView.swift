@@ -51,12 +51,12 @@ class DescriptionView: InitView {
     addSubview(collapseButton)
 
     collapseButton.setTitle("", for: .normal)
-    collapseButton.setImage(UIImage(named: "iconsDropDownUp"), for: .normal)
+    collapseButton.setImage(#imageLiteral(resourceName: "iconsDropDownUp"), for: .normal)
 
     collapseButton.snp.makeConstraints { make in
       make.height.equalTo(30)
       make.width.equalTo(30)
-      make.trailing.equalToSuperview()//.offset(0)
+      make.trailing.equalToSuperview() // .offset(0)
       make.centerY.equalTo(topLabel.snp.centerY)
     }
   }
@@ -67,7 +67,7 @@ class DescriptionView: InitView {
   }
 
   func setCollapsedState() {
-    collapseButton.setImage(UIImage(named: "iconsDropDownDown"), for: .normal)
+    collapseButton.setImage(#imageLiteral(resourceName: "iconsDropDownDown"), for: .normal)
     desciptionLabel.isHidden = true
 
     topLabel.snp.remakeConstraints { make in
@@ -78,7 +78,7 @@ class DescriptionView: InitView {
   }
 
   func setUncollapsedState() {
-    collapseButton.setImage(UIImage(named: "iconsDropDownUp"), for: .normal)
+    collapseButton.setImage(#imageLiteral(resourceName: "iconsDropDownUp"), for: .normal)
     desciptionLabel.isHidden = false
 
     topLabel.snp.remakeConstraints { make in
@@ -98,7 +98,7 @@ class DescriptionView: InitView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   enum TopLabel {
     static let font = UIFont.boldAppFont(of: 14.0)
     static let textColor = UIColor(named: "textDarkGreen")!

@@ -185,7 +185,7 @@ private enum UIConstants {
     
     static let cellAspect: CGFloat = Constants.Screen.widthCoefficient >= 1 ? 16.0 / 9.0 : 17.0 / 9
     static let cellWidth: CGFloat = (width - 2 * horizontalInset - interitemSpacing) / 2
-    static let cellHeight: CGFloat = 302 //OLD SOLUTION MUST BE REWISED //(cellWidth * cellAspect).rounded()
+    static let cellHeight: CGFloat = 302 // OLD SOLUTION MUST BE REWISED //(cellWidth * cellAspect).rounded()
     static let backgroundColor = UIColor.clear
   }
   

@@ -91,7 +91,6 @@ class CreditProductTableViewCell: UITableViewCell, Reusable {
     
     guard price.current != price.old else { return }
     
-    
     let attributedString: NSAttributedString = {
       
       let text = "\(price.old) грн"
@@ -147,7 +146,7 @@ class CreditProductTableViewCell: UITableViewCell, Reusable {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   enum TitleLabel {
     static let lineHieght: CGFloat = 18.0

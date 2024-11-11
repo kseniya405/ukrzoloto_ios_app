@@ -205,7 +205,7 @@ private enum UIConstants {
     static let font = UIFont.boldAppFont(of: 16)
     static let top: CGFloat = 10
     static let height: CGFloat = 55
-    static let insets: CGFloat  = 35
+    static let insets: CGFloat = 35
   }
   enum WriteOffButton {
     static let top: CGFloat = 45
@@ -239,4 +239,3 @@ private enum UIConstants {
     static let top: CGFloat = 8
   }
 }
-

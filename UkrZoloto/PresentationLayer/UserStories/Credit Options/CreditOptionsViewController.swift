@@ -11,7 +11,6 @@ import PKHUD
 import AUIKit
 import UIKit
 
-
 protocol CreditOptionsViewControllerOutput: AnyObject {
   
   func creditOptionsViewControllerTappedBack()
@@ -119,11 +118,11 @@ class CreditOptionsViewController: LocalizableViewController, NavigationButtoned
       result.append(itemFor(option: privatInstallment, expanded: result.isEmpty))
     }
 
-    if let otp = options.filter({ Bank(rawValue:  $0.code) == .otp }).first {
+    if let otp = options.filter({ Bank(rawValue: $0.code) == .otp }).first {
       result.append(itemFor(option: otp, expanded: result.isEmpty))
     }
 
-    if let globus = options.filter({ Bank(rawValue:  $0.code) == .globusPlus }).first {
+    if let globus = options.filter({ Bank(rawValue: $0.code) == .globusPlus }).first {
       result.append(itemFor(option: globus, expanded: result.isEmpty))
     }
 
@@ -153,7 +152,7 @@ class CreditOptionsViewController: LocalizableViewController, NavigationButtoned
   }
 }
 
-//MARK: -
+// MARK: -
 extension CreditOptionsViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -192,7 +191,7 @@ extension CreditOptionsViewController: UITableViewDelegate, UITableViewDataSourc
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     
     switch dataSource[indexPath.row] {
-    case .title(_,_,_):
+    case .title(_, _, _):
       return 182.0
     case .option(let data):
       return data.expanded ? 245.0 : 100.0
@@ -278,9 +277,9 @@ extension CreditOptionsViewController: CreditOptionTableViewCellDelegate {
   }
 }
 
-//MARK: - Actions
+// MARK: - Actions
 
-fileprivate extension CreditOptionsViewController {
+private extension CreditOptionsViewController {
   
   @objc func didTapOnBack(_ sender: Any) {
     output?.creditOptionsViewControllerTappedBack()
@@ -306,9 +305,9 @@ fileprivate extension CreditOptionsViewController {
   }
 }
 
-//MARK: - Picker
+// MARK: - Picker
 
-fileprivate extension CreditOptionsViewController {
+private extension CreditOptionsViewController {
   
   func presentPicker() {
 

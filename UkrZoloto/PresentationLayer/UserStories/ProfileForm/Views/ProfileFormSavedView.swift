@@ -10,8 +10,8 @@ import Foundation
 
 class ProfileFormSaveView: InitView {
   
-  var onCloseTap: (()->())?
-  var onOkTap: (()->())?
+  var onCloseTap: (() -> Void)?
+  var onOkTap: (() -> Void)?
   
   private let closeButton: UIButton = {
     
@@ -59,7 +59,7 @@ class ProfileFormSaveView: InitView {
     configureSelf()
   }
   
-  //MARK: - Public methods
+  // MARK: - Public methods
   
   func localize() {
     
@@ -68,7 +68,7 @@ class ProfileFormSaveView: InitView {
     let buttonTitle = Localizator.standard.localizedString("Перейти к покупкам").uppercased()
     
     label.text = labelText
-    illustrationImageView.image = UIImage(named: illustrationTitle)
+    illustrationImageView.image = #imageLiteral(resourceName: illustrationTitle)
     
     let buttonAttributedTitle = NSAttributedString(string: buttonTitle, attributes: [.font: UIConstants.proceedButtonFont as Any,
                                                                                      .foregroundColor: UIConstants.proceedButtonTitleColor])
@@ -77,9 +77,9 @@ class ProfileFormSaveView: InitView {
   }
 }
 
-//MARK: - Private methods
+// MARK: - Private methods
 
-fileprivate extension ProfileFormSaveView {
+private extension ProfileFormSaveView {
   
   func configureSelf() {
     configureCloseButton()
@@ -149,16 +149,16 @@ fileprivate extension ProfileFormSaveView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
-  static let closeIcon = UIImage(named: "controlsClose")?.withRenderingMode(.alwaysTemplate)
+  static let closeIcon = #imageLiteral(resourceName: "controlsClose").withRenderingMode(.alwaysTemplate)
   static let closeButtonTintColor = UIColor(named: "green")
   static let closeButtonLeading: CGFloat = 16.0
   static let closeButtonTop: CGFloat = 52.0
   static let closeButtonWidth: CGFloat = 28.0
   
-  static let illustration = UIImage(named: "saved_illustration_rus")
-  //needs ukrainian copy
+  static let illustration = #imageLiteral(resourceName: "saved_illustration_rus")
+  // needs ukrainian copy
   static let illustrationWidth: CGFloat = 128.0
   static let illustrationBottomOffset: CGFloat = -35.0
   

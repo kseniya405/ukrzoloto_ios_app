@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class CartCreditWarningTableViewCell: UITableViewCell, Reusable {
   
   private let infoIcon: UIImageView = {
@@ -54,8 +53,7 @@ class CartCreditWarningTableViewCell: UITableViewCell, Reusable {
   }
 }
 
-
-fileprivate extension CartCreditWarningTableViewCell {
+private extension CartCreditWarningTableViewCell {
   
   func initConfigure() {
     setupSubviews()
@@ -82,9 +80,9 @@ fileprivate extension CartCreditWarningTableViewCell {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   static let iconWidth: CGFloat = 16.0
-  static let icon = UIImage(named: "credit_warning_info_icon")
+  static let icon = #imageLiteral(resourceName: "credit_warning_info_icon")
   static let textColor = UIColor(hex: "#FF9500")
   static let font = UIFont.semiBoldAppFont(of: 12)
   static let topPadding: CGFloat = 6.0
@@ -92,4 +90,3 @@ fileprivate enum UIConstants {
   static let iconRightPadding: CGFloat = 8.0
   static let labelRightPadding: CGFloat = -20.0
 }
-

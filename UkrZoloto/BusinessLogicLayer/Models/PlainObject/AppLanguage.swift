@@ -10,7 +10,7 @@ import Foundation
 
 class AppLanguage {
   // MARK: - Public variables
-  var code: String //ISO 639-1
+  var code: String // ISO 639-1
   var nativeName: String
   var languageCode: String {
     return Locale(identifier: code).languageCode ?? code

@@ -45,4 +45,3 @@ extension CLLocationCoordinate2D: @retroactive Equatable {
       return lhs.latitude == rhs.latitude && lhs.longitude == rhs.longitude
   }
 }
-

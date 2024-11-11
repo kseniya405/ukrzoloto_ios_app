@@ -19,8 +19,8 @@ class BannersCellController: AUIDefaultViewController {
   weak var delegate: BannersCellControllerDelegate?
   
   var bannersView: BannersView? {
-    set { view = newValue }
     get { return view as? BannersView }
+    set { view = newValue }
   }
   
   var currentIndex: Int = 0 {

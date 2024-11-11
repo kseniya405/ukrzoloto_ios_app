@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 protocol CreditOptionTableViewCellDelegate: AnyObject {
   
   func bankOptionInfoTapped(_ cell: CreditOptionTableViewCell, rect: CGRect)
@@ -19,7 +18,7 @@ protocol CreditOptionTableViewCellDelegate: AnyObject {
 
 class CreditOptionTableViewCell: UITableViewCell, Reusable {
   
-  private (set) var bank: Bank!
+  private(set) var bank: Bank!
     
   weak var delegate: CreditOptionTableViewCellDelegate?
   
@@ -45,7 +44,7 @@ class CreditOptionTableViewCell: UITableViewCell, Reusable {
   private let infoButton: UIButton = {
     
     let button = UIButton()
-    button.setImage(UIImage(named: "info_icon"), for: .normal)
+    button.setImage(#imageLiteral(resourceName: "info_icon"), for: .normal)
     
     return button
   }()
@@ -73,7 +72,7 @@ class CreditOptionTableViewCell: UITableViewCell, Reusable {
     
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFit
-    imageView.image = UIImage(named: "arrow_down_black")
+    imageView.image = #imageLiteral(resourceName: "arrow_down_black")
     return imageView
   }()
   
@@ -103,7 +102,7 @@ class CreditOptionTableViewCell: UITableViewCell, Reusable {
   private let button: UIButton = {
     
     let button = UIButton()
-    button.layer.cornerRadius = UIConstants.Button.height/2
+    button.layer.cornerRadius = UIConstants.Button.height / 2
     button.clipsToBounds = true
     button.backgroundColor = UIConstants.Button.backgroundColor
     button.titleLabel?.font = UIConstants.Button.font
@@ -113,7 +112,7 @@ class CreditOptionTableViewCell: UITableViewCell, Reusable {
   
   private var viewsToAnimate = [UIView]()
   
-  private (set) var expanded: Bool = false
+  private(set) var expanded: Bool = false
   
   // MARK: - Life cycle
   required init?(coder aDecoder: NSCoder) {
@@ -215,20 +214,20 @@ class CreditOptionTableViewCell: UITableViewCell, Reusable {
     viewsToAnimate.append(button)
   }
   
-  func configure(bank: Bank, title: String, comissionRate: Double, months:Int, monthlyPayment: Int, expanded: Bool) {
+  func configure(bank: Bank, title: String, comissionRate: Double, months: Int, monthlyPayment: Int, expanded: Bool) {
     
     self.bank = bank
 
     bankImageView.image = bank.getIcon()
 		bankImageView.contentMode = .scaleAspectFit
-		bankImageView.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+		bankImageView.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor
 		bankImageView.roundCorners(radius: UIConstants.BankIcon.width / 2,
 												 borderWidth: 1,
-												 borderColor: UIColor(red: 0.892, green: 0.892, blue: 0.892, alpha: 1).cgColor)
+												 borderColor: #colorLiteral(red: 0.892, green: 0.892, blue: 0.892, alpha: 1).cgColor)
     label.text = title
     comissionTextLabel.text = Localizator.standard.localizedString("Ежемесячная комиссия")
         
-    comissionValueLabel.text =  {
+    comissionValueLabel.text = {
       if comissionRate == 0 {
         return "0 %"
       } else {
@@ -282,7 +281,7 @@ class CreditOptionTableViewCell: UITableViewCell, Reusable {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   enum TitleLabel {
     static let font = UIFont.semiBoldAppFont(of: 15)
@@ -300,8 +299,8 @@ fileprivate enum UIConstants {
   enum InfoButton {
     static let leftPadding: CGFloat = 10.0
     static let width: CGFloat = 24.0
-    static let infoIcon = UIImage(named: "info_icon")
-    static let infoIconHighlighted = UIImage(named: "info_icon_highlighted")
+    static let infoIcon = #imageLiteral(resourceName: "info_icon")
+    static let infoIconHighlighted = #imageLiteral(resourceName: "info_icon_highlighted")
   }
   
   enum ComissionTextLabel {

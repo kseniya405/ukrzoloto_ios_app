@@ -110,7 +110,7 @@ class StringComposer {
     
     let attrString = NSMutableAttributedString(string: str)
     
-    attrString.addAttributes([.foregroundColor: UIColor(hex:"#042320")],
+    attrString.addAttributes([.foregroundColor: UIColor(hex: "#042320")],
                              range: NSRange(location: 0, length: str.count))
     
     attrString.addAttributes([.font: UIFont(name: "OpenSans-Regular", size: 13)!],
@@ -137,7 +137,7 @@ class StringComposer {
 
     let attrString = NSMutableAttributedString(string: str)
 
-    attrString.addAttributes([.foregroundColor: UIColor(hex:"#042320")],
+    attrString.addAttributes([.foregroundColor: UIColor(hex: "#042320")],
                              range: NSRange(location: 0, length: str.count))
 
     return attrString

@@ -75,4 +75,3 @@ class GuestViewController: LocalizableViewController, NavigationButtoned {
     output?.didSelectLogin(from: self)
   }
 }
-

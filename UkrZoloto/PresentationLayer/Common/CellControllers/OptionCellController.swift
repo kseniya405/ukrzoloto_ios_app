@@ -19,8 +19,8 @@ class OptionCellController: AUIDefaultViewController {
   weak var delegate: OptionCellControllerDelegate?
   
   var optionView: OptionView? {
-    set { view = newValue }
     get { return view as? OptionView }
+    set { view = newValue }
   }
   
   private(set) var variant: FilterVariant {

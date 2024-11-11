@@ -42,4 +42,3 @@ class TransitionController: NSObject, UIViewControllerTransitioningDelegate {
     return dismissController
   }
 }
-

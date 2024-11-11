@@ -43,7 +43,7 @@ struct CreditOptionData {
   }
 }
 
-enum Bank: String, CaseIterable  {
+enum Bank: String, CaseIterable {
   case otp = "otp_bank"
   case monobank
   case privat = "credit_privat_bank"
@@ -54,13 +54,13 @@ enum Bank: String, CaseIterable  {
   
   func getIcon() -> UIImage? {
     switch self {
-    case .otp: return UIImage(named: "otp_active")
-    case .monobank: return UIImage(named: "monobank_active")
-    case .privat: return UIImage(named: "privat_active")
-    case .privatInstallment: return UIImage(named: "privat_installment_active")
-    case .alpha: return UIImage(named: "alpha_active")
-    case .globusPlus: return UIImage(named: "globus_plus")
-    case .abank: return UIImage(named: "abank_active")
+    case .otp: return #imageLiteral(resourceName: "otp_active")
+    case .monobank: return #imageLiteral(resourceName: "monobank_active")
+    case .privat: return #imageLiteral(resourceName: "privat_active")
+    case .privatInstallment: return #imageLiteral(resourceName: "privat_installment_active")
+    case .alpha: return #imageLiteral(resourceName: "alpha_active")
+    case .globusPlus: return #imageLiteral(resourceName: "globus_plus")
+    case .abank: return #imageLiteral(resourceName: "abank_active")
     }
   }
   
@@ -90,12 +90,6 @@ enum Bank: String, CaseIterable  {
   }
 
   private func getAvailableMonthsBy(minAvailableMonths: Int, maxAvailableMonths: Int?) -> [Int] {
-    var result = [Int]()
-
-    for i in minAvailableMonths...(maxAvailableMonths ?? minAvailableMonths) {
-      result.append(i)
-    }
-
-    return result
+      return Array(minAvailableMonths...(maxAvailableMonths ?? minAvailableMonths))
   }
 }

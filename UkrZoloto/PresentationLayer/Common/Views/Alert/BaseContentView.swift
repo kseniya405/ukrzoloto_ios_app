@@ -17,8 +17,4 @@ class BaseContentView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    override func addSubview(_ view: UIView) {
-        super.addSubview(view)
-    }
 }

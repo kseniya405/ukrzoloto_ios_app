@@ -110,7 +110,7 @@ class LockedDateTableViewCell: UITableViewCell, Reusable {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   enum Title {
     static let font = UIFont.semiBoldAppFont(of: 13)
@@ -131,7 +131,7 @@ fileprivate enum UIConstants {
     static let topOffset: CGFloat = 8.0
   }
   
-  static let infoIcon = UIImage(named: "info_icon")
-  static let infoIconHighlighted = UIImage(named: "info_icon_highlighted")
+  static let infoIcon = #imageLiteral(resourceName: "info_icon")
+  static let infoIconHighlighted = #imageLiteral(resourceName: "info_icon_highlighted")
   static let contentPadding: CGFloat = 24.0
 }

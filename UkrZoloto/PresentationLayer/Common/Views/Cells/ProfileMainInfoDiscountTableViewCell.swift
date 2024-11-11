@@ -71,4 +71,3 @@ class ProfileMainInfoDiscountTableViewCell: UITableViewCell, Reusable {
 private enum UIConstants {
 
 }
-

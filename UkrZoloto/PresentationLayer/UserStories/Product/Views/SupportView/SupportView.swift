@@ -179,7 +179,7 @@ class SupportView: InitView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   enum TopLabel {
     static let font = UIFont.boldAppFont(of: 14.0)
     static let textColor = UIColor(named: "textDarkGreen")!

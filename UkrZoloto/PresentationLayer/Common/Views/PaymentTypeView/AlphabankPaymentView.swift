@@ -169,14 +169,14 @@ class AlphabankPaymentView: InstallmentPaymentView {
     
     for _ in 0..<3 {
       
-      let l = UILabel()
-      l.config
+      let label = UILabel()
+      label.config
         .font(UIConstants.TitleLabel.font)
         .textColor(UIConstants.TitleLabel.textColor)
-      l.text = "••••"
+      label.text = "••••"
       
-      stackView.addArrangedSubview(l)
-      l.snp.makeConstraints { make in
+      stackView.addArrangedSubview(label)
+      label.snp.makeConstraints { make in
         make.width.equalTo(30.0)
       }
     }
@@ -186,7 +186,6 @@ class AlphabankPaymentView: InstallmentPaymentView {
     
     stackView.addArrangedSubview(inputField)
 
-    
     let line = UIView()
     line.backgroundColor = UIColor(hex: "#E6EDEC")
     cardView.addSubview(line)
@@ -229,7 +228,7 @@ extension AlphabankPaymentView: UITextFieldDelegate {
       return true
     }
     
-    //handled case when user continue editing filled textfield
+    // handled case when user continue editing filled textfield
     if text.count == 4 && string != "" {
       return false
     }
@@ -255,7 +254,7 @@ extension AlphabankPaymentView: UITextFieldDelegate {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   
   enum TitleLabel {
     static let font = UIFont.regularAppFont(of: 14)

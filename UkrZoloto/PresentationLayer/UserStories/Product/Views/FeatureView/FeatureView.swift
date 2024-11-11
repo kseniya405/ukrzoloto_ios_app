@@ -51,7 +51,7 @@ class FeatureView: InitView {
     addSubview(collapseButton)
 
     collapseButton.setTitle("", for: .normal)
-    collapseButton.setImage(UIImage(named: "iconsDropDownUp"), for: .normal)
+    collapseButton.setImage(#imageLiteral(resourceName: "iconsDropDownUp"), for: .normal)
 
     collapseButton.snp.makeConstraints { make in
       make.height.equalTo(30)
@@ -99,7 +99,7 @@ class FeatureView: InitView {
     isCollapsed = true
 
     verticalStackView.isHidden = true
-    collapseButton.setImage(UIImage(named: "iconsDropDownDown"), for: .normal)
+    collapseButton.setImage(#imageLiteral(resourceName: "iconsDropDownDown"), for: .normal)
 
     horizontalStackView.snp.remakeConstraints { make in
       make.top.equalTo(titleLabel.snp.bottom).offset(UIConstants.HorizontalStackView.top)
@@ -112,7 +112,7 @@ class FeatureView: InitView {
     isCollapsed = false
 
     verticalStackView.isHidden = false
-    collapseButton.setImage(UIImage(named: "iconsDropDownUp"), for: .normal)
+    collapseButton.setImage(#imageLiteral(resourceName: "iconsDropDownUp"), for: .normal)
 
     horizontalStackView.snp.remakeConstraints { make in
       make.top.equalTo(titleLabel.snp.bottom).offset(UIConstants.HorizontalStackView.top)

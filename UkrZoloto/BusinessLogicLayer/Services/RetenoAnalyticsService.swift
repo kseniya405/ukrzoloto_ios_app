@@ -108,7 +108,7 @@ class RetenoAnalyticsService {
     }
   }
   
-  class func logUniversalLinkEvent(params: [String : String]) {
+  class func logUniversalLinkEvent(params: [String: String]) {
     let parameters = params.map({ Event.Parameter(name: $0.key, value: $0.value) })
     Reteno.logEvent(
         eventTypeKey: "univers_link_event",
@@ -118,4 +118,3 @@ class RetenoAnalyticsService {
     )
   }
 }
-

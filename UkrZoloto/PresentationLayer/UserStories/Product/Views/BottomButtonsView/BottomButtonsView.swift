@@ -8,7 +8,7 @@
 
 import UIKit
 
-//class BottomBuyProductView: InitView {
+// class BottomBuyProductView: InitView {
 class BottomButtonsView: InitView {
   // MARK: - Public Interface
   public func updateViewStateWith(_ price: Price, isInCart: Bool) {

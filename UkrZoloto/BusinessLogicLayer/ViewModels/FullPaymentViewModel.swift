@@ -35,4 +35,3 @@ extension FullPaymentViewModel: Hashable {
     return lhs.id == rhs.id
   }
 }
-

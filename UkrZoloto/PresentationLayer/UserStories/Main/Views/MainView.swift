@@ -42,21 +42,21 @@ class MainView: InitView {
     static let defaultInsets = UIEdgeInsets(
       top: 0,
       left: UIConstants.TableView.leftSpacing,
-      bottom: UIConstants.TableView.defaultCellSpacing-1,
+      bottom: UIConstants.TableView.defaultCellSpacing - 1,
       right: UIConstants.TableView.leftSpacing
     )
     
     static let bannerInsets = UIEdgeInsets(
       top: 0,
       left: 0,
-      bottom: UIConstants.TableView.bannerCellSpacing-1,
+      bottom: UIConstants.TableView.bannerCellSpacing - 1,
       right: 0
     )
     
     static let categoryInsets = UIEdgeInsets(
       top: 0,
       left: UIConstants.CategoryView.leftSpacing,
-      bottom: UIConstants.CategoryView.bottomSpacing-1,
+      bottom: UIConstants.CategoryView.bottomSpacing - 1,
       right: UIConstants.CategoryView.rightSpacing
     )
     
@@ -77,7 +77,7 @@ class MainView: InitView {
     static let defaultCellInsets = UIEdgeInsets(
       top: 0,
       left: 0,
-      bottom: UIConstants.TableView.defaultCellSpacing-1,
+      bottom: UIConstants.TableView.defaultCellSpacing - 1,
       right: 0
     )
   }
@@ -105,7 +105,7 @@ class MainView: InitView {
     }
     tableView.backgroundColor = UIConstants.TableView.backgroundColor
     tableView.contentInset.top = topInset
-    tableView.contentInset.bottom = UIConstants.TableView.bottomInset-1
+    tableView.contentInset.bottom = UIConstants.TableView.bottomInset - 1
     tableView.separatorStyle = .none
     tableView.showsVerticalScrollIndicator = false
     tableView.rowHeight = UITableView.automaticDimension
@@ -277,7 +277,7 @@ class MainView: InitView {
       withReuseIdentifier: UIConstants.ReuseIdentifiers.imageTitleImages,
       for: indexPath
     )
-    configureCell(cell, viewCreator:  { ImageTitleImagesView() }, insets: .zero)
+    configureCell(cell, viewCreator: { ImageTitleImagesView() }, insets: .zero)
     return cell
   }
   

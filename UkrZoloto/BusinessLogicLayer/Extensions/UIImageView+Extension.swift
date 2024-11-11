@@ -29,9 +29,9 @@ extension UIImageView {
   
 	func setImage(url: URL?, placeholder: UIImage? = nil, size: CGSize? = nil) {
     DispatchQueue.main.async {
-			var context: [SDWebImageContextOption : Any]?
+			var context: [SDWebImageContextOption: Any]?
 			if let size = size {
-				context = [SDWebImageContextOption.imageThumbnailPixelSize : size]
+				context = [SDWebImageContextOption.imageThumbnailPixelSize: size]
 			}
 			self.sd_setImage(with: url, placeholderImage: placeholder, options: .transformVectorImage, context: context)
     }

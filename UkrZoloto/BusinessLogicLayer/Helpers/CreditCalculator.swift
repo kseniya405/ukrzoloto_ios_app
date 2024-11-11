@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class CreditCalculator {
   
   class func getMonthlyPaymentIfAvailable(price: Decimal, comission: Double, months: Int?) -> Int? {

@@ -247,9 +247,6 @@ class SearchResultViewController: LocalizableViewController, NavigationButtoned,
           let _ = items
           
           return
-
-          //TODO: - Replace MindBoxService with new service integration
-          //MindBoxService.shared.didEditFavorites(favoritesItems: items)
         case .failure(let error):
           self.handleError(error)
         }
@@ -269,7 +266,6 @@ class SearchResultViewController: LocalizableViewController, NavigationButtoned,
           let _ = items
 
           RetenoAnalyticsService.logItemAddedToWishlist(sku, price: price)
-          
           return
         case .failure(let error):
           self.handleError(error)
@@ -383,7 +379,7 @@ extension SearchResultViewController: ProductsGroupCellControllerDelegate {
     let product = controller.products[index]
 
     didTapOnDiscountHintFor(product.price)
-    //TODO: Implement SHOW DISCOUNT HINT
+    // TODO: Implement SHOW DISCOUNT HINT
   }
 
   func didTapOnDiscountHintFor(_ price: Price) {

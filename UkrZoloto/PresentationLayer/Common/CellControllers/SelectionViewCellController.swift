@@ -13,8 +13,8 @@ class SelectionViewCellController: AUIDefaultViewController {
   
   // MARK: - Public variables
   var selectionView: SelectionView? {
-    set { view = newValue }
     get { return view as? SelectionView }
+    set { view = newValue }
   }
   
   var titleViewModel: ImageTitleViewModel? {

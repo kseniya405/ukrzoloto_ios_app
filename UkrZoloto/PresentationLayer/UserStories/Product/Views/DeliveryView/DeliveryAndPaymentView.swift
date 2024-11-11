@@ -147,7 +147,7 @@ class DeliveryAndPaymentView: InitView {
     }
 
     let npDeliveryView = self.createListItemView(
-      icon: UIImage(named: "iconsDeliveryNovaPoshtaSymbol")!,
+      icon: #imageLiteral(resourceName: "iconsDeliveryNovaPoshtaSymbol"),
       label: npDeliveryLabel,
       subLabel: npDeliveryPriceLabel)
 
@@ -196,7 +196,7 @@ class DeliveryAndPaymentView: InitView {
     packingView.layer.cornerRadius = UIConstants.FreePackingView.cornerRadius
     packingView.backgroundColor = UIConstants.FreePackingView.backgroundColor
 
-    let hintIcon = UIImageView(image: UIImage(named: "hintImage"))
+    let hintIcon = UIImageView(image: #imageLiteral(resourceName: "hintImage"))
     packingView.addSubview(hintIcon)
     hintIcon.snp.makeConstraints { make in
       make.leading.equalToSuperview().offset(UIConstants.FreePackingView.iconHorizontalSpacing)
@@ -236,19 +236,19 @@ class DeliveryAndPaymentView: InitView {
     }
 
     let payByCardView = self.createListItemView(
-      icon: UIImage(named: "payByCardIcon")!,
+      icon: #imageLiteral(resourceName: "payByCardIcon"),
       label: payByCardLabel)
 
     paymentStackView.addArrangedSubview(payByCardView)
 
     let payByCashView = self.createListItemView(
-      icon: UIImage(named: "payByCashIcon")!,
+      icon: #imageLiteral(resourceName: "payByCashIcon"),
       label: payByCashLabel)
 
     paymentStackView.addArrangedSubview(payByCashView)
 
     let payByPostView = self.createListItemView(
-      icon: UIImage(named: "payByPostIcon")!,
+      icon: #imageLiteral(resourceName: "payByPostIcon"),
       label: payByPostLabel)
 
     paymentStackView.addArrangedSubview(payByPostView)
@@ -258,7 +258,7 @@ class DeliveryAndPaymentView: InitView {
     addSubview(collapseButton)
 
     collapseButton.setTitle("", for: .normal)
-    collapseButton.setImage(UIImage(named: "iconsDropDownUp"), for: .normal)
+    collapseButton.setImage(#imageLiteral(resourceName: "iconsDropDownUp"), for: .normal)
 
     collapseButton.snp.makeConstraints { make in
       make.height.equalTo(30)
@@ -285,7 +285,7 @@ class DeliveryAndPaymentView: InitView {
   }
 
   func setCollapsedState() {
-    collapseButton.setImage(UIImage(named: "iconsDropDownDown"), for: .normal)
+    collapseButton.setImage(#imageLiteral(resourceName: "iconsDropDownDown"), for: .normal)
     deliveryStackView.isHidden = true
     packingView.isHidden = true
     paymentLabel.isHidden = true
@@ -299,7 +299,7 @@ class DeliveryAndPaymentView: InitView {
   }
 
   func setUncollapsedState() {
-    collapseButton.setImage(UIImage(named: "iconsDropDownUp"), for: .normal)
+    collapseButton.setImage(#imageLiteral(resourceName: "iconsDropDownUp"), for: .normal)
     deliveryStackView.isHidden = false
     packingView.isHidden = false
     paymentLabel.isHidden = false
@@ -328,7 +328,7 @@ class DeliveryAndPaymentView: InitView {
   }
 }
 
-fileprivate enum UIConstants {
+private enum UIConstants {
   enum StackView {
     static let spacing: CGFloat = 15
     static let top: CGFloat = 15

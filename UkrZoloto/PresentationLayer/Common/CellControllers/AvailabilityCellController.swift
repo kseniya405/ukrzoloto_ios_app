@@ -13,8 +13,8 @@ class AvailabilityCellController: AUIDefaultViewController {
   
   // MARK: - Public variables
   var imageLabelView: ImageLabelView? {
-    set { view = newValue }
     get { return view as? ImageLabelView }
+    set { view = newValue }
   }
   
   var viewModel: ImageTitleColorViewModel? {

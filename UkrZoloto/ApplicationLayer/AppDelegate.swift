@@ -69,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 		debugPrint("devicetoken \(deviceTokenString)")
   }
   
-  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
 
 		if url.absoluteString.contains("adj_") {
       DeeplinkService.shared.handleScreen(with: url)
@@ -97,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     return false
   }
   
-  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
     if let adjustPurpose = userInfo["adjust_purpose"] as? String,
        adjustPurpose == "uninstall detection" {
       // No handling required for Adjust data payload
@@ -165,15 +165,10 @@ extension AppDelegate {
 						 text == actionIdentifier,
 						 let urlString = dict["url"] as? String,
 						 let url = URL(string: urlString),
-						 let buttonUniqueId = dict["uniqueKey"] as? String {
+             let _ = dict["uniqueKey"] as? String {
 						
 						DeeplinkService.shared.handleScreen(with: url)
 						DeeplinkService.shared.openHandledScreenIfNeeded()
-						
-						let _ = buttonUniqueId
-						
-						//TODO: - Replace MindBoxService with new service integration
-						//MindBoxService.shared.didOpenPush(uniqueId: uniqueId, buttonUniqueId: buttonUniqueId)
 					}
 				}
 				completionHandler()
@@ -183,4 +178,3 @@ extension AppDelegate {
 		completionHandler()
 	}
 }
-

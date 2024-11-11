@@ -14,7 +14,7 @@ extension PriceDetailsViewModel {
   enum Item {
     
     case header(goodsNumber: Int, price: Decimal)
-		case exchange(amount: Int, price: Decimal)
+    case exchange(amount: Int, price: Decimal)
     case discount(Discount, Decimal)
     case delivery(String)
     case cashback(Decimal)
@@ -52,22 +52,22 @@ extension PriceDetailsViewModel {
         return Localizator.standard.localizedString("Кэшбэк")
       case .total( _):
         return Localizator.standard.localizedString("Итого").uppercased()
-			case .exchange(amount: _, price: _):
-				return Localizator.standard.localizedString("Обмен украшений")
-			}
+      case .exchange(amount: _, price: _):
+        return Localizator.standard.localizedString("Обмен украшений")
+      }
     }
     
     var valueString: String {
       
       let signString = " ₴‎"
       
-      //FORMAT PRICES
-
+      // FORMAT PRICES
+      
       switch self {
       case .header(_, let price):
         return "\(price)" + signString
         
-      case .discount(_ , let price):
+      case .discount(_, let price):
         return "- \(price)" + signString
         
       case .delivery(let value):
@@ -78,9 +78,9 @@ extension PriceDetailsViewModel {
         
       case .total(let price):
         return "\(price)" + signString
-			case .exchange(amount: _, price: let price):
-				return "\(price)" + signString
-			}
+      case .exchange(amount: _, price: let price):
+        return "\(price)" + signString
+      }
     }
     
     var value: Int? {
@@ -102,16 +102,16 @@ extension PriceDetailsViewModel {
         return discount.icon
         
       case .header(_, _):
-        return UIImage(named: "base_price_icon")
-			case .exchange(_, _):
-				return UIImage(named: "iconsExchange")
-
+        return #imageLiteral(resourceName: "base_price_icon")
+      case .exchange(_, _):
+        return #imageLiteral(resourceName: "iconsExchange")
+        
       default:
         return nil
       }
     }
   }
-
+  
   enum Discount: CaseIterable {
     
     case promocode
@@ -125,13 +125,13 @@ extension PriceDetailsViewModel {
     var icon: UIImage? {
       
       switch self {
-      case .promocode:      return UIImage(named: "promocode_icon")
-      case .bonusUsage:     return UIImage(named: "bonus_usage_icon")
-      case .promoBonus:     return UIImage(named: "promo_bonus_icon")
-      case .certificate:    return UIImage(named: "certificate_icon")
-      case .discount:       return UIImage(named: "discount_icon")
+      case .promocode:      return #imageLiteral(resourceName: "promocode_icon")
+      case .bonusUsage:     return #imageLiteral(resourceName: "bonus_usage_icon")
+      case .promoBonus:     return #imageLiteral(resourceName: "promo_bonus_icon")
+      case .certificate:    return #imageLiteral(resourceName: "certificate_icon")
+      case .discount:       return #imageLiteral(resourceName: "discount_icon")
       case .birthday,
-          .additionalPromo: return UIImage(named: "calendar_discount_icon")
+          .additionalPromo: return #imageLiteral(resourceName: "calendar_discount_icon")
       }
     }
     
@@ -146,14 +146,12 @@ extension PriceDetailsViewModel {
       }
     }
   }
-
-
 }
 
 struct PriceDetailsViewModel {
   
   var header: Item?
-	var exchange: Item?
+  var exchange: Item?
   var discounts: [Item] = []
   var delivery: Item?
   var cashback: Item?
@@ -162,29 +160,29 @@ struct PriceDetailsViewModel {
   var totalGoodsCount: Int? = 2
   
   var promocodeTitle = Localizator.standard.localizedString("Промокод")
-  var promocodeValue: String? = nil
-  var promocodeIcon = UIImage(named: "promocode_icon")
+  var promocodeValue: String?
+  var promocodeIcon = #imageLiteral(resourceName: "promocode_icon")
   
   var priceTitle: String!
   var price: Price!
   var actionTitle: String!
-  var actionValue: String? = nil
-  var discountTitle: String? = nil
-  var discount: String? = nil
-
-  var promoBonusTitle: String? = nil
-  var promoBonusValue: String? = nil
-  var bonusTitle: String? = nil
-  var bonusValue: String? = nil
-  var deliveryPriceTitle: String? = nil
-  var deliveryPriceValue: String? = nil
+  var actionValue: String?
+  var discountTitle: String?
+  var discount: String?
+  
+  var promoBonusTitle: String?
+  var promoBonusValue: String?
+  var bonusTitle: String?
+  var bonusValue: String?
+  var deliveryPriceTitle: String?
+  var deliveryPriceValue: String?
   var totalPriceTitle: String!
   var totalPrice: Price!
   var bonusesDelayTitle: String?
-      
-	init(header: Item, exchange: Item?, discounts: [Item], delivery: Item?, cashback: Item?, total: Item) {
+  
+  init(header: Item, exchange: Item?, discounts: [Item], delivery: Item?, cashback: Item?, total: Item) {
     self.header = header
-		self.exchange = exchange
+    self.exchange = exchange
     self.discounts = discounts
     self.delivery = delivery
     self.cashback = cashback
