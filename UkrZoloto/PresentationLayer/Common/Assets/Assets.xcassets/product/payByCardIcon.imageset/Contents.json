@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "payByCardIcon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

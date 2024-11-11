@@ -1,0 +1,19 @@
+ENV["SPACESHIP_SKIP_2FA_UPGRADE"] = "1"
+
+lane :Prod do
+gym(scheme: “UkrZoloto“,
+      workspace: “UkrZoloto.xcworkspace")
+pilot(
+	skip_waiting_for_build_processing: true,
+	skip_submission: true
+)
+end
+
+lane :Dev do
+gym(scheme: “UkrZoloto Dev“,
+      workspace: “UkrZoloto.xcworkspace")
+pilot(
+	skip_waiting_for_build_processing: true,
+	skip_submission: true
+)
+end

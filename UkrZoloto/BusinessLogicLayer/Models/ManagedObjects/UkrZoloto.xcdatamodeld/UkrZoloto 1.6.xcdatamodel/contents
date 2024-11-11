@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DiscountCardMO" representedClassName="DiscountCardMO" syncable="YES" codeGenerationType="class">
+        <attribute name="gold" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="number" optional="YES" attributeType="String"/>
+        <attribute name="silver" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserMO" inverseName="discountCard" inverseEntity="UserMO"/>
+    </entity>
+    <entity name="UserMO" representedClassName="UserMO" syncable="YES" codeGenerationType="class">
+        <attribute name="birthday" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="bonuses" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="marketingBonus" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="surname" optional="YES" attributeType="String"/>
+        <relationship name="discountCard" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="DiscountCardMO" inverseName="user" inverseEntity="DiscountCardMO"/>
+    </entity>
+    <elements>
+        <element name="DiscountCardMO" positionX="-54" positionY="36" width="128" height="103"/>
+        <element name="UserMO" positionX="-63" positionY="-18" width="128" height="164"/>
+    </elements>
+</model>

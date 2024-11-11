@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>536067959514-7rj65ftf5lpeegfbiage3v10mcdmvpsn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.536067959514-7rj65ftf5lpeegfbiage3v10mcdmvpsn</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>536067959514-6bj8jm4mco1qkntne0hs1c2o6onb6lqr.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAblN0cGboX8jcLHV0npMZacXgMEJz3rjQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>536067959514</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ua.ukrzoloto</string>
+	<key>PROJECT_ID</key>
+	<string>ukrzoloto</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ukrzoloto.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:536067959514:ios:a8611f14c949e3f7f953e3</string>
+	<key>DATABASE_URL</key>
+	<string>https://ukrzoloto.firebaseio.com</string>
+</dict>
+</plist>

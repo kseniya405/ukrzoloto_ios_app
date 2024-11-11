@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "globus_credit_24x24px.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "globus_credit_48x48_px.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "globus_credit_72x72_px.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

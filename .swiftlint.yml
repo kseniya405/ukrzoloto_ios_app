@@ -1,0 +1,47 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - Scripts
+disabled_rules:
+  - vertical_parameter_alignment
+  - trailing_whitespace
+  - type_body_length
+  - weak_delegate
+  - notification_center_detachment
+
+opt_in_rules:
+  - private_outlet
+  - empty_count
+  - closing_brace
+  - opening_brace
+  - trailing_semicolon
+  - explicit_init
+  - overridden_super_call
+  - redundant_nil_coalescing
+  - operator_usage_whitespace
+  - closure_end_indentation
+  - object_literal
+  - prohibited_super_call
+  - fatal_error_message
+  - force_unwrapping
+
+trailing_semicolon: error
+colon: error
+comma: error
+opening_brace: error
+closing_brace: error
+
+identifier_name:
+  min_length: 2
+  max_length: 50
+
+line_length: 300
+
+file_length:
+  warning: 700
+  error: 900
+
+type_body_length:
+  warning: 500
+  error: 600
+
+warning_threshold: 40

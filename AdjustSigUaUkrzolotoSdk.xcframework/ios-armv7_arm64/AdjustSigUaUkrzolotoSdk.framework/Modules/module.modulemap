@@ -1,0 +1,6 @@
+framework module AdjustSigUaUkrzolotoSdk {
+  umbrella header "ADJSigner.h"
+
+  export *
+  module * { export * }
+}
